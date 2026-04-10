@@ -37,7 +37,7 @@ const App = () => (
               <WishlistProvider>
                 <Toaster />
                 <Sonner />
-                <BrowserRouter>
+                <BrowserRouter basename="/blossom-eco-scents">
                   <ScrollToTop />
                   <CartDrawer />
                   <Routes>
