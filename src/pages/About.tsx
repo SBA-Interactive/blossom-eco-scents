@@ -107,15 +107,12 @@ const About = () => {
                   </Accordion.Header>
                   <Accordion.Content asChild>
                     <motion.div
-                      variants={{
-                        open: { opacity: 1, height: "auto", marginTop: 20 },
-                        collapsed: { opacity: 0, height: 0, marginTop: 0 }
-                      }}
-                      initial="collapsed"
-                      animate="open"
-                      exit="collapsed"
+                      layout
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
                       transition={{ duration: 0.2, ease: "easeOut" }}
-                      className="p-5 pt-0 font-body text-sm text-muted-foreground leading-relaxed"
+                      className="p-5 pt-0 font-body text-sm text-muted-foreground leading-relaxed overflow-hidden"
                     >
                       {t("about.faq.brandStoryAnswer")}
                     </motion.div>
@@ -131,15 +128,12 @@ const About = () => {
                   </Accordion.Header>
                   <Accordion.Content asChild>
                     <motion.div
-                      variants={{
-                        open: { opacity: 1, height: "auto", marginTop: 20 },
-                        collapsed: { opacity: 0, height: 0, marginTop: 0 }
-                      }}
-                      initial="collapsed"
-                      animate="open"
-                      exit="collapsed"
+                      layout
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
                       transition={{ duration: 0.2, ease: "easeOut" }}
-                      className="p-5 pt-0 font-body text-sm text-muted-foreground leading-relaxed"
+                      className="p-5 pt-0 font-body text-sm text-muted-foreground leading-relaxed overflow-hidden"
                     >
                       {t("about.faq.sustainabilityAnswer")}
                     </motion.div>
@@ -155,15 +149,12 @@ const About = () => {
                   </Accordion.Header>
                   <Accordion.Content asChild>
                     <motion.div
-                      variants={{
-                        open: { opacity: 1, height: "auto", marginTop: 20 },
-                        collapsed: { opacity: 0, height: 0, marginTop: 0 }
-                      }}
-                      initial="collapsed"
-                      animate="open"
-                      exit="collapsed"
+                      layout
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
                       transition={{ duration: 0.2, ease: "easeOut" }}
-                      className="p-5 pt-0 font-body text-sm text-muted-foreground leading-relaxed"
+                      className="p-5 pt-0 font-body text-sm text-muted-foreground leading-relaxed overflow-hidden"
                     >
                       {t("about.faq.qualityAnswer")}
                     </motion.div>
@@ -179,15 +170,12 @@ const About = () => {
                   </Accordion.Header>
                   <Accordion.Content asChild>
                     <motion.div
-                      variants={{
-                        open: { opacity: 1, height: "auto", marginTop: 20 },
-                        collapsed: { opacity: 0, height: 0, marginTop: 0 }
-                      }}
-                      initial="collapsed"
-                      animate="open"
-                      exit="collapsed"
+                      layout
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
                       transition={{ duration: 0.2, ease: "easeOut" }}
-                      className="p-5 pt-0 font-body text-sm text-muted-foreground leading-relaxed"
+                      className="p-5 pt-0 font-body text-sm text-muted-foreground leading-relaxed overflow-hidden"
                     >
                       {t("about.faq.orderingAnswer")}
                     </motion.div>
@@ -203,15 +191,12 @@ const About = () => {
                   </Accordion.Header>
                   <Accordion.Content asChild>
                     <motion.div
-                      variants={{
-                        open: { opacity: 1, height: "auto", marginTop: 20 },
-                        collapsed: { opacity: 0, height: 0, marginTop: 0 }
-                      }}
-                      initial="collapsed"
-                      animate="open"
-                      exit="collapsed"
+                      layout
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
                       transition={{ duration: 0.2, ease: "easeOut" }}
-                      className="p-5 pt-0 font-body text-sm text-muted-foreground leading-relaxed"
+                      className="p-5 pt-0 font-body text-sm text-muted-foreground leading-relaxed overflow-hidden"
                     >
                       {t("about.faq.paymentAnswer")}
                     </motion.div>
@@ -227,15 +212,12 @@ const About = () => {
                   </Accordion.Header>
                   <Accordion.Content asChild>
                     <motion.div
-                      variants={{
-                        open: { opacity: 1, height: "auto", marginTop: 20 },
-                        collapsed: { opacity: 0, height: 0, marginTop: 0 }
-                      }}
-                      initial="collapsed"
-                      animate="open"
-                      exit="collapsed"
+                      layout
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
                       transition={{ duration: 0.2, ease: "easeOut" }}
-                      className="p-5 pt-0 font-body text-sm text-muted-foreground leading-relaxed"
+                      className="p-5 pt-0 font-body text-sm text-muted-foreground leading-relaxed overflow-hidden"
                     >
                       {t("about.faq.shippingReturnsAnswer")}
                     </motion.div>

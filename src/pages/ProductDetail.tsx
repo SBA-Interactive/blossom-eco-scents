@@ -350,15 +350,12 @@ const ProductDetail = () => {
                         </Accordion.Header>
                         <Accordion.Content asChild>
                           <motion.div
-                            variants={{
-                              open: { opacity: 1, height: "auto", marginTop: 16 },
-                              collapsed: { opacity: 0, height: 0, marginTop: 0 }
-                            }}
-                            initial="collapsed"
-                            animate="open"
-                            exit="collapsed"
+                            layout
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
                             transition={{ duration: 0.2, ease: "easeOut" }}
-                            className="p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed"
+                            className="p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed overflow-hidden"
                           >
                             {faq.answer}
                           </motion.div>
@@ -381,17 +378,14 @@ const ProductDetail = () => {
                         <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
                       </Accordion.Trigger>
                     </Accordion.Header>
-                    <Accordion.Content asChild>
+                        <Accordion.Content asChild>
                           <motion.div
-                            variants={{
-                              open: { opacity: 1, height: "auto", marginTop: 16 },
-                              collapsed: { opacity: 0, height: 0, marginTop: 0 }
-                            }}
-                            initial="collapsed"
-                            animate="open"
-                            exit="collapsed"
+                            layout
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
                             transition={{ duration: 0.2, ease: "easeOut" }}
-                            className="p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed"
+                            className="p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed overflow-hidden"
                           >
                             {t("faq.shipping.optionsAnswer")}
                           </motion.div>
@@ -405,17 +399,14 @@ const ProductDetail = () => {
                         <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
                       </Accordion.Trigger>
                     </Accordion.Header>
-                    <Accordion.Content asChild>
+                        <Accordion.Content asChild>
                           <motion.div
-                            variants={{
-                              open: { opacity: 1, height: "auto", marginTop: 16 },
-                              collapsed: { opacity: 0, height: 0, marginTop: 0 }
-                            }}
-                            initial="collapsed"
-                            animate="open"
-                            exit="collapsed"
+                            layout
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
                             transition={{ duration: 0.2, ease: "easeOut" }}
-                            className="p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed"
+                            className="p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed overflow-hidden"
                           >
                             {t("faq.shipping.deliveryTimeAnswer")}
                           </motion.div>
@@ -429,17 +420,14 @@ const ProductDetail = () => {
                         <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
                       </Accordion.Trigger>
                     </Accordion.Header>
-                    <Accordion.Content asChild>
+                        <Accordion.Content asChild>
                           <motion.div
-                            variants={{
-                              open: { opacity: 1, height: "auto", marginTop: 16 },
-                              collapsed: { opacity: 0, height: 0, marginTop: 0 }
-                            }}
-                            initial="collapsed"
-                            animate="open"
-                            exit="collapsed"
+                            layout
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
                             transition={{ duration: 0.2, ease: "easeOut" }}
-                            className="p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed"
+                            className="p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed overflow-hidden"
                           >
                             {t("faq.shipping.freeShippingAnswer")}
                           </motion.div>
@@ -453,17 +441,14 @@ const ProductDetail = () => {
                         <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
                       </Accordion.Trigger>
                     </Accordion.Header>
-                    <Accordion.Content asChild>
+                        <Accordion.Content asChild>
                           <motion.div
-                            variants={{
-                              open: { opacity: 1, height: "auto", marginTop: 16 },
-                              collapsed: { opacity: 0, height: 0, marginTop: 0 }
-                            }}
-                            initial="collapsed"
-                            animate="open"
-                            exit="collapsed"
+                            layout
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
                             transition={{ duration: 0.2, ease: "easeOut" }}
-                            className="p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed"
+                            className="p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed overflow-hidden"
                           >
                             {t("faq.shipping.trackingAnswer")}
                           </motion.div>
@@ -477,17 +462,14 @@ const ProductDetail = () => {
                         <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
                       </Accordion.Trigger>
                     </Accordion.Header>
-                    <Accordion.Content asChild>
+                        <Accordion.Content asChild>
                           <motion.div
-                            variants={{
-                              open: { opacity: 1, height: "auto", marginTop: 16 },
-                              collapsed: { opacity: 0, height: 0, marginTop: 0 }
-                            }}
-                            initial="collapsed"
-                            animate="open"
-                            exit="collapsed"
+                            layout
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
                             transition={{ duration: 0.2, ease: "easeOut" }}
-                            className="p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed"
+                            className="p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed overflow-hidden"
                           >
                             {t("faq.shipping.returnsAnswer")}
                           </motion.div>
