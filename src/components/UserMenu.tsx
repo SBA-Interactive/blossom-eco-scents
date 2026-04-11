@@ -97,7 +97,7 @@ const UserMenu = () => {
                 <Globe className="h-4 w-4" />
               </span>
               <span className="flex-1">{t("auth.language")}</span>
-              <span className="text-xs text-muted-foreground">
+              <span className="w-12 text-center text-xs text-muted-foreground">
                 {language === "en" ? "EN" : "GR"}
               </span>
             </DropdownMenuSubTrigger>
@@ -117,7 +117,7 @@ const UserMenu = () => {
                 {mounted && theme === "dark" ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
               </span>
               <span className="flex-1">{t("auth.theme")}</span>
-              <span className="text-xs text-muted-foreground">
+              <span className="w-12 text-center text-xs text-muted-foreground">
                 {mounted && theme === "dark" ? t("auth.dark") : t("auth.light")}
               </span>
             </DropdownMenuSubTrigger>
