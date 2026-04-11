@@ -1,8 +1,22 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" suppressHydrationWarning>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function() {
+        try {
+          var storedTheme = localStorage.getItem('theme');
+          var hasTheme = storedTheme !== null;
+          if (hasTheme) {
+            document.documentElement.classList.add(storedTheme);
+          } else {
+            var isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            document.documentElement.classList.add(isDark ? 'dark' : 'light');
+          }
+        } catch (e) {}
+      })();
+    </script>
     <title>Blossom — Natural Perfumes from Fruit Peels</title>
     <meta name="description" content="Blossom creates eco-friendly, natural perfumes from upcycled fruit peels. Fresh, modern scents that are safe for ages 10+." />
     <meta name="author" content="Blossom" />
