@@ -335,34 +335,43 @@ const ProductDetail = () => {
               {/* Product Tab */}
               <Tabs.Content value="product" className="outline-none">
                 {product.faqs.length > 0 ? (
-                  <Accordion.Root type="single" collapsible className="space-y-3">
-                    {product.faqs.map((faq, index) => (
-                      <Accordion.Item
-                        key={index}
-                        value={`product-faq-${index}`}
-                        className="border border-border rounded-lg overflow-hidden bg-muted/30 hover:bg-muted/50 transition-colors"
-                      >
-                        <Accordion.Header>
-                          <Accordion.Trigger className="flex w-full items-center justify-between p-4 font-body text-base text-left group">
-                            <span className="pr-4">{faq.question}</span>
-                            <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
-                          </Accordion.Trigger>
-                        </Accordion.Header>
-                        <Accordion.Content asChild>
-                          <motion.div
-                            layout
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: "auto" }}
-                            exit={{ opacity: 0, height: 0 }}
-                            transition={{ duration: 0.2, ease: "easeOut" }}
-                            className="p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed overflow-hidden"
+                  <div className="space-y-3">
+                    {product.faqs.map((faq, index) => {
+                      const faqId = `product-faq-${index}`;
+                      const [openFaq, setOpenFaq] = useState<string | null>(null);
+                      const isOpen = openFaq === faqId;
+                      
+                      return (
+                        <div
+                          key={index}
+                          className="border border-border rounded-lg overflow-hidden bg-muted/30 hover:bg-muted/50 transition-colors"
+                        >
+                          <button
+                            onClick={() => setOpenFaq(isOpen ? null : faqId)}
+                            className="flex w-full items-center justify-between p-4 font-body text-base text-left group"
                           >
-                            {faq.answer}
-                          </motion.div>
-                        </Accordion.Content>
-                      </Accordion.Item>
-                    ))}
-                  </Accordion.Root>
+                            <span className="pr-4">{faq.question}</span>
+                            <span className={`shrink-0 text-muted-foreground transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}>▼</span>
+                          </button>
+                          <AnimatePresence mode="wait">
+                            {isOpen && (
+                              <motion.div
+                                initial={{ opacity: 0, height: 0 }}
+                                animate={{ opacity: 1, height: "auto" }}
+                                exit={{ opacity: 0, height: 0 }}
+                                transition={{ duration: 0.2, ease: "easeOut" }}
+                                className="overflow-hidden"
+                              >
+                                <p className="p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed">
+                                  {faq.answer}
+                                </p>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
+                      );
+                    })}
+                  </div>
                 ) : (
                   <p className="text-muted-foreground text-center py-8">No product-specific FAQs available.</p>
                 )}
@@ -370,112 +379,48 @@ const ProductDetail = () => {
 
               {/* Shipping Tab */}
               <Tabs.Content value="shipping" className="outline-none">
-                <Accordion.Root type="single" collapsible className="space-y-3">
-                  <Accordion.Item value="shipping-1" className="border border-border rounded-lg overflow-hidden bg-muted/30 hover:bg-muted/50 transition-colors">
-                    <Accordion.Header>
-                      <Accordion.Trigger className="flex w-full items-center justify-between p-4 font-body text-base text-left group">
-                        <span className="pr-4 flex items-center gap-2"><Truck className="w-4 h-4 text-primary" />{t("faq.shipping.options")}</span>
-                        <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
-                      </Accordion.Trigger>
-                    </Accordion.Header>
-                        <Accordion.Content asChild>
-                          <motion.div
-                            layout
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: "auto" }}
-                            exit={{ opacity: 0, height: 0 }}
-                            transition={{ duration: 0.2, ease: "easeOut" }}
-                            className="p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed overflow-hidden"
-                          >
-                            {t("faq.shipping.optionsAnswer")}
-                          </motion.div>
-                        </Accordion.Content>
-                  </Accordion.Item>
-
-                  <Accordion.Item value="shipping-2" className="border border-border rounded-lg overflow-hidden bg-muted/30 hover:bg-muted/50 transition-colors">
-                    <Accordion.Header>
-                      <Accordion.Trigger className="flex w-full items-center justify-between p-4 font-body text-base text-left group">
-                        <span className="pr-4 flex items-center gap-2"><Package className="w-4 h-4 text-primary" />{t("faq.shipping.deliveryTime")}</span>
-                        <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
-                      </Accordion.Trigger>
-                    </Accordion.Header>
-                        <Accordion.Content asChild>
-                          <motion.div
-                            layout
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: "auto" }}
-                            exit={{ opacity: 0, height: 0 }}
-                            transition={{ duration: 0.2, ease: "easeOut" }}
-                            className="p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed overflow-hidden"
-                          >
-                            {t("faq.shipping.deliveryTimeAnswer")}
-                          </motion.div>
-                        </Accordion.Content>
-                  </Accordion.Item>
-
-                  <Accordion.Item value="shipping-3" className="border border-border rounded-lg overflow-hidden bg-muted/30 hover:bg-muted/50 transition-colors">
-                    <Accordion.Header>
-                      <Accordion.Trigger className="flex w-full items-center justify-between p-4 font-body text-base text-left group">
-                        <span className="pr-4 flex items-center gap-2"><Truck className="w-4 h-4 text-primary" />{t("faq.shipping.freeShipping")}</span>
-                        <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
-                      </Accordion.Trigger>
-                    </Accordion.Header>
-                        <Accordion.Content asChild>
-                          <motion.div
-                            layout
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: "auto" }}
-                            exit={{ opacity: 0, height: 0 }}
-                            transition={{ duration: 0.2, ease: "easeOut" }}
-                            className="p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed overflow-hidden"
-                          >
-                            {t("faq.shipping.freeShippingAnswer")}
-                          </motion.div>
-                        </Accordion.Content>
-                  </Accordion.Item>
-
-                  <Accordion.Item value="shipping-4" className="border border-border rounded-lg overflow-hidden bg-muted/30 hover:bg-muted/50 transition-colors">
-                    <Accordion.Header>
-                      <Accordion.Trigger className="flex w-full items-center justify-between p-4 font-body text-base text-left group">
-                        <span className="pr-4 flex items-center gap-2"><Package className="w-4 h-4 text-primary" />{t("faq.shipping.tracking")}</span>
-                        <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
-                      </Accordion.Trigger>
-                    </Accordion.Header>
-                        <Accordion.Content asChild>
-                          <motion.div
-                            layout
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: "auto" }}
-                            exit={{ opacity: 0, height: 0 }}
-                            transition={{ duration: 0.2, ease: "easeOut" }}
-                            className="p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed overflow-hidden"
-                          >
-                            {t("faq.shipping.trackingAnswer")}
-                          </motion.div>
-                        </Accordion.Content>
-                  </Accordion.Item>
-
-                  <Accordion.Item value="shipping-5" className="border border-border rounded-lg overflow-hidden bg-muted/30 hover:bg-muted/50 transition-colors">
-                    <Accordion.Header>
-                      <Accordion.Trigger className="flex w-full items-center justify-between p-4 font-body text-base text-left group">
-                        <span className="pr-4 flex items-center gap-2"><RotateCcw className="w-4 h-4 text-primary" />{t("faq.shipping.returns")}</span>
-                        <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
-                      </Accordion.Trigger>
-                    </Accordion.Header>
-                        <Accordion.Content asChild>
-                          <motion.div
-                            layout
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: "auto" }}
-                            exit={{ opacity: 0, height: 0 }}
-                            transition={{ duration: 0.2, ease: "easeOut" }}
-                            className="p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed overflow-hidden"
-                          >
-                            {t("faq.shipping.returnsAnswer")}
-                          </motion.div>
-                        </Accordion.Content>
-                  </Accordion.Item>
-                </Accordion.Root>
+                <div className="space-y-3">
+                  {[
+                    { id: "shipping-1", icon: <Truck className="w-4 h-4 text-primary" />, question: t("faq.shipping.options"), answer: t("faq.shipping.optionsAnswer") },
+                    { id: "shipping-2", icon: <Package className="w-4 h-4 text-primary" />, question: t("faq.shipping.deliveryTime"), answer: t("faq.shipping.deliveryTimeAnswer") },
+                    { id: "shipping-3", icon: <Truck className="w-4 h-4 text-primary" />, question: t("faq.shipping.freeShipping"), answer: t("faq.shipping.freeShippingAnswer") },
+                    { id: "shipping-4", icon: <Package className="w-4 h-4 text-primary" />, question: t("faq.shipping.tracking"), answer: t("faq.shipping.trackingAnswer") },
+                    { id: "shipping-5", icon: <RotateCcw className="w-4 h-4 text-primary" />, question: t("faq.shipping.returns"), answer: t("faq.shipping.returnsAnswer") },
+                  ].map((item) => {
+                    const [openFaq, setOpenFaq] = useState<string | null>(null);
+                    const isOpen = openFaq === item.id;
+                    
+                    return (
+                      <div
+                        key={item.id}
+                        className="border border-border rounded-lg overflow-hidden bg-muted/30 hover:bg-muted/50 transition-colors"
+                      >
+                        <button
+                          onClick={() => setOpenFaq(isOpen ? null : item.id)}
+                          className="flex w-full items-center justify-between p-4 font-body text-base text-left group"
+                        >
+                          <span className="pr-4 flex items-center gap-2">{item.icon}{item.question}</span>
+                          <span className={`shrink-0 text-muted-foreground transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}>▼</span>
+                        </button>
+                        <AnimatePresence mode="wait">
+                          {isOpen && (
+                            <motion.div
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: "auto" }}
+                              exit={{ opacity: 0, height: 0 }}
+                              transition={{ duration: 0.2, ease: "easeOut" }}
+                              className="overflow-hidden"
+                            >
+                              <p className="p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed">
+                                {item.answer}
+                              </p>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    );
+                  })}
+                </div>
               </Tabs.Content>
             </Tabs.Root>
               </div>

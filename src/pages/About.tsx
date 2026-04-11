@@ -1,7 +1,7 @@
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Layout from "@/components/Layout";
 import { useLanguage } from "@/context/LanguageContext";
-import * as Accordion from "@radix-ui/react-accordion";
 import { Leaf, Heart, Shield, ShoppingBag, CreditCard, Truck, RotateCcw, Sparkles } from "lucide-react";
 import { BlurFade } from "@/components/ui/blur-fade";
 
@@ -97,133 +97,49 @@ const About = () => {
             <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-primary via-accent to-primary" />
             
             <div className="p-6 md:p-8">
-              <Accordion.Root type="single" collapsible className="space-y-4">
-                <Accordion.Item value="faq-1" className="border border-border rounded-lg overflow-hidden bg-muted/30 hover:bg-muted/50 transition-colors">
-                  <Accordion.Header>
-                    <Accordion.Trigger className="flex w-full items-center justify-between p-5 font-body text-sm text-left group">
-                      <span className="pr-4 flex items-center gap-3"><Sparkles className="w-5 h-5 text-primary shrink-0" />{t("about.faq.brandStory")}</span>
-                      <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
-                    </Accordion.Trigger>
-                  </Accordion.Header>
-                  <Accordion.Content asChild>
-                    <motion.div
-                      layout
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.2, ease: "easeOut" }}
-                      className="p-5 pt-0 font-body text-sm text-muted-foreground leading-relaxed overflow-hidden"
+              <div className="space-y-4">
+                {[
+                  { id: "faq-1", icon: <Sparkles className="w-5 h-5 text-primary shrink-0" />, question: t("about.faq.brandStory"), answer: t("about.faq.brandStoryAnswer") },
+                  { id: "faq-2", icon: <Leaf className="w-5 h-5 text-primary shrink-0" />, question: t("about.faq.sustainability"), answer: t("about.faq.sustainabilityAnswer") },
+                  { id: "faq-3", icon: <Shield className="w-5 h-5 text-primary shrink-0" />, question: t("about.faq.quality"), answer: t("about.faq.qualityAnswer") },
+                  { id: "faq-4", icon: <ShoppingBag className="w-5 h-5 text-primary shrink-0" />, question: t("about.faq.ordering"), answer: t("about.faq.orderingAnswer") },
+                  { id: "faq-5", icon: <CreditCard className="w-5 h-5 text-primary shrink-0" />, question: t("about.faq.payment"), answer: t("about.faq.paymentAnswer") },
+                  { id: "faq-6", icon: <Truck className="w-5 h-5 text-primary shrink-0" />, question: t("about.faq.shippingReturns"), answer: t("about.faq.shippingReturnsAnswer") },
+                ].map((item) => {
+                  const [openFaq, setOpenFaq] = useState<string | null>(null);
+                  const isOpen = openFaq === item.id;
+                  
+                  return (
+                    <div
+                      key={item.id}
+                      className="border border-border rounded-lg overflow-hidden bg-muted/30 hover:bg-muted/50 transition-colors"
                     >
-                      {t("about.faq.brandStoryAnswer")}
-                    </motion.div>
-                  </Accordion.Content>
-                </Accordion.Item>
-
-                <Accordion.Item value="faq-2" className="border border-border rounded-lg overflow-hidden bg-muted/30 hover:bg-muted/50 transition-colors">
-                  <Accordion.Header>
-                    <Accordion.Trigger className="flex w-full items-center justify-between p-5 font-body text-sm text-left group">
-                      <span className="pr-4 flex items-center gap-3"><Leaf className="w-5 h-5 text-primary shrink-0" />{t("about.faq.sustainability")}</span>
-                      <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
-                    </Accordion.Trigger>
-                  </Accordion.Header>
-                  <Accordion.Content asChild>
-                    <motion.div
-                      layout
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.2, ease: "easeOut" }}
-                      className="p-5 pt-0 font-body text-sm text-muted-foreground leading-relaxed overflow-hidden"
-                    >
-                      {t("about.faq.sustainabilityAnswer")}
-                    </motion.div>
-                  </Accordion.Content>
-                </Accordion.Item>
-
-                <Accordion.Item value="faq-3" className="border border-border rounded-lg overflow-hidden bg-muted/30 hover:bg-muted/50 transition-colors">
-                  <Accordion.Header>
-                    <Accordion.Trigger className="flex w-full items-center justify-between p-5 font-body text-sm text-left group">
-                      <span className="pr-4 flex items-center gap-3"><Shield className="w-5 h-5 text-primary shrink-0" />{t("about.faq.quality")}</span>
-                      <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
-                    </Accordion.Trigger>
-                  </Accordion.Header>
-                  <Accordion.Content asChild>
-                    <motion.div
-                      layout
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.2, ease: "easeOut" }}
-                      className="p-5 pt-0 font-body text-sm text-muted-foreground leading-relaxed overflow-hidden"
-                    >
-                      {t("about.faq.qualityAnswer")}
-                    </motion.div>
-                  </Accordion.Content>
-                </Accordion.Item>
-
-                <Accordion.Item value="faq-4" className="border border-border rounded-lg overflow-hidden bg-muted/30 hover:bg-muted/50 transition-colors">
-                  <Accordion.Header>
-                    <Accordion.Trigger className="flex w-full items-center justify-between p-5 font-body text-sm text-left group">
-                      <span className="pr-4 flex items-center gap-3"><ShoppingBag className="w-5 h-5 text-primary shrink-0" />{t("about.faq.ordering")}</span>
-                      <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
-                    </Accordion.Trigger>
-                  </Accordion.Header>
-                  <Accordion.Content asChild>
-                    <motion.div
-                      layout
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.2, ease: "easeOut" }}
-                      className="p-5 pt-0 font-body text-sm text-muted-foreground leading-relaxed overflow-hidden"
-                    >
-                      {t("about.faq.orderingAnswer")}
-                    </motion.div>
-                  </Accordion.Content>
-                </Accordion.Item>
-
-                <Accordion.Item value="faq-5" className="border border-border rounded-lg overflow-hidden bg-muted/30 hover:bg-muted/50 transition-colors">
-                  <Accordion.Header>
-                    <Accordion.Trigger className="flex w-full items-center justify-between p-5 font-body text-sm text-left group">
-                      <span className="pr-4 flex items-center gap-3"><CreditCard className="w-5 h-5 text-primary shrink-0" />{t("about.faq.payment")}</span>
-                      <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
-                    </Accordion.Trigger>
-                  </Accordion.Header>
-                  <Accordion.Content asChild>
-                    <motion.div
-                      layout
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.2, ease: "easeOut" }}
-                      className="p-5 pt-0 font-body text-sm text-muted-foreground leading-relaxed overflow-hidden"
-                    >
-                      {t("about.faq.paymentAnswer")}
-                    </motion.div>
-                  </Accordion.Content>
-                </Accordion.Item>
-
-                <Accordion.Item value="faq-6" className="border border-border rounded-lg overflow-hidden bg-muted/30 hover:bg-muted/50 transition-colors">
-                  <Accordion.Header>
-                    <Accordion.Trigger className="flex w-full items-center justify-between p-5 font-body text-sm text-left group">
-                      <span className="pr-4 flex items-center gap-3"><Truck className="w-5 h-5 text-primary shrink-0" />{t("about.faq.shippingReturns")}</span>
-                      <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
-                    </Accordion.Trigger>
-                  </Accordion.Header>
-                  <Accordion.Content asChild>
-                    <motion.div
-                      layout
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.2, ease: "easeOut" }}
-                      className="p-5 pt-0 font-body text-sm text-muted-foreground leading-relaxed overflow-hidden"
-                    >
-                      {t("about.faq.shippingReturnsAnswer")}
-                    </motion.div>
-                  </Accordion.Content>
-                </Accordion.Item>
-              </Accordion.Root>
+                      <button
+                        onClick={() => setOpenFaq(isOpen ? null : item.id)}
+                        className="flex w-full items-center justify-between p-5 font-body text-sm text-left group"
+                      >
+                        <span className="pr-4 flex items-center gap-3">{item.icon}{item.question}</span>
+                        <span className={`shrink-0 text-muted-foreground transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}>▼</span>
+                      </button>
+                      <AnimatePresence mode="wait">
+                        {isOpen && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.2, ease: "easeOut" }}
+                            className="overflow-hidden"
+                          >
+                            <p className="p-5 pt-0 font-body text-sm text-muted-foreground leading-relaxed">
+                              {item.answer}
+                            </p>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
