@@ -116,4 +116,35 @@
   .text-balance {
     text-wrap: balance;
   }
+
+  /* FAQ Accordion Slide Animations */
+  @keyframes accordion-slide-in {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes accordion-slide-out {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+  }
+
+  .accordion-content[data-state="open"] {
+    animation: accordion-slide-in 0.3s ease-out forwards;
+  }
+
+  .accordion-content[data-state="closed"] {
+    animation: accordion-slide-out 0.2s ease-in forwards;
+  }
 }

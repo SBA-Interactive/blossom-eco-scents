@@ -348,7 +348,7 @@ const ProductDetail = () => {
                             <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
                           </Accordion.Trigger>
                         </Accordion.Header>
-                        <Accordion.Content className="p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed">
+                        <Accordion.Content className="accordion-content p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed">
                           {faq.answer}
                         </Accordion.Content>
                       </Accordion.Item>
@@ -369,7 +369,7 @@ const ProductDetail = () => {
                         <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
                       </Accordion.Trigger>
                     </Accordion.Header>
-                    <Accordion.Content className="p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed">
+                    <Accordion.Content className="accordion-content p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed">
                       {t("faq.shipping.optionsAnswer")}
                     </Accordion.Content>
                   </Accordion.Item>
@@ -381,7 +381,7 @@ const ProductDetail = () => {
                         <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
                       </Accordion.Trigger>
                     </Accordion.Header>
-                    <Accordion.Content className="p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed">
+                    <Accordion.Content className="accordion-content p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed">
                       {t("faq.shipping.deliveryTimeAnswer")}
                     </Accordion.Content>
                   </Accordion.Item>
@@ -393,7 +393,7 @@ const ProductDetail = () => {
                         <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
                       </Accordion.Trigger>
                     </Accordion.Header>
-                    <Accordion.Content className="p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed">
+                    <Accordion.Content className="accordion-content p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed">
                       {t("faq.shipping.freeShippingAnswer")}
                     </Accordion.Content>
                   </Accordion.Item>
@@ -405,7 +405,7 @@ const ProductDetail = () => {
                         <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
                       </Accordion.Trigger>
                     </Accordion.Header>
-                    <Accordion.Content className="p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed">
+                    <Accordion.Content className="accordion-content p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed">
                       {t("faq.shipping.trackingAnswer")}
                     </Accordion.Content>
                   </Accordion.Item>
@@ -417,7 +417,7 @@ const ProductDetail = () => {
                         <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
                       </Accordion.Trigger>
                     </Accordion.Header>
-                    <Accordion.Content className="p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed">
+                    <Accordion.Content className="accordion-content p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed">
                       {t("faq.shipping.returnsAnswer")}
                     </Accordion.Content>
                   </Accordion.Item>
