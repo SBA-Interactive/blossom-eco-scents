@@ -9,6 +9,7 @@ import { WishlistProvider } from "@/context/WishlistContext";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { AuthProvider } from "@/context/AuthContext";
 import { OrderProvider } from "@/context/OrderContext";
+import { ReviewProvider } from "@/context/ReviewContext";
 import CartDrawer from "@/components/CartDrawer";
 import Index from "./pages/Index.tsx";
 import Products from "./pages/Products.tsx";
@@ -38,7 +39,8 @@ const App = () => (
             <CartProvider>
               <WishlistProvider>
                 <OrderProvider>
-                  <Toaster />
+                  <ReviewProvider>
+                    <Toaster />
                   <Sonner />
                   <BrowserRouter basename="/blossom-eco-scents">
                     <ScrollToTop />
@@ -61,7 +63,8 @@ const App = () => (
                       <Route path="*" element={<NotFound />} />
                     </Routes>
                   </BrowserRouter>
-                </OrderProvider>
+                </ReviewProvider>
+              </OrderProvider>
               </WishlistProvider>
             </CartProvider>
           </AuthProvider>

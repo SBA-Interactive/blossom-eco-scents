@@ -8,6 +8,25 @@ export interface Product {
   notes: string;
   ingredients: string;
   image: string;
+  specifications: {
+    volume: string;
+    shelfLife: string;
+    storage: string;
+    crueltyFree: boolean;
+    vegan: boolean;
+  };
+  faqs: {
+    question: string;
+    answer: string;
+  }[];
+  reviews: {
+    id: string;
+    author: string;
+    rating: number;
+    date: string;
+    title: string;
+    comment: string;
+  }[];
 }
 
 const placeholder = "/placeholder.svg";
@@ -23,6 +42,45 @@ export const products: Product[] = [
     notes: "Orange, Grapefruit, Amber",
     ingredients: "Upcycled orange peel oil, grapefruit extract, amber resin, jojoba carrier oil, vitamin E",
     image: placeholder,
+    specifications: {
+      volume: "50ml",
+      shelfLife: "2 years from manufacture date",
+      storage: "Store in a cool, dry place away from direct sunlight",
+      crueltyFree: true,
+      vegan: true,
+    },
+    faqs: [
+      {
+        question: "How do I apply this fragrance?",
+        answer: "Spray 2-3 times on pulse points such as wrists, neck, and behind ears. For best results, apply to dry skin after showering.",
+      },
+      {
+        question: "How long does the scent last?",
+        answer: "Our fragrances are designed to last 6-8 hours on the skin. The longevity may vary based on skin type and environmental factors.",
+      },
+      {
+        question: "Is this suitable for sensitive skin?",
+        answer: "Yes! Our formulas are free from harsh chemicals, parabens, and synthetic fragrances. However, we recommend doing a patch test first.",
+      },
+    ],
+    reviews: [
+      {
+        id: "cb1",
+        author: "Maria K.",
+        rating: 5,
+        date: "2025-12-15",
+        title: "My everyday go-to!",
+        comment: "This has become my signature scent. The citrus notes are so refreshing and last all day.",
+      },
+      {
+        id: "cb2",
+        author: "John D.",
+        rating: 5,
+        date: "2025-11-28",
+        title: "Love the sustainability angle",
+        comment: "Great scent and I love that it's made from upcycled ingredients. Win-win!",
+      },
+    ],
   },
   {
     slug: "petal-dew-50ml",
@@ -34,6 +92,37 @@ export const products: Product[] = [
     notes: "Rose, Peach, Vanilla",
     ingredients: "Rose petal extract, peach kernel oil, vanilla absolute, coconut oil, rosehip seed oil",
     image: placeholder,
+    specifications: {
+      volume: "50ml",
+      shelfLife: "2 years from manufacture date",
+      storage: "Store in a cool, dry place away from direct sunlight",
+      crueltyFree: true,
+      vegan: true,
+    },
+    faqs: [
+      {
+        question: "How do I apply this fragrance?",
+        answer: "Spray 2-3 times on pulse points such as wrists, neck, and behind ears. For best results, apply to dry skin after showering.",
+      },
+      {
+        question: "How long does the scent last?",
+        answer: "Our fragrances are designed to last 6-8 hours on the skin. The longevity may vary based on skin type and environmental factors.",
+      },
+      {
+        question: "Is this suitable for sensitive skin?",
+        answer: "Yes! Our formulas are free from harsh chemicals, parabens, and synthetic fragrances. However, we recommend doing a patch test first.",
+      },
+    ],
+    reviews: [
+      {
+        id: "pd1",
+        author: "Elena P.",
+        rating: 5,
+        date: "2025-12-20",
+        title: "Romantic and elegant",
+        comment: "Perfect for date nights! My boyfriend always compliments this scent.",
+      },
+    ],
   },
   {
     slug: "verde-zest-50ml",
@@ -45,6 +134,37 @@ export const products: Product[] = [
     notes: "Lime, Basil, Sage",
     ingredients: "Cold-pressed lime peel oil, basil leaf extract, sage essential oil, sweet almond oil, argan oil",
     image: placeholder,
+    specifications: {
+      volume: "50ml",
+      shelfLife: "2 years from manufacture date",
+      storage: "Store in a cool, dry place away from direct sunlight",
+      crueltyFree: true,
+      vegan: true,
+    },
+    faqs: [
+      {
+        question: "How do I apply this fragrance?",
+        answer: "Spray 2-3 times on pulse points such as wrists, neck, and behind ears. For best results, apply to dry skin after showering.",
+      },
+      {
+        question: "How long does the scent last?",
+        answer: "Our fragrances are designed to last 6-8 hours on the skin. The longevity may vary based on skin type and environmental factors.",
+      },
+      {
+        question: "Is this suitable for sensitive skin?",
+        answer: "Yes! Our formulas are free from harsh chemicals, parabens, and synthetic fragrances. However, we recommend doing a patch test first.",
+      },
+    ],
+    reviews: [
+      {
+        id: "vz1",
+        author: "Alex T.",
+        rating: 4,
+        date: "2025-12-10",
+        title: "Fresh and clean",
+        comment: "Perfect for the gym or after a workout. Very refreshing!",
+      },
+    ],
   },
   {
     slug: "citrus-bloom-100ml",
@@ -56,6 +176,24 @@ export const products: Product[] = [
     notes: "Orange, Grapefruit, Amber",
     ingredients: "Upcycled orange peel oil, grapefruit extract, amber resin, jojoba carrier oil, vitamin E, cedarwood oil",
     image: placeholder,
+    specifications: {
+      volume: "100ml",
+      shelfLife: "2 years from manufacture date",
+      storage: "Store in a cool, dry place away from direct sunlight",
+      crueltyFree: true,
+      vegan: true,
+    },
+    faqs: [
+      {
+        question: "How do I apply this fragrance?",
+        answer: "Spray 2-3 times on pulse points such as wrists, neck, and behind ears. For best results, apply to dry skin after showering.",
+      },
+      {
+        question: "How long does the scent last?",
+        answer: "Our fragrances are designed to last 6-8 hours on the skin. The longevity may vary based on skin type and environmental factors.",
+      },
+    ],
+    reviews: [],
   },
   {
     slug: "petal-dew-100ml",
@@ -67,6 +205,20 @@ export const products: Product[] = [
     notes: "Rose, Peach, Musk",
     ingredients: "Rose petal extract, peach kernel oil, white musk, coconut oil, rosehip seed oil, evening primrose oil",
     image: placeholder,
+    specifications: {
+      volume: "100ml",
+      shelfLife: "2 years from manufacture date",
+      storage: "Store in a cool, dry place away from direct sunlight",
+      crueltyFree: true,
+      vegan: true,
+    },
+    faqs: [
+      {
+        question: "How do I apply this fragrance?",
+        answer: "Spray 2-3 times on pulse points such as wrists, neck, and behind ears. For best results, apply to dry skin after showering.",
+      },
+    ],
+    reviews: [],
   },
   {
     slug: "verde-zest-100ml",
@@ -78,6 +230,20 @@ export const products: Product[] = [
     notes: "Lime, Basil, Vetiver",
     ingredients: "Cold-pressed lime peel oil, basil leaf extract, vetiver root oil, sweet almond oil, argan oil, hemp seed oil",
     image: placeholder,
+    specifications: {
+      volume: "100ml",
+      shelfLife: "2 years from manufacture date",
+      storage: "Store in a cool, dry place away from direct sunlight",
+      crueltyFree: true,
+      vegan: true,
+    },
+    faqs: [
+      {
+        question: "How do I apply this fragrance?",
+        answer: "Spray 2-3 times on pulse points such as wrists, neck, and behind ears. For best results, apply to dry skin after showering.",
+      },
+    ],
+    reviews: [],
   },
 ];
 

@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
+import CustomerReviewsCarousel from "@/components/CustomerReviewsCarousel";
 import { useLanguage } from "@/context/LanguageContext";
+import { customerReviews } from "@/data/reviews";
 
 const placeholder = "/placeholder.svg";
 
@@ -85,6 +87,17 @@ const Index = () => {
               {t("index.learnMore")}
             </Link>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Customer Reviews */}
+      <section className="section-padding bg-card">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <p className="font-body text-xs tracking-[0.3em] uppercase text-muted-foreground mb-3">{t("index.reviews")}</p>
+            <h2 className="font-display text-4xl md:text-5xl font-light text-foreground">{t("index.customerReviews")}</h2>
+          </div>
+          <CustomerReviewsCarousel reviews={customerReviews} autoPlayInterval={5000} />
         </div>
       </section>
 
