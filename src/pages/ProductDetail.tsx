@@ -350,10 +350,14 @@ const ProductDetail = () => {
                         </Accordion.Header>
                         <Accordion.Content asChild>
                           <motion.div
-                            initial={{ opacity: 0, height: 0, marginTop: 0 }}
-                            animate={{ opacity: 1, height: "auto", marginTop: 16 }}
-                            exit={{ opacity: 0, height: 0, marginTop: 0 }}
-                            transition={{ duration: 0.3, ease: "easeOut" }}
+                            variants={{
+                              open: { opacity: 1, height: "auto", marginTop: 16 },
+                              collapsed: { opacity: 0, height: 0, marginTop: 0 }
+                            }}
+                            initial="collapsed"
+                            animate="open"
+                            exit="collapsed"
+                            transition={{ duration: 0.2, ease: "easeOut" }}
                             className="p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed"
                           >
                             {faq.answer}
@@ -379,10 +383,14 @@ const ProductDetail = () => {
                     </Accordion.Header>
                     <Accordion.Content asChild>
                           <motion.div
-                            initial={{ opacity: 0, height: 0, marginTop: 0 }}
-                            animate={{ opacity: 1, height: "auto", marginTop: 16 }}
-                            exit={{ opacity: 0, height: 0, marginTop: 0 }}
-                            transition={{ duration: 0.3, ease: "easeOut" }}
+                            variants={{
+                              open: { opacity: 1, height: "auto", marginTop: 16 },
+                              collapsed: { opacity: 0, height: 0, marginTop: 0 }
+                            }}
+                            initial="collapsed"
+                            animate="open"
+                            exit="collapsed"
+                            transition={{ duration: 0.2, ease: "easeOut" }}
                             className="p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed"
                           >
                             {t("faq.shipping.optionsAnswer")}
@@ -399,10 +407,14 @@ const ProductDetail = () => {
                     </Accordion.Header>
                     <Accordion.Content asChild>
                           <motion.div
-                            initial={{ opacity: 0, height: 0, marginTop: 0 }}
-                            animate={{ opacity: 1, height: "auto", marginTop: 16 }}
-                            exit={{ opacity: 0, height: 0, marginTop: 0 }}
-                            transition={{ duration: 0.3, ease: "easeOut" }}
+                            variants={{
+                              open: { opacity: 1, height: "auto", marginTop: 16 },
+                              collapsed: { opacity: 0, height: 0, marginTop: 0 }
+                            }}
+                            initial="collapsed"
+                            animate="open"
+                            exit="collapsed"
+                            transition={{ duration: 0.2, ease: "easeOut" }}
                             className="p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed"
                           >
                             {t("faq.shipping.deliveryTimeAnswer")}
@@ -419,10 +431,14 @@ const ProductDetail = () => {
                     </Accordion.Header>
                     <Accordion.Content asChild>
                           <motion.div
-                            initial={{ opacity: 0, height: 0, marginTop: 0 }}
-                            animate={{ opacity: 1, height: "auto", marginTop: 16 }}
-                            exit={{ opacity: 0, height: 0, marginTop: 0 }}
-                            transition={{ duration: 0.3, ease: "easeOut" }}
+                            variants={{
+                              open: { opacity: 1, height: "auto", marginTop: 16 },
+                              collapsed: { opacity: 0, height: 0, marginTop: 0 }
+                            }}
+                            initial="collapsed"
+                            animate="open"
+                            exit="collapsed"
+                            transition={{ duration: 0.2, ease: "easeOut" }}
                             className="p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed"
                           >
                             {t("faq.shipping.freeShippingAnswer")}
@@ -439,10 +455,14 @@ const ProductDetail = () => {
                     </Accordion.Header>
                     <Accordion.Content asChild>
                           <motion.div
-                            initial={{ opacity: 0, height: 0, marginTop: 0 }}
-                            animate={{ opacity: 1, height: "auto", marginTop: 16 }}
-                            exit={{ opacity: 0, height: 0, marginTop: 0 }}
-                            transition={{ duration: 0.3, ease: "easeOut" }}
+                            variants={{
+                              open: { opacity: 1, height: "auto", marginTop: 16 },
+                              collapsed: { opacity: 0, height: 0, marginTop: 0 }
+                            }}
+                            initial="collapsed"
+                            animate="open"
+                            exit="collapsed"
+                            transition={{ duration: 0.2, ease: "easeOut" }}
                             className="p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed"
                           >
                             {t("faq.shipping.trackingAnswer")}
@@ -459,10 +479,14 @@ const ProductDetail = () => {
                     </Accordion.Header>
                     <Accordion.Content asChild>
                           <motion.div
-                            initial={{ opacity: 0, height: 0, marginTop: 0 }}
-                            animate={{ opacity: 1, height: "auto", marginTop: 16 }}
-                            exit={{ opacity: 0, height: 0, marginTop: 0 }}
-                            transition={{ duration: 0.3, ease: "easeOut" }}
+                            variants={{
+                              open: { opacity: 1, height: "auto", marginTop: 16 },
+                              collapsed: { opacity: 0, height: 0, marginTop: 0 }
+                            }}
+                            initial="collapsed"
+                            animate="open"
+                            exit="collapsed"
+                            transition={{ duration: 0.2, ease: "easeOut" }}
                             className="p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed"
                           >
                             {t("faq.shipping.returnsAnswer")}

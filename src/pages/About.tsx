@@ -107,10 +107,14 @@ const About = () => {
                   </Accordion.Header>
                   <Accordion.Content asChild>
                     <motion.div
-                      initial={{ opacity: 0, height: 0, marginTop: 0 }}
-                      animate={{ opacity: 1, height: "auto", marginTop: 20 }}
-                      exit={{ opacity: 0, height: 0, marginTop: 0 }}
-                      transition={{ duration: 0.3, ease: "easeOut" }}
+                      variants={{
+                        open: { opacity: 1, height: "auto", marginTop: 20 },
+                        collapsed: { opacity: 0, height: 0, marginTop: 0 }
+                      }}
+                      initial="collapsed"
+                      animate="open"
+                      exit="collapsed"
+                      transition={{ duration: 0.2, ease: "easeOut" }}
                       className="p-5 pt-0 font-body text-sm text-muted-foreground leading-relaxed"
                     >
                       {t("about.faq.brandStoryAnswer")}
@@ -127,10 +131,14 @@ const About = () => {
                   </Accordion.Header>
                   <Accordion.Content asChild>
                     <motion.div
-                      initial={{ opacity: 0, height: 0, marginTop: 0 }}
-                      animate={{ opacity: 1, height: "auto", marginTop: 20 }}
-                      exit={{ opacity: 0, height: 0, marginTop: 0 }}
-                      transition={{ duration: 0.3, ease: "easeOut" }}
+                      variants={{
+                        open: { opacity: 1, height: "auto", marginTop: 20 },
+                        collapsed: { opacity: 0, height: 0, marginTop: 0 }
+                      }}
+                      initial="collapsed"
+                      animate="open"
+                      exit="collapsed"
+                      transition={{ duration: 0.2, ease: "easeOut" }}
                       className="p-5 pt-0 font-body text-sm text-muted-foreground leading-relaxed"
                     >
                       {t("about.faq.sustainabilityAnswer")}
@@ -147,10 +155,14 @@ const About = () => {
                   </Accordion.Header>
                   <Accordion.Content asChild>
                     <motion.div
-                      initial={{ opacity: 0, height: 0, marginTop: 0 }}
-                      animate={{ opacity: 1, height: "auto", marginTop: 20 }}
-                      exit={{ opacity: 0, height: 0, marginTop: 0 }}
-                      transition={{ duration: 0.3, ease: "easeOut" }}
+                      variants={{
+                        open: { opacity: 1, height: "auto", marginTop: 20 },
+                        collapsed: { opacity: 0, height: 0, marginTop: 0 }
+                      }}
+                      initial="collapsed"
+                      animate="open"
+                      exit="collapsed"
+                      transition={{ duration: 0.2, ease: "easeOut" }}
                       className="p-5 pt-0 font-body text-sm text-muted-foreground leading-relaxed"
                     >
                       {t("about.faq.qualityAnswer")}
@@ -167,10 +179,14 @@ const About = () => {
                   </Accordion.Header>
                   <Accordion.Content asChild>
                     <motion.div
-                      initial={{ opacity: 0, height: 0, marginTop: 0 }}
-                      animate={{ opacity: 1, height: "auto", marginTop: 20 }}
-                      exit={{ opacity: 0, height: 0, marginTop: 0 }}
-                      transition={{ duration: 0.3, ease: "easeOut" }}
+                      variants={{
+                        open: { opacity: 1, height: "auto", marginTop: 20 },
+                        collapsed: { opacity: 0, height: 0, marginTop: 0 }
+                      }}
+                      initial="collapsed"
+                      animate="open"
+                      exit="collapsed"
+                      transition={{ duration: 0.2, ease: "easeOut" }}
                       className="p-5 pt-0 font-body text-sm text-muted-foreground leading-relaxed"
                     >
                       {t("about.faq.orderingAnswer")}
@@ -187,10 +203,14 @@ const About = () => {
                   </Accordion.Header>
                   <Accordion.Content asChild>
                     <motion.div
-                      initial={{ opacity: 0, height: 0, marginTop: 0 }}
-                      animate={{ opacity: 1, height: "auto", marginTop: 20 }}
-                      exit={{ opacity: 0, height: 0, marginTop: 0 }}
-                      transition={{ duration: 0.3, ease: "easeOut" }}
+                      variants={{
+                        open: { opacity: 1, height: "auto", marginTop: 20 },
+                        collapsed: { opacity: 0, height: 0, marginTop: 0 }
+                      }}
+                      initial="collapsed"
+                      animate="open"
+                      exit="collapsed"
+                      transition={{ duration: 0.2, ease: "easeOut" }}
                       className="p-5 pt-0 font-body text-sm text-muted-foreground leading-relaxed"
                     >
                       {t("about.faq.paymentAnswer")}
@@ -207,10 +227,14 @@ const About = () => {
                   </Accordion.Header>
                   <Accordion.Content asChild>
                     <motion.div
-                      initial={{ opacity: 0, height: 0, marginTop: 0 }}
-                      animate={{ opacity: 1, height: "auto", marginTop: 20 }}
-                      exit={{ opacity: 0, height: 0, marginTop: 0 }}
-                      transition={{ duration: 0.3, ease: "easeOut" }}
+                      variants={{
+                        open: { opacity: 1, height: "auto", marginTop: 20 },
+                        collapsed: { opacity: 0, height: 0, marginTop: 0 }
+                      }}
+                      initial="collapsed"
+                      animate="open"
+                      exit="collapsed"
+                      transition={{ duration: 0.2, ease: "easeOut" }}
                       className="p-5 pt-0 font-body text-sm text-muted-foreground leading-relaxed"
                     >
                       {t("about.faq.shippingReturnsAnswer")}
