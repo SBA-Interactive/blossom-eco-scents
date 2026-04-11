@@ -111,7 +111,9 @@ const UserMenu = () => {
 
           <DropdownMenuSub>
             <DropdownMenuSubTrigger className="flex-row">
-              {mounted && theme === "dark" ? <Moon className="mr-2 h-4 w-4" /> : <Sun className="mr-2 h-4 w-4" />}
+              <span className="mr-2">
+                {mounted && theme === "dark" ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
+              </span>
               <span>{t("auth.theme")}</span>
               <span className="ml-auto text-xs text-muted-foreground">
                 {mounted && theme === "dark" ? t("auth.dark") : t("auth.light")}
