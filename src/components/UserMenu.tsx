@@ -91,8 +91,7 @@ const UserMenu = () => {
 
         <DropdownMenuSeparator />
 
-        <div className="flex items-center justify-center gap-4">
-          <DropdownMenuSub>
+        <DropdownMenuSub>
             <DropdownMenuSubTrigger>
               <Globe className="mr-2 h-4 w-4" />
               {t("auth.language")}
@@ -129,7 +128,6 @@ const UserMenu = () => {
               </DropdownMenuItem>
             </DropdownMenuSubContent>
           </DropdownMenuSub>
-        </div>
 
         <DropdownMenuItem onClick={logout} className="cursor-pointer text-red-600 focus:text-red-600">
           <LogOut className="mr-2 h-4 w-4" />
