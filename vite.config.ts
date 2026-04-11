@@ -1,10 +1,9 @@
-import { defineconfig } from "vite";
+import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
-import { componenttagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
-export default defineconfig(({ mode }) => ({
+export default defineConfig(({ mode }) => ({
   base: "/blossom-eco-scents",
   server: {
     host: "::",
@@ -13,11 +12,11 @@ export default defineconfig(({ mode }) => ({
       overlay: false,
     },
   },
-  plugins: [react(), mode === "development" && componenttagger()].filter(boolean),
+  plugins: [react()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
-    dedupe: ["react", "react-dom", "react/jsx-runtime", "react/jsx-dev-runtime", "@tanstack/react-query", "@tanstack/query-core"],
+    dedupe: ["react", "react-dom", "react/jsx-runtime", "react_jsx_dev_runtime", "@tanstack/react-query", "@tanstack/query-core"],
   },
 }));

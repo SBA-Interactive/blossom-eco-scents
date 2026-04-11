@@ -41,6 +41,7 @@ const translations: Translations = {
   "auth.profileTitle": { en: "My Profile", gr: "Το Προφίλ μου" },
   "auth.updateProfile": { en: "Update Profile", gr: "Ενημέρωση Προφίλ" },
   "auth.saved": { en: "Changes saved successfully", gr: "Οι αλλαγές αποθηκεύτηκαν επιτυχώς" },
+  "auth.orderHistory": { en: "Order History", gr: "Ιστορικό Παραγγελιών" },
 
   // Navbar
   "nav.home": { en: "Home", gr: "Αρχική" },
@@ -219,6 +220,12 @@ const translations: Translations = {
   "cart.empty": { en: "Your cart is empty", gr: "Το καλάθι σας είναι άδειο" },
   "cart.total": { en: "Total", gr: "Σύνολο" },
   "cart.checkout": { en: "Checkout", gr: "Ολοκλήρωση" },
+
+  // Order History
+  "orderHistory.title": { en: "Order History", gr: "Ιστορικό Παραγγελιών" },
+  "orderHistory.subtitle": { en: "View your past orders", gr: "Δείτε τις προηγούμενες παραγγελίες σας" },
+  "orderHistory.empty": { en: "No orders yet", gr: "Δεν υπάρχουν ακόμα παραγγελίες" },
+  "orderHistory.total": { en: "Total", gr: "Σύνολο" },
 
   // Footer
   "footer.rights": { en: "© 2026 Blossom. All rights reserved.", gr: "© 2026 Blossom. Με επιφύλαξη παντός δικαιώματος." },

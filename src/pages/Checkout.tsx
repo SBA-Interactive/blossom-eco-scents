@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useCart } from "@/context/CartContext";
+import { useOrders } from "@/context/OrderContext";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import { motion } from "framer-motion";
@@ -8,6 +9,7 @@ import { useLanguage } from "@/context/LanguageContext";
 
 const Checkout = () => {
   const { items, totalPrice, clearCart } = useCart();
+  const { addOrder } = useOrders();
   const [submitted, setSubmitted] = useState(false);
   const { t } = useLanguage();
 
@@ -112,7 +114,7 @@ const Checkout = () => {
                 </div>
 
                 <button
-                  onClick={() => { clearCart(); setSubmitted(true); }}
+                  onClick={() => { addOrder(items, totalPrice); clearCart(); setSubmitted(true); }}
                   className="w-full py-3.5 bg-primary text-primary-foreground font-body text-sm tracking-widest uppercase rounded-sm hover:opacity-90 transition-opacity mt-4"
                 >
                   {t("checkout.placeOrder")} — ${totalPrice.toFixed(2)}

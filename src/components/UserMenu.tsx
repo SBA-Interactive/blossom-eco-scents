@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
-import { User, Heart, ShoppingBag, LogOut, Globe, Moon, Sun } from "lucide-react";
+import { User, Heart, ShoppingBag, LogOut, Globe, Moon, Sun, Clock } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 import { useLanguage } from "@/context/LanguageContext";
 import { useWishlist } from "@/context/WishlistContext";
-import { useCart } from "@/context/CartContext";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -20,7 +19,6 @@ const UserMenu = () => {
   const { user, isAuthenticated, logout } = useAuth();
   const { t, language, setLanguage } = useLanguage();
   const { wishlist } = useWishlist();
-  const { totalItems, setIsCartOpen } = useCart();
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -82,14 +80,11 @@ const UserMenu = () => {
           </Link>
         </DropdownMenuItem>
 
-        <DropdownMenuItem onClick={() => setIsCartOpen(true)} className="cursor-pointer">
-          <ShoppingBag className="mr-2 h-4 w-4" />
-          {t("auth.cart")}
-          {totalItems > 0 && (
-            <span className="ml-auto text-xs bg-primary text-primary-foreground px-1.5 py-0.5 rounded-full">
-              {totalItems}
-            </span>
-          )}
+        <DropdownMenuItem asChild>
+          <Link to="/history" className="cursor-pointer">
+            <Clock className="mr-2 h-4 w-4" />
+            {t("auth.orderHistory")}
+          </Link>
         </DropdownMenuItem>
 
         <DropdownMenuSeparator />

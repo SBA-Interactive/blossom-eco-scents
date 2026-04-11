@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { ShoppingBag, Heart } from "lucide-react";
+import { ShoppingBag } from "lucide-react";
 import { useCart } from "@/context/CartContext";
-import { useWishlist } from "@/context/WishlistContext";
 import { useLanguage } from "@/context/LanguageContext";
 import ThemeToggle from "./ThemeToggle";
 import LanguageToggle from "./LanguageToggle";
@@ -13,7 +12,6 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const { totalItems, setIsCartOpen } = useCart();
-  const { wishlist } = useWishlist();
   const { t } = useLanguage();
 
   const navLinks = [
@@ -23,8 +21,6 @@ const Navbar = () => {
     { label: t("nav.pricing"), to: "/pricing" },
     { label: t("nav.contact"), to: "/contact" },
   ];
-
-  const isOnProducts = location.pathname === "/products";
 
   const handleLogoClick = () => {
     if (location.pathname === "/") {
@@ -58,20 +54,6 @@ const Navbar = () => {
         {/* Right - Actions (desktop) */}
         <div className="hidden md:flex items-center gap-3 ml-auto">
           <UserMenu />
-          {!isOnProducts && (
-            <Link
-              to="/products?wishlist=true"
-              className="relative p-2 text-foreground hover:text-accent transition-colors"
-              aria-label="View wishlist"
-            >
-              <Heart className="w-5 h-5" />
-              {wishlist.length > 0 && (
-                <span className="absolute -top-1 -right-1 w-5 h-5 bg-primary text-primary-foreground text-xs rounded-full flex items-center justify-center font-body">
-                  {wishlist.length}
-                </span>
-              )}
-            </Link>
-          )}
           <button
             onClick={() => setIsCartOpen(true)}
             className="relative p-2 text-foreground hover:text-accent transition-colors"
