@@ -91,45 +91,45 @@ const UserMenu = () => {
 
         <DropdownMenuSeparator />
 
-        <DropdownMenuSub>
-          <DropdownMenuSubTrigger>
-            <Globe className="mr-2 h-4 w-4" />
-            {t("auth.language")}
-            <span className="ml-auto text-xs text-muted-foreground">
-              {language === "en" ? "EN" : "GR"}
-            </span>
-          </DropdownMenuSubTrigger>
-          <DropdownMenuSubContent>
-            <DropdownMenuItem onClick={() => setLanguage("en")}>
-              🇬🇧 English
-            </DropdownMenuItem>
-            <DropdownMenuItem onClick={() => setLanguage("gr")}>
-              🇬🇷 Ελληνικά
-            </DropdownMenuItem>
-          </DropdownMenuSubContent>
-        </DropdownMenuSub>
+        <div className="flex items-center justify-center gap-4">
+          <DropdownMenuSub>
+            <DropdownMenuSubTrigger>
+              <Globe className="mr-2 h-4 w-4" />
+              {t("auth.language")}
+              <span className="w-10 text-center text-xs text-muted-foreground">
+                {language === "en" ? "EN" : "GR"}
+              </span>
+            </DropdownMenuSubTrigger>
+            <DropdownMenuSubContent>
+              <DropdownMenuItem onClick={() => setLanguage("en")}>
+                🇬🇧 English
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setLanguage("gr")}>
+                🇬🇷 Ελληνικά
+              </DropdownMenuItem>
+            </DropdownMenuSubContent>
+          </DropdownMenuSub>
 
-        <DropdownMenuSub>
-          <DropdownMenuSubTrigger>
-            {mounted && theme === "dark" ? <Moon className="mr-2 h-4 w-4" /> : <Sun className="mr-2 h-4 w-4" />}
-            {t("auth.theme")}
-            <span className="ml-auto text-xs text-muted-foreground">
-              {mounted && theme === "dark" ? t("auth.dark") : t("auth.light")}
-            </span>
-          </DropdownMenuSubTrigger>
-          <DropdownMenuSubContent>
-            <DropdownMenuItem onClick={() => setTheme("light")}>
-              <Sun className="mr-2 h-4 w-4" />
-              {t("auth.light")}
-            </DropdownMenuItem>
-            <DropdownMenuItem onClick={() => setTheme("dark")}>
-              <Moon className="mr-2 h-4 w-4" />
-              {t("auth.dark")}
-            </DropdownMenuItem>
-          </DropdownMenuSubContent>
-        </DropdownMenuSub>
-
-        <DropdownMenuSeparator />
+          <DropdownMenuSub>
+            <DropdownMenuSubTrigger>
+              {mounted && theme === "dark" ? <Moon className="mr-2 h-4 w-4" /> : <Sun className="mr-2 h-4 w-4" />}
+              {t("auth.theme")}
+              <span className="w-10 text-center text-xs text-muted-foreground">
+                {mounted && theme === "dark" ? t("auth.dark") : t("auth.light")}
+              </span>
+            </DropdownMenuSubTrigger>
+            <DropdownMenuSubContent>
+              <DropdownMenuItem onClick={() => setTheme("light")}>
+                <Sun className="mr-2 h-4 w-4" />
+                {t("auth.light")}
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setTheme("dark")}>
+                <Moon className="mr-2 h-4 w-4" />
+                {t("auth.dark")}
+              </DropdownMenuItem>
+            </DropdownMenuSubContent>
+          </DropdownMenuSub>
+        </div>
 
         <DropdownMenuItem onClick={logout} className="cursor-pointer text-red-600 focus:text-red-600">
           <LogOut className="mr-2 h-4 w-4" />
