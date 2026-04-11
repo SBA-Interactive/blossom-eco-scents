@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { ShoppingBag } from "lucide-react";
+import { ShoppingBag, Globe, Moon, Sun } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import { useLanguage } from "@/context/LanguageContext";
+import { useAuth } from "@/context/AuthContext";
 import ThemeToggle from "./ThemeToggle";
 import LanguageToggle from "./LanguageToggle";
 import UserMenu from "./UserMenu";
@@ -13,6 +14,7 @@ const Navbar = () => {
   const location = useLocation();
   const { totalItems, setIsCartOpen } = useCart();
   const { t } = useLanguage();
+  const { isAuthenticated } = useAuth();
 
   const navLinks = [
     { label: t("nav.home"), to: "/" },
@@ -53,6 +55,12 @@ const Navbar = () => {
 
         {/* Right - Actions (desktop) */}
         <div className="hidden md:flex items-center gap-3 ml-auto">
+          {!isAuthenticated && (
+            <>
+              <LanguageToggle />
+              <ThemeToggle />
+            </>
+          )}
           <UserMenu />
           <button
             onClick={() => setIsCartOpen(true)}
@@ -120,6 +128,10 @@ const Navbar = () => {
                   {link.label}
                 </Link>
               ))}
+              <div className="flex items-center gap-3 py-4 border-t border-b border-border">
+                <LanguageToggle />
+                <ThemeToggle />
+              </div>
               <Link
                 to="/products"
                 onClick={() => setIsOpen(false)}

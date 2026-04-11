@@ -18,6 +18,7 @@ const translations: Translations = {
   "auth.dark": { en: "Dark", gr: "Σκοτεινό" },
   "auth.system": { en: "System", gr: "Σύστημα" },
   "auth.loginSignin": { en: "Login / Sign In", gr: "Είσοδος / Εγγραφή" },
+  "auth.loginSignUp": { en: "Login / Sign up", gr: "Είσοδος / Εγγραφή" },
   "auth.email": { en: "Email", gr: "Email" },
   "auth.password": { en: "Password", gr: "Κωδικός" },
   "auth.name": { en: "Full Name", gr: "Πλήρες Όνομα" },
