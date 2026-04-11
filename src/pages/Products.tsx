@@ -132,9 +132,9 @@ const Products = () => {
                 return (
                   <BlurFade key={pid} delay={0.1 + (i % 3) * 0.05} yOffset={30}>
                     <Link to={`/products/${product.slug}`} className="block group">
-                      <div className="h-full rounded-xl border border-border bg-card">
+                      <div className="h-full rounded-xl border border-border bg-card group-hover:scale-[1.03] group-hover:shadow-2xl transition-all duration-300">
                         <div className="relative overflow-hidden rounded-t-xl mb-0 bg-muted">
-                          <img src={product.image} alt={product.name} loading="lazy" width={800} height={1000} className="w-full h-auto aspect-[4/5] object-cover" />
+                          <img src={product.image} alt={product.name} loading="lazy" width={800} height={1000} className="w-full h-auto aspect-[4/5] object-cover group-hover:scale-105 transition-transform duration-700" />
                           <button
                             onClick={(e) => {
                               e.preventDefault();

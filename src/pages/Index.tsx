@@ -55,9 +55,9 @@ const Index = () => {
             {products.map((product, i) => (
               <BlurFade key={product.name} delay={0.1 + i * 0.1} yOffset={30}>
                 <Link to="/products" className="group block">
-                  <div className="h-full rounded-xl border border-border bg-card">
+                  <div className="h-full rounded-xl border border-border bg-card group-hover:scale-[1.03] group-hover:shadow-2xl transition-all duration-300">
                     <div className="overflow-hidden rounded-t-xl mb-0 bg-muted">
-                      <img src={product.image} alt={product.name} loading="lazy" width={800} height={1000} className="w-full h-auto aspect-[4/5] object-cover" />
+                      <img src={product.image} alt={product.name} loading="lazy" width={800} height={1000} className="w-full h-auto aspect-[4/5] object-cover group-hover:scale-105 transition-transform duration-700" />
                     </div>
                     <div className="p-6">
                       <h3 className="font-display text-2xl text-foreground mb-2">{product.name}</h3>
