@@ -35,7 +35,7 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="w-full px-4 md:px-10 flex items-center justify-between h-14 md:h-24">
         {/* Left - Logo */}
-        <Link to="/" onClick={handleLogoClick} className="font-display text-2xl md:text-3xl font-semibold tracking-wide text-foreground shrink-0">
+        <Link to="/" onClick={handleLogoClick} className="font-display text-lg md:text-3xl font-semibold tracking-wide text-foreground shrink-0">
           B L O S S O M
         </Link>
 

@@ -30,13 +30,24 @@ const UserMenu = () => {
 
   if (!isAuthenticated) {
     return (
-      <Link
-        to="/login"
-        className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground font-body text-xs tracking-widest uppercase rounded-sm hover:opacity-90 transition-opacity"
-      >
-        <User className="w-4 h-4" />
-        {t("auth.loginSignUp")}
-      </Link>
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <button className="flex items-center gap-2 px-3 py-2 rounded-sm border border-border hover:bg-muted transition-colors">
+            <User className="w-4 h-4" />
+          </button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="end" className="w-40">
+          <DropdownMenuItem asChild>
+            <Link
+              to="/login"
+              className="cursor-pointer flex items-center gap-2"
+            >
+              <User className="w-4 h-4" />
+              {t("auth.loginSignUp")}
+            </Link>
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
     );
   }
 
