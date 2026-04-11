@@ -86,6 +86,7 @@ const translations: Translations = {
   "products.nameZA": { en: "Name: Z → A", gr: "Όνομα: Ω → Α" },
   "products.wishlist": { en: "Wishlist", gr: "Λίστα Επιθυμιών" },
   "products.noMatch": { en: "No products match your filters.", gr: "Κανένα προϊόν δεν ταιριάζει με τα φίλτρα σας." },
+  "products.loadMore": { en: "Load More", gr: "Φόρτωση Περισσότερων" },
   "products.notes": { en: "Notes", gr: "Νότες" },
   "products.addToCart": { en: "Add to Cart", gr: "Προσθήκη στο Καλάθι" },
   "products.backToProducts": { en: "Back to Products", gr: "Πίσω στα Προϊόντα" },
