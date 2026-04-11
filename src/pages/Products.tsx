@@ -42,8 +42,6 @@ const Products = () => {
     return result;
   }, [sizeFilter, scentFilter, sortBy, showWishlistOnly, isWishlisted]);
 
-  const hasMore = filtered.length > displayedCount;
-
   const handleAddToCart = (e: React.MouseEvent, product: typeof products[0]) => {
     e.preventDefault();
     e.stopPropagation();
@@ -178,7 +176,7 @@ const Products = () => {
                   );
                 })}
               </div>
-              {hasMore && (
+              {filtered.length > displayedCount && (
                 <div className="text-center mt-10">
                   <button
                     onClick={() => setDisplayedCount(prev => prev + 3)}
