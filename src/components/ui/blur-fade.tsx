@@ -76,6 +76,7 @@ export function BlurFade({
         animate={isInView ? "visible" : "hidden"}
         exit="hidden"
         variants={combinedVariants}
+        style={{ visibility: isInView ? "visible" : "hidden" }}
         transition={{
           delay: 0.04 + delay,
           duration,

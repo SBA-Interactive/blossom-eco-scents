@@ -49,6 +49,7 @@ export function SlideIn({
         [axis]: getOffset(), 
         opacity: 0 
       }}
+      style={{ visibility: inViewResult ? "visible" : "hidden" }}
       transition={{
         delay: delay,
         duration: duration,
