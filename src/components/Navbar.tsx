@@ -8,6 +8,7 @@ import { useAuth } from "@/context/AuthContext";
 import ThemeToggle from "./ThemeToggle";
 import LanguageToggle from "./LanguageToggle";
 import UserMenu from "./UserMenu";
+import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,7 +36,7 @@ const Navbar = () => {
       <div className="w-full px-4 md:px-10 flex items-center justify-between h-14 md:h-24">
         {/* Left - Logo */}
         <Link to="/" onClick={handleLogoClick} className="font-display text-2xl md:text-3xl font-semibold tracking-wide text-foreground shrink-0">
-          Blossom
+          B L O S S O M
         </Link>
 
         {/* Center - Nav Links (desktop), absolutely centered */}
@@ -57,8 +58,24 @@ const Navbar = () => {
         <div className="hidden md:flex items-center gap-3 ml-auto">
           {!isAuthenticated && (
             <>
-              <LanguageToggle />
-              <ThemeToggle />
+              <motion.button
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex"
+              >
+                <LanguageToggle />
+              </motion.button>
+              <AnimatedThemeToggler className="p-2 rounded-sm border border-border hover:bg-muted transition-colors" />
+            </>
+          )}
+          {isAuthenticated && (
+            <>
+              <motion.button
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex"
+              >
+                <LanguageToggle />
+              </motion.button>
+              <AnimatedThemeToggler className="p-2 rounded-sm border border-border hover:bg-muted transition-colors" />
             </>
           )}
           <UserMenu />
@@ -129,8 +146,13 @@ const Navbar = () => {
                 </Link>
               ))}
               <div className="flex items-center gap-3 py-4 border-t border-b border-border">
-                <LanguageToggle />
-                <ThemeToggle />
+                <motion.button
+                  whileTap={{ scale: 0.95 }}
+                  className="inline-flex"
+                >
+                  <LanguageToggle />
+                </motion.button>
+                <AnimatedThemeToggler className="p-2 rounded-sm border border-border hover:bg-muted transition-colors" />
               </div>
               <Link
                 to="/products"
