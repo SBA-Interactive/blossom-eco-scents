@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Heart, ArrowLeft, ShoppingCart, Star, Droplets, Calendar, Warehouse, Heart as HeartIcon, Leaf, Package, Truck, RotateCcw, CreditCard } from "lucide-react";
+import { Heart, ArrowLeft, ShoppingCart, Star, Droplets, Calendar, Warehouse, Heart as HeartIcon, Leaf, Package, Truck, RotateCcw, CreditCard, HelpCircle } from "lucide-react";
 import * as Accordion from "@radix-ui/react-accordion";
 import * as Tabs from "@radix-ui/react-tabs";
 import Layout from "@/components/Layout";
@@ -310,6 +310,11 @@ const ProductDetail = () => {
               <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-primary via-accent to-primary" />
               
               <div className="p-6 md:p-8">
+                <h2 className="font-display text-2xl md:text-3xl text-foreground mb-6 flex items-center gap-3">
+                  <HelpCircle className="w-6 h-6 text-primary" />
+                  {t("products.faq")}
+                </h2>
+                
                 <Tabs.Root defaultValue="product" className="w-full">
                   {/* Tab List */}
                   <Tabs.List className="flex gap-2 mb-8">
