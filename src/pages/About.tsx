@@ -4,6 +4,7 @@ import Layout from "@/components/Layout";
 import { useLanguage } from "@/context/LanguageContext";
 import { Leaf, Heart, Shield, ShoppingBag, CreditCard, Truck, RotateCcw, Sparkles } from "lucide-react";
 import { BlurFade } from "@/components/ui/blur-fade";
+import { SlideIn } from "@/components/ui/slide-in";
 
 const placeholder = "/placeholder.svg";
 
@@ -53,11 +54,13 @@ const About = () => {
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-light text-foreground">{t("about.valuesTitle")}</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-            {values.map((v) => (
-              <motion.div key={v.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="border-l-2 border-primary pl-5">
-                <h4 className="font-display text-lg md:text-xl text-foreground mb-2">{v.title}</h4>
-                <p className="font-body text-sm text-muted-foreground leading-relaxed">{v.desc}</p>
-              </motion.div>
+            {values.map((v, i) => (
+              <SlideIn key={v.title} direction="up" delay={i * 0.1}>
+                <div className="border-l-2 border-primary pl-5">
+                  <h4 className="font-display text-lg md:text-xl text-foreground mb-2">{v.title}</h4>
+                  <p className="font-body text-sm text-muted-foreground leading-relaxed">{v.desc}</p>
+                </div>
+              </SlideIn>
             ))}
           </div>
         </div>
@@ -71,14 +74,16 @@ const About = () => {
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-light text-foreground">{t("about.process")}</h2>
           </div>
           <div className="space-y-8 md:space-y-12">
-            {timeline.map((tl) => (
-              <motion.div key={tl.step} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="flex gap-4 md:gap-6 items-start">
-                <span className="font-display text-3xl md:text-4xl text-primary/30 shrink-0">{tl.step}</span>
-                <div>
-                  <h4 className="font-display text-xl md:text-2xl text-foreground mb-2">{tl.title}</h4>
-                  <p className="font-body text-sm text-muted-foreground leading-relaxed">{tl.desc}</p>
+            {timeline.map((tl, i) => (
+              <SlideIn key={tl.step} direction="left" delay={i * 0.1}>
+                <div className="flex gap-4 md:gap-6 items-start">
+                  <span className="font-display text-3xl md:text-4xl text-primary/30 shrink-0">{tl.step}</span>
+                  <div>
+                    <h4 className="font-display text-xl md:text-2xl text-foreground mb-2">{tl.title}</h4>
+                    <p className="font-body text-sm text-muted-foreground leading-relaxed">{tl.desc}</p>
+                  </div>
                 </div>
-              </motion.div>
+              </SlideIn>
             ))}
           </div>
         </div>

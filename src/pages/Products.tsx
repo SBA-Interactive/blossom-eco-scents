@@ -8,6 +8,7 @@ import { useWishlist } from "@/context/WishlistContext";
 import { useLanguage } from "@/context/LanguageContext";
 import { toast } from "sonner";
 import { BlurFade } from "@/components/ui/blur-fade";
+import { SlideIn } from "@/components/ui/slide-in";
 
 type SortOption = "default" | "price-asc" | "price-desc" | "name-asc" | "name-desc";
 
@@ -126,52 +127,111 @@ const Products = () => {
             <p className="text-center font-body text-muted-foreground py-16">{t("products.noMatch")}</p>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
-              {filtered.map((product, i) => {
-                const pid = `${product.name}-${product.size}`;
-                const wishlisted = isWishlisted(pid);
-                return (
-                  <BlurFade key={pid} delay={0.1 + (i % 3) * 0.05} yOffset={30}>
-                    <Link to={`/products/${product.slug}`} className="block group">
-                      <div className="h-full rounded-xl border border-border bg-card group-hover:scale-[1.03] group-hover:shadow-2xl transition-all duration-300">
-                        <div className="relative overflow-hidden rounded-t-xl mb-0 bg-muted">
-                          <img src={product.image} alt={product.name} loading="lazy" width={800} height={1000} className="w-full h-auto aspect-[4/5] object-cover group-hover:scale-105 transition-transform duration-700" />
-                          <button
-                            onClick={(e) => {
-                              e.preventDefault();
-                              e.stopPropagation();
-                              toggleWishlist(pid);
-                              toast(wishlisted ? "Removed from wishlist" : "Added to wishlist");
-                            }}
-                            className="absolute top-3 right-3 p-2 bg-background/80 backdrop-blur-sm rounded-full text-foreground hover:text-primary transition-colors"
-                            aria-label={wishlisted ? "Remove from wishlist" : "Add to wishlist"}
-                          >
-                            <Heart className="w-5 h-5" fill={wishlisted ? "currentColor" : "none"} />
-                          </button>
-                        </div>
-                        <div className="p-6 pt-4">
-                          <div className="flex items-start justify-between mb-2">
-                            <h3 className="font-display text-2xl text-foreground">{product.name}</h3>
-                            <span className="font-body text-xs tracking-widest uppercase text-muted-foreground mt-2 bg-muted px-2 py-1 rounded-sm">{product.size}</span>
-                          </div>
-                          <p className="font-body text-xs text-accent uppercase tracking-wider mb-2">{t("products.notes")}: {product.notes}</p>
-                          <p className="font-body text-sm text-muted-foreground mb-4 leading-relaxed">{product.description}</p>
-                          <div className="flex items-center justify-between">
-                            <span className="font-display text-xl text-foreground">
-                              ${product.price}
-                            </span>
-                            <button
-                              onClick={(e) => handleAddToCart(e, product)}
-                              className="px-6 py-2.5 bg-primary text-primary-foreground font-body text-xs tracking-widest uppercase rounded-sm hover:opacity-90 transition-opacity"
-                            >
-                              {t("products.addToCart")}
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </Link>
-                  </BlurFade>
-                );
-              })}
+              {(() => {
+                const rows = [];
+                for (let i = 0; i < filtered.length; i += 3) {
+                  const rowProducts = filtered.slice(i, i + 3);
+                  const rowIndex = Math.floor(i / 3);
+                  rows.push(
+                    <div key={i} className="contents">
+                      {rowIndex === 0 ? (
+                        rowProducts.map((product) => {
+                          const pid = `${product.name}-${product.size}`;
+                          const wishlisted = isWishlisted(pid);
+                          return (
+                            <Link key={pid} to={`/products/${product.slug}`} className="block group">
+                              <div className="h-full rounded-xl border border-border bg-card group-hover:scale-[1.03] group-hover:shadow-2xl transition-all duration-300">
+                                <div className="relative overflow-hidden rounded-t-xl mb-0 bg-muted">
+                                  <img src={product.image} alt={product.name} loading="lazy" width={800} height={1000} className="w-full h-auto aspect-[4/5] object-cover group-hover:scale-105 transition-transform duration-700" />
+                                  <button
+                                    onClick={(e) => {
+                                      e.preventDefault();
+                                      e.stopPropagation();
+                                      toggleWishlist(pid);
+                                      toast(wishlisted ? "Removed from wishlist" : "Added to wishlist");
+                                    }}
+                                    className="absolute top-3 right-3 p-2 bg-background/80 backdrop-blur-sm rounded-full text-foreground hover:text-primary transition-colors"
+                                    aria-label={wishlisted ? "Remove from wishlist" : "Add to wishlist"}
+                                  >
+                                    <Heart className="w-5 h-5" fill={wishlisted ? "currentColor" : "none"} />
+                                  </button>
+                                </div>
+                                <div className="p-6 pt-4">
+                                  <div className="flex items-start justify-between mb-2">
+                                    <h3 className="font-display text-2xl text-foreground">{product.name}</h3>
+                                    <span className="font-body text-xs tracking-widest uppercase text-muted-foreground mt-2 bg-muted px-2 py-1 rounded-sm">{product.size}</span>
+                                  </div>
+                                  <p className="font-body text-xs text-accent uppercase tracking-wider mb-2">{t("products.notes")}: {product.notes}</p>
+                                  <p className="font-body text-sm text-muted-foreground mb-4 leading-relaxed">{product.description}</p>
+                                  <div className="flex items-center justify-between">
+                                    <span className="font-display text-xl text-foreground">
+                                      ${product.price}
+                                    </span>
+                                    <button
+                                      onClick={(e) => handleAddToCart(e, product)}
+                                      className="px-6 py-2.5 bg-primary text-primary-foreground font-body text-xs tracking-widest uppercase rounded-sm hover:opacity-90 transition-opacity"
+                                    >
+                                      {t("products.addToCart")}
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+                            </Link>
+                          );
+                        })
+                      ) : (
+                        <SlideIn key={i} direction="up" delay={(rowIndex - 1) * 0.1} className="contents">
+                          {rowProducts.map((product) => {
+                            const pid = `${product.name}-${product.size}`;
+                            const wishlisted = isWishlisted(pid);
+                            return (
+                              <Link key={pid} to={`/products/${product.slug}`} className="block group">
+                                <div className="h-full rounded-xl border border-border bg-card group-hover:scale-[1.03] group-hover:shadow-2xl transition-all duration-300">
+                                  <div className="relative overflow-hidden rounded-t-xl mb-0 bg-muted">
+                                    <img src={product.image} alt={product.name} loading="lazy" width={800} height={1000} className="w-full h-auto aspect-[4/5] object-cover group-hover:scale-105 transition-transform duration-700" />
+                                    <button
+                                      onClick={(e) => {
+                                        e.preventDefault();
+                                        e.stopPropagation();
+                                        toggleWishlist(pid);
+                                        toast(wishlisted ? "Removed from wishlist" : "Added to wishlist");
+                                      }}
+                                      className="absolute top-3 right-3 p-2 bg-background/80 backdrop-blur-sm rounded-full text-foreground hover:text-primary transition-colors"
+                                      aria-label={wishlisted ? "Remove from wishlist" : "Add to wishlist"}
+                                    >
+                                      <Heart className="w-5 h-5" fill={wishlisted ? "currentColor" : "none"} />
+                                    </button>
+                                  </div>
+                                  <div className="p-6 pt-4">
+                                    <div className="flex items-start justify-between mb-2">
+                                      <h3 className="font-display text-2xl text-foreground">{product.name}</h3>
+                                      <span className="font-body text-xs tracking-widest uppercase text-muted-foreground mt-2 bg-muted px-2 py-1 rounded-sm">{product.size}</span>
+                                    </div>
+                                    <p className="font-body text-xs text-accent uppercase tracking-wider mb-2">{t("products.notes")}: {product.notes}</p>
+                                    <p className="font-body text-sm text-muted-foreground mb-4 leading-relaxed">{product.description}</p>
+                                    <div className="flex items-center justify-between">
+                                      <span className="font-display text-xl text-foreground">
+                                        ${product.price}
+                                      </span>
+                                      <button
+                                        onClick={(e) => handleAddToCart(e, product)}
+                                        className="px-6 py-2.5 bg-primary text-primary-foreground font-body text-xs tracking-widest uppercase rounded-sm hover:opacity-90 transition-opacity"
+                                      >
+                                        {t("products.addToCart")}
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </Link>
+                            );
+                          })}
+                        </SlideIn>
+                      )}
+                    </div>
+                  );
+                }
+                return rows;
+              })()}
             </div>
           )}
         </div>
