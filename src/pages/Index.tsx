@@ -56,13 +56,15 @@ const Index = () => {
             {products.map((product, i) => (
               <BlurFade key={product.name} delay={0.1 + i * 0.1} yOffset={30}>
                 <Link to="/products" className="group block">
-                  <MagicCard className="h-full p-0 border-0 shadow-none group-hover:-translate-y-2 group-hover:shadow-xl transition-all duration-300" gradient={{ opacity: 0.1, ConicGradient: "transparent" }} gradientFrom="#8b5cf6" gradientTo="#ec4899">
-                    <div className="overflow-hidden rounded-sm mb-6 bg-muted">
+                  <MagicCard className="h-full p-0 border-0 shadow-none group-hover:scale-[1.03] group-hover:shadow-2xl transition-all duration-300 rounded-xl" gradient={{ opacity: 0.1, ConicGradient: "transparent" }} gradientFrom="#8b5cf6" gradientTo="#ec4899">
+                    <div className="overflow-hidden rounded-t-xl mb-0 bg-muted">
                       <img src={product.image} alt={product.name} loading="lazy" width={800} height={1000} className="w-full h-auto aspect-[4/5] object-cover group-hover:scale-105 transition-transform duration-700" />
                     </div>
-                    <h3 className="font-display text-2xl text-foreground mb-1">{product.name}</h3>
-                    <p className="font-body text-sm text-muted-foreground mb-4">{product.description}</p>
-                    <span className="font-display text-xl text-foreground">{product.price}</span>
+                    <div className="p-6">
+                      <h3 className="font-display text-2xl text-foreground mb-2">{product.name}</h3>
+                      <p className="font-body text-sm text-muted-foreground mb-4">{product.description}</p>
+                      <span className="font-display text-xl text-foreground">{product.price}</span>
+                    </div>
                   </MagicCard>
                 </Link>
               </BlurFade>

@@ -305,22 +305,27 @@ const ProductDetail = () => {
             viewport={{ once: true }}
             className="mt-16"
           >
-            <Tabs.Root defaultValue="product" className="w-full">
-              {/* Tab List */}
-              <Tabs.List className="flex gap-2 mb-8">
-                <Tabs.Trigger
-                  value="product"
-                  className="px-6 py-3 font-body text-sm tracking-widest uppercase rounded-md transition-all data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md hover:bg-muted"
-                >
-                  {t("products.faq.product")}
-                </Tabs.Trigger>
-                <Tabs.Trigger
-                  value="shipping"
-                  className="px-6 py-3 font-body text-sm tracking-widest uppercase rounded-md transition-all data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md hover:bg-muted"
-                >
-                  {t("products.faq.shipping")}
-                </Tabs.Trigger>
-              </Tabs.List>
+            <div className="relative overflow-hidden rounded-xl border border-border shadow-lg bg-background">
+              {/* Header gradient */}
+              <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-primary via-accent to-primary" />
+              
+              <div className="p-6 md:p-8">
+                <Tabs.Root defaultValue="product" className="w-full">
+                  {/* Tab List */}
+                  <Tabs.List className="flex gap-2 mb-8">
+                    <Tabs.Trigger
+                      value="product"
+                      className="px-6 py-3 font-body text-sm tracking-widest uppercase rounded-md transition-all data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md hover:bg-muted"
+                    >
+                      {t("products.faq.product")}
+                    </Tabs.Trigger>
+                    <Tabs.Trigger
+                      value="shipping"
+                      className="px-6 py-3 font-body text-sm tracking-widest uppercase rounded-md transition-all data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md hover:bg-muted"
+                    >
+                      {t("products.faq.shipping")}
+                    </Tabs.Trigger>
+                  </Tabs.List>
 
               {/* Product Tab */}
               <Tabs.Content value="product" className="outline-none">
@@ -414,6 +419,8 @@ const ProductDetail = () => {
                 </Accordion.Root>
               </Tabs.Content>
             </Tabs.Root>
+              </div>
+            </div>
           </motion.div>
 
           {/* Write Review Form */}
