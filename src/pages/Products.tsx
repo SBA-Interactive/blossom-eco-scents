@@ -24,8 +24,6 @@ const Products = () => {
   const [showWishlistOnly, setShowWishlistOnly] = useState(searchParams.get("wishlist") === "true");
   const [displayedCount, setDisplayedCount] = useState(3);
 
-  const hasMore = filtered.length > displayedCount;
-
   const scents = [...new Set(products.map((p) => p.name))];
   const sizes = [...new Set(products.map((p) => p.size))];
 
@@ -43,6 +41,8 @@ const Products = () => {
     }
     return result;
   }, [sizeFilter, scentFilter, sortBy, showWishlistOnly, isWishlisted]);
+
+  const hasMore = filtered.length > displayedCount;
 
   const handleAddToCart = (e: React.MouseEvent, product: typeof products[0]) => {
     e.preventDefault();
