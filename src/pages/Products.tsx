@@ -1,6 +1,5 @@
 import { useState, useMemo } from "react";
 import { useSearchParams, Link } from "react-router-dom";
-import { motion } from "framer-motion";
 import { Heart, SlidersHorizontal, ArrowUpDown } from "lucide-react";
 import Layout from "@/components/Layout";
 import { products } from "@/data/products";
@@ -8,18 +7,10 @@ import { useCart } from "@/context/CartContext";
 import { useWishlist } from "@/context/WishlistContext";
 import { useLanguage } from "@/context/LanguageContext";
 import { toast } from "sonner";
+import { BlurFade } from "@/components/ui/blur-fade";
+import { NumberTicker } from "@/components/ui/number-ticker";
 
 type SortOption = "default" | "price-asc" | "price-desc" | "name-asc" | "name-desc";
-
-const container = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.1 } },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
-};
 
 const Products = () => {
   const [searchParams] = useSearchParams();
@@ -67,21 +58,16 @@ const Products = () => {
     <Layout>
       <section className="section-padding">
         <div className="max-w-7xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-center mb-12">
+          <BlurFade delay={0.1} className="text-center mb-12">
             <p className="font-body text-xs tracking-[0.3em] uppercase text-muted-foreground mb-3">{t("products.collection")}</p>
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-light text-foreground mb-4">{t("products.title")}</h1>
             <p className="font-body text-base text-muted-foreground max-w-lg mx-auto leading-relaxed">
               {t("products.desc")}
             </p>
-          </motion.div>
+          </BlurFade>
 
           {/* Filters & Sort Bar */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.2 }}
-            className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 mb-10 p-4 bg-card border border-border rounded-sm flex-wrap"
-          >
+          <BlurFade delay={0.2} yOffset={10} className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 mb-10 p-4 bg-card border border-border rounded-sm flex-wrap">
             <div className="flex items-center gap-2 text-muted-foreground">
               <SlidersHorizontal className="w-4 h-4" />
               <span className="font-body text-xs tracking-widest uppercase">{t("products.filter")}</span>
@@ -135,18 +121,18 @@ const Products = () => {
               <Heart className="w-3.5 h-3.5" fill={showWishlistOnly ? "currentColor" : "none"} />
               {t("products.wishlist")}
             </button>
-          </motion.div>
+          </BlurFade>
 
           {filtered.length === 0 ? (
             <p className="text-center font-body text-muted-foreground py-16">{t("products.noMatch")}</p>
           ) : (
-            <motion.div variants={container} initial="hidden" animate="show" key={`${sizeFilter}-${scentFilter}-${sortBy}-${showWishlistOnly}`} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
-              {filtered.map((product) => {
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+              {filtered.map((product, i) => {
                 const pid = `${product.name}-${product.size}`;
                 const wishlisted = isWishlisted(pid);
                 return (
-                  <motion.div key={pid} variants={item} className="group">
-                    <Link to={`/products/${product.slug}`} className="block">
+                  <BlurFade key={pid} delay={0.1 + (i % 3) * 0.05} yOffset={30}>
+                    <Link to={`/products/${product.slug}`} className="block group">
                       <div className="relative overflow-hidden rounded-sm mb-6 bg-muted">
                         <img src={product.image} alt={product.name} loading="lazy" width={800} height={1000} className="w-full h-auto aspect-[4/5] object-cover group-hover:scale-105 transition-transform duration-700" />
                         <button
@@ -169,7 +155,9 @@ const Products = () => {
                       <p className="font-body text-xs text-accent uppercase tracking-wider mb-2">{t("products.notes")}: {product.notes}</p>
                       <p className="font-body text-sm text-muted-foreground mb-4 leading-relaxed">{product.description}</p>
                       <div className="flex items-center justify-between">
-                        <span className="font-display text-xl text-foreground">${product.price}</span>
+                        <span className="font-display text-xl text-foreground">
+                          $<NumberTicker value={product.price} />
+                        </span>
                         <button
                           onClick={(e) => handleAddToCart(e, product)}
                           className="px-6 py-2.5 bg-primary text-primary-foreground font-body text-xs tracking-widest uppercase rounded-sm hover:opacity-90 transition-opacity"
@@ -178,10 +166,10 @@ const Products = () => {
                         </button>
                       </div>
                     </Link>
-                  </motion.div>
+                  </BlurFade>
                 );
               })}
-            </motion.div>
+            </div>
           )}
         </div>
       </section>
