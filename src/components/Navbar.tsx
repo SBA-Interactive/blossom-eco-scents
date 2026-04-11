@@ -30,7 +30,7 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <div className="w-full px-6 md:px-10 flex items-center h-18 md:h-24 relative">
+      <div className="w-full px-4 md:px-10 flex items-center justify-between h-14 md:h-24">
         {/* Left - Logo */}
         <Link to="/" onClick={handleLogoClick} className="font-display text-2xl md:text-3xl font-semibold tracking-wide text-foreground shrink-0">
           Blossom
@@ -75,7 +75,19 @@ const Navbar = () => {
         </div>
 
         {/* Mobile actions */}
-        <div className="flex items-center gap-2 md:hidden">
+        <div className="flex items-center gap-1 md:hidden ml-auto">
+          <button
+            onClick={() => setIsCartOpen(true)}
+            className="relative p-2 text-foreground hover:text-accent transition-colors"
+            aria-label="Open cart"
+          >
+            <ShoppingBag className="w-5 h-5" />
+            {totalItems > 0 && (
+              <span className="absolute -top-1 -right-1 w-5 h-5 bg-primary text-primary-foreground text-xs rounded-full flex items-center justify-center font-body">
+                {totalItems}
+              </span>
+            )}
+          </button>
           <UserMenu />
           <button
             onClick={() => setIsOpen(!isOpen)}
