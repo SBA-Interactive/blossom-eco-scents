@@ -91,48 +91,6 @@ const UserMenu = () => {
 
         <DropdownMenuSeparator />
 
-        <DropdownMenuSub>
-            <DropdownMenuSubTrigger className="flex-row">
-              <span className="w-5 flex items-center justify-center mr-2">
-                <Globe className="h-4 w-4" />
-              </span>
-              <span className="flex-1">{t("auth.language")}</span>
-              <span className="w-12 text-center text-xs text-muted-foreground">
-                {language === "en" ? "EN" : "GR"}
-              </span>
-            </DropdownMenuSubTrigger>
-            <DropdownMenuSubContent>
-              <DropdownMenuItem onClick={() => setLanguage("en")}>
-                🇬🇧 English
-              </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setLanguage("gr")}>
-                🇬🇷 Ελληνικά
-              </DropdownMenuItem>
-            </DropdownMenuSubContent>
-          </DropdownMenuSub>
-
-          <DropdownMenuSub>
-            <DropdownMenuSubTrigger className="flex-row">
-              <span className="w-5 flex items-center justify-center mr-2">
-                {mounted && theme === "dark" ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
-              </span>
-              <span className="flex-1">{t("auth.theme")}</span>
-              <span className="w-12 text-center text-xs text-muted-foreground">
-                {mounted && theme === "dark" ? t("auth.dark") : t("auth.light")}
-              </span>
-            </DropdownMenuSubTrigger>
-            <DropdownMenuSubContent>
-              <DropdownMenuItem onClick={() => setTheme("light")}>
-                <Sun className="mr-2 h-4 w-4" />
-                {t("auth.light")}
-              </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setTheme("dark")}>
-                <Moon className="mr-2 h-4 w-4" />
-                {t("auth.dark")}
-              </DropdownMenuItem>
-            </DropdownMenuSubContent>
-          </DropdownMenuSub>
-
         <DropdownMenuItem onClick={logout} className="cursor-pointer text-red-600 focus:text-red-600">
           <LogOut className="mr-2 h-4 w-4" />
           {t("auth.logout")}
