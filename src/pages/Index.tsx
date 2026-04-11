@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 import CustomerReviewsCarousel from "@/components/CustomerReviewsCarousel";
 import { BlurFade } from "@/components/ui/blur-fade";
+import { MagicCard } from "@/components/ui/magic-card";
 import { useLanguage } from "@/context/LanguageContext";
 import { customerReviews } from "@/data/reviews";
 
@@ -56,12 +56,14 @@ const Index = () => {
             {products.map((product, i) => (
               <BlurFade key={product.name} delay={0.1 + i * 0.1} yOffset={30}>
                 <Link to="/products" className="group block">
-                  <div className="overflow-hidden rounded-sm mb-6 bg-muted">
-                    <img src={product.image} alt={product.name} loading="lazy" width={800} height={1000} className="w-full h-auto aspect-[4/5] object-cover group-hover:scale-105 transition-transform duration-700" />
-                  </div>
-                  <h3 className="font-display text-2xl text-foreground mb-1">{product.name}</h3>
-                  <p className="font-body text-sm text-muted-foreground mb-3">{product.description}</p>
-                  <span className="font-display text-xl text-foreground">{product.price}</span>
+                  <MagicCard className="h-full p-0 border-0 shadow-none" gradient={{ opacity: 0.1, ConicGradient: "transparent" }} gradientFrom="#8b5cf6" gradientTo="#ec4899">
+                    <div className="overflow-hidden rounded-sm mb-6 bg-muted group-hover:-translate-y-2 group-hover:shadow-xl transition-all duration-300">
+                      <img src={product.image} alt={product.name} loading="lazy" width={800} height={1000} className="w-full h-auto aspect-[4/5] object-cover group-hover:scale-105 transition-transform duration-700" />
+                    </div>
+                    <h3 className="font-display text-2xl text-foreground mb-1">{product.name}</h3>
+                    <p className="font-body text-sm text-muted-foreground mb-3">{product.description}</p>
+                    <span className="font-display text-xl text-foreground">{product.price}</span>
+                  </MagicCard>
                 </Link>
               </BlurFade>
             ))}

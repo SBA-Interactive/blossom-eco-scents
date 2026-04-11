@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 import { useLanguage } from "@/context/LanguageContext";
+import * as Accordion from "@radix-ui/react-accordion";
+import { Leaf, Heart, Shield, ShoppingBag, CreditCard, Truck, RotateCcw, Sparkles } from "lucide-react";
+import { BlurFade } from "@/components/ui/blur-fade";
 
 const placeholder = "/placeholder.svg";
 
@@ -77,6 +80,97 @@ const About = () => {
                 </div>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="section-padding bg-card">
+        <div className="max-w-3xl mx-auto">
+          <BlurFade delay={0.1} className="text-center mb-12">
+            <p className="font-body text-xs tracking-[0.3em] uppercase text-muted-foreground mb-3">FAQ</p>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-light text-foreground">{t("about.faq.title")}</h2>
+          </BlurFade>
+
+          <div className="relative overflow-hidden rounded-xl border border-border shadow-lg bg-background">
+            {/* Header gradient */}
+            <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-primary via-accent to-primary" />
+            
+            <div className="p-6 md:p-8">
+              <Accordion.Root type="single" collapsible className="space-y-4">
+                <Accordion.Item value="faq-1" className="border border-border rounded-lg overflow-hidden bg-muted/30 hover:bg-muted/50 transition-colors">
+                  <Accordion.Header>
+                    <Accordion.Trigger className="flex w-full items-center justify-between p-5 font-body text-sm text-left group">
+                      <span className="pr-4 flex items-center gap-3"><Sparkles className="w-5 h-5 text-primary shrink-0" />{t("about.faq.brandStory")}</span>
+                      <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
+                    </Accordion.Trigger>
+                  </Accordion.Header>
+                  <Accordion.Content className="p-5 pt-0 font-body text-sm text-muted-foreground leading-relaxed">
+                    {t("about.faq.brandStoryAnswer")}
+                  </Accordion.Content>
+                </Accordion.Item>
+
+                <Accordion.Item value="faq-2" className="border border-border rounded-lg overflow-hidden bg-muted/30 hover:bg-muted/50 transition-colors">
+                  <Accordion.Header>
+                    <Accordion.Trigger className="flex w-full items-center justify-between p-5 font-body text-sm text-left group">
+                      <span className="pr-4 flex items-center gap-3"><Leaf className="w-5 h-5 text-primary shrink-0" />{t("about.faq.sustainability")}</span>
+                      <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
+                    </Accordion.Trigger>
+                  </Accordion.Header>
+                  <Accordion.Content className="p-5 pt-0 font-body text-sm text-muted-foreground leading-relaxed">
+                    {t("about.faq.sustainabilityAnswer")}
+                  </Accordion.Content>
+                </Accordion.Item>
+
+                <Accordion.Item value="faq-3" className="border border-border rounded-lg overflow-hidden bg-muted/30 hover:bg-muted/50 transition-colors">
+                  <Accordion.Header>
+                    <Accordion.Trigger className="flex w-full items-center justify-between p-5 font-body text-sm text-left group">
+                      <span className="pr-4 flex items-center gap-3"><Shield className="w-5 h-5 text-primary shrink-0" />{t("about.faq.quality")}</span>
+                      <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
+                    </Accordion.Trigger>
+                  </Accordion.Header>
+                  <Accordion.Content className="p-5 pt-0 font-body text-sm text-muted-foreground leading-relaxed">
+                    {t("about.faq.qualityAnswer")}
+                  </Accordion.Content>
+                </Accordion.Item>
+
+                <Accordion.Item value="faq-4" className="border border-border rounded-lg overflow-hidden bg-muted/30 hover:bg-muted/50 transition-colors">
+                  <Accordion.Header>
+                    <Accordion.Trigger className="flex w-full items-center justify-between p-5 font-body text-sm text-left group">
+                      <span className="pr-4 flex items-center gap-3"><ShoppingBag className="w-5 h-5 text-primary shrink-0" />{t("about.faq.ordering")}</span>
+                      <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
+                    </Accordion.Trigger>
+                  </Accordion.Header>
+                  <Accordion.Content className="p-5 pt-0 font-body text-sm text-muted-foreground leading-relaxed">
+                    {t("about.faq.orderingAnswer")}
+                  </Accordion.Content>
+                </Accordion.Item>
+
+                <Accordion.Item value="faq-5" className="border border-border rounded-lg overflow-hidden bg-muted/30 hover:bg-muted/50 transition-colors">
+                  <Accordion.Header>
+                    <Accordion.Trigger className="flex w-full items-center justify-between p-5 font-body text-sm text-left group">
+                      <span className="pr-4 flex items-center gap-3"><CreditCard className="w-5 h-5 text-primary shrink-0" />{t("about.faq.payment")}</span>
+                      <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
+                    </Accordion.Trigger>
+                  </Accordion.Header>
+                  <Accordion.Content className="p-5 pt-0 font-body text-sm text-muted-foreground leading-relaxed">
+                    {t("about.faq.paymentAnswer")}
+                  </Accordion.Content>
+                </Accordion.Item>
+
+                <Accordion.Item value="faq-6" className="border border-border rounded-lg overflow-hidden bg-muted/30 hover:bg-muted/50 transition-colors">
+                  <Accordion.Header>
+                    <Accordion.Trigger className="flex w-full items-center justify-between p-5 font-body text-sm text-left group">
+                      <span className="pr-4 flex items-center gap-3"><Truck className="w-5 h-5 text-primary shrink-0" />{t("about.faq.shippingReturns")}</span>
+                      <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
+                    </Accordion.Trigger>
+                  </Accordion.Header>
+                  <Accordion.Content className="p-5 pt-0 font-body text-sm text-muted-foreground leading-relaxed">
+                    {t("about.faq.shippingReturnsAnswer")}
+                  </Accordion.Content>
+                </Accordion.Item>
+              </Accordion.Root>
+            </div>
           </div>
         </div>
       </section>

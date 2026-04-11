@@ -252,6 +252,37 @@ const translations: Translations = {
 
   // Footer
   "footer.rights": { en: "© 2026 Blossom. All rights reserved.", gr: "© 2026 Blossom. Με επιφύλαξη παντός δικαιώματος." },
+
+  // Product FAQ Tabs
+  "products.faq.product": { en: "Product", gr: "Προϊόν" },
+  "products.faq.shipping": { en: "Shipping", gr: "Αποστολή" },
+
+  // Shipping FAQs (Global)
+  "faq.shipping.options": { en: "What are the shipping options?", gr: "Ποιες είναι οι επιλογές αποστολής;" },
+  "faq.shipping.optionsAnswer": { en: "We offer standard shipping (5-7 business days), express shipping (2-3 business days), and overnight shipping. All orders over $50 qualify for free standard shipping.", gr: "Προσφέρουμε κανονική αποστολή (5-7 εργάσιμες μέρες), express αποστολή (2-3 εργάσιμες μέρες) και overnight αποστολή. Όλες οι παραγγελίες άνω των $50 δικαιούνται δωρεάν κανονική αποστολή." },
+  "faq.shipping.deliveryTime": { en: "How long does delivery take?", gr: "Πόσο διαρκεί η παράδοση;" },
+  "faq.shipping.deliveryTimeAnswer": { en: "Standard shipping takes 5-7 business days. Express shipping takes 2-3 business days. Overnight shipping delivers the next business day. International delivery times vary by location.", gr: "Η κανονική αποστολή διαρκεί 5-7 εργάσιμες μέρες. Η express αποστολή διαρκεί 2-3 εργάσιμες μέρες. Η overnight αποστολή παραδίδει την επόμενη εργάσιμη μέρα. Οι χρόνοι διεθνούς παράδοσης διαφέρουν ανάλογα με την τοποθεσία." },
+  "faq.shipping.freeShipping": { en: "Do you offer free shipping?", gr: "Προσφέρετε δωρεάν αποστολή;" },
+  "faq.shipping.freeShippingAnswer": { en: "Yes! All orders over $50 qualify for free standard shipping. This applies to both domestic and international orders.", gr: "Ναι! Όλες οι παραγγελίες άνω των $50 δικαιούνται δωρεάν κανονική αποστολή. Ισχύει τόσο για εγχώριες όσο και για διεθνείς παραγγελίες." },
+  "faq.shipping.tracking": { en: "How can I track my order?", gr: "Πώς μπορώ να παρακολουθήσω την παραγγελία μου;" },
+  "faq.shipping.trackingAnswer": { en: "Once your order ships, you'll receive an email with a tracking number and a link to track your package. You can also track your order through your account on our website.", gr: "Μόλις αποσταλεί η παραγγελία σας, θα λάβετε ένα email με αριθμό παρακολούθησης και έναν σύνδεσμο για να παρακολουθήσε το δέμα σας. Μπορείτε επίσης να παρακολουθήσετε την παραγγελία σας μέσω του λογαριασμού σας στην ιστοσελίδα μας." },
+  "faq.shipping.returns": { en: "What is your return policy?", gr: "Ποια είναι η πολιτική επιστροφών σας;" },
+  "faq.shipping.returnsAnswer": { en: "We offer a 30-day return policy for unopened items in their original condition. Simply contact our customer service team to initiate a return. Refunds are processed within 5-7 business days of receiving the returned item.", gr: "Προσφέρουμε πολιτική επιστροφής 30 ημερών για ανοιχτά προϊόντα στην αρχική τους κατάσταση. Απλώς επικοινωνήστε με την ομάδα εξυπηρέτησης πελατών για να ξεκινήσετε επιστροφή. Οι επιστροφές επεξεργάζονται εντός 5-7 εργάσιμων ημερών από την παραλαβή του επιστραφέντος προϊόντος." },
+
+  // About Page FAQ
+  "about.faq.title": { en: "Frequently Asked Questions", gr: "Συχνές Ερωτήσεις" },
+  "about.faq.brandStory": { en: "What is Blossom and what is your mission?", gr: "Τι είναι το Blossom και ποιά είναι η αποστολή σας;" },
+  "about.faq.brandStoryAnswer": { en: "Blossom is a sustainable fragrance brand that transforms discarded fruit peels into premium, eco-friendly perfumes. Our mission is to create beautiful scents while reducing waste and protecting the environment. We believe luxury fragrance should never come at the planet's expense.", gr: "Το Blossom είναι ένα βιώσιμο brand αρωμάτων που μετατρέπει πεταμένες φλούδες φρούτων σε premium, οικολογικά αρώματα. Η αποστολή μας είναι να δημιουργούμε όμορφα αρώματα μειώνοντας τα απόβλητα και προστατεύοντας το περιβάλλον. Πιστεύουμε ότι η πολυτελής αρωματοποιία δεν πρέπει ποτέ να γίνεται εις βάρος του πλανήτη." },
+  "about.faq.sustainability": { en: "How sustainable are your products?", gr: "Πόσο βιώσιμα είναι τα προϊόντα σας;" },
+  "about.faq.sustainabilityAnswer": { en: "Our products are 100% sustainable. We upcycle fruit peels that would otherwise go to waste, use cold-press extraction to preserve natural oils, package in recyclable glass bottles, and ship in carbon-neutral packaging. Every purchase supports our zero-waste mission.", gr: "Τα προϊόντα μας είναι 100% βιώσιμα. Ανακυκλώνουμε φλούδες φρούτων που θα πετιούνταν, χρησιμοποιούμε ψυχρή πίεση για να διατηρήσουμε τα φυσικά έλαια, συσκευάζουμε σε ανακυκλώσιμα γυάλινα μπουκάλια και αποστέλλουμε σε ουδέτερη ως προς τον άνθρακα συσκευασία. Κάθε αγορά υποστηρίζει την αποστολή μας για μηδενικά απόβλητα." },
+  "about.faq.quality": { en: "Are your fragrances safe and high quality?", gr: "Είναι τα αρώματά σας ασφαλή και υψηλής ποιότητας;" },
+  "about.faq.qualityAnswer": { en: "Absolutely. Our fragrances are made from 100% natural ingredients with no synthetic chemicals, parabens, or phthalates. They're cruelty-free, vegan, and suitable for ages 10+. Each batch is carefully crafted and quality-tested to ensure the highest standards.", gr: "Απόλυτα. Τα αρώματά μας είναι φτιαγμένα από 100% φυσικά συστατικά χωρίς συνθετικά χημικά, παραβένες ή φθαλικά. Είναι χωρίς πειράματα, βίγκαν και κατάλληλα για ηλικίες 10+. Κάθε παρτίδα είναι προσεκτικά κατασκευασμένη και ελέγχεται για να διασφαλίσει τα υψηλότερα πρότυπα." },
+  "about.faq.ordering": { en: "How do I place an order?", gr: "Πώς κάνω μια παραγγελία;" },
+  "about.faq.orderingAnswer": { en: "Simply browse our collection, select your desired fragrance and size, add to cart, and proceed to checkout. We accept all major credit cards and PayPal. For subscription orders, you can also choose our monthly Bloom Club plan.", gr: "Απλά περιηγηθείτε στη συλλογή μας, επιλέξτε το επιθυμητό άρωμα και μέγεθος, προσθέστε στο καλάθι και προχωρήστε στην ολοκλήρωση. Δεχόμαστε όλες τις κύριες πιστωτικές κάρτες και PayPal. Για συνδρομητικές παραγγελίες, μπορείτε επίσης να επιλέξετε το μηνιαίο πρόγραμμα Bloom Club." },
+  "about.faq.payment": { en: "What payment methods do you accept?", gr: "Τι μεθόδους πληρωμής δέχεστε;" },
+  "about.faq.paymentAnswer": { en: "We accept all major credit cards (Visa, Mastercard, American Express), PayPal, and Apple Pay. All transactions are secure and encrypted. For subscription plans, we also offer convenient monthly billing.", gr: "Δεχόμαστε όλες τις κύριες πιστωτικές κάρτες (Visa, Mastercard, American Express), PayPal και Apple Pay. Όλες οι συναλλαγές είναι ασφαλείς και κρυπτογραφημένες. Για συνδρομητικά προγράμματα, προσφέρουμε επίσης εξοπλισμό μηνιαία χρέωση." },
+  "about.faq.shippingReturns": { en: "What about shipping and returns?", gr: "Τι ισχύει για αποστολή και επιστροφές;" },
+  "about.faq.shippingReturnsAnswer": { en: "We offer free shipping on orders over $50. Standard delivery takes 5-7 business days. Express and overnight options are available at checkout. We have a 30-day return policy for unopened items in original condition. Contact our customer service team to initiate a return.", gr: "Προσφέρουμε δωρεάν αποστολή για παραγγελίες άνω των $50. Η κανονική παράδοση διαρκεί 5-7 εργάσιμες μέρες. Express και overnight επιλογές είναι διαθέσιμες κατά την ολοκλήρωση. Έχουμε πολιτική επιστροφής 30 ημερών για ανοιχτά προϊόντα στην αρχική τους κατάσταση. Επικοινωνήστε με την ομάδα εξυπηρέτησης πελατών για να ξεκινήσετε επιστροφή." },
 };
 
 interface LanguageContextType {
