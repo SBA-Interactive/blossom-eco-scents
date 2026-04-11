@@ -78,6 +78,12 @@ const Navbar = () => {
               <AnimatedThemeToggler className="p-2 rounded-sm border border-border hover:bg-muted transition-colors" />
             </>
           )}
+          {isAuthenticated && (
+            <>
+              <LanguageToggle />
+              <AnimatedThemeToggler className="p-2 rounded-sm border border-border hover:bg-muted transition-colors" />
+            </>
+          )}
           <UserMenu />
           <button
             onClick={() => setIsCartOpen(true)}
