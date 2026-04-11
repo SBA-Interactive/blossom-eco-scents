@@ -11,6 +11,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuSub,
   DropdownMenuTrigger,
+  DropdownMenuSubTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
@@ -90,32 +91,32 @@ const UserMenu = () => {
         <DropdownMenuSeparator />
 
         <DropdownMenuSub>
-          <DropdownMenuItem>
+          <DropdownMenuSubTrigger>
             <Globe className="mr-2 h-4 w-4" />
             {t("auth.language")}
             <span className="ml-auto text-xs text-muted-foreground">
               {language === "en" ? "EN" : "GR"}
             </span>
-          </DropdownMenuItem>
-          <DropdownMenuContent>
+          </DropdownMenuSubTrigger>
+          <DropdownMenuSubContent>
             <DropdownMenuItem onClick={() => setLanguage("en")}>
               🇬🇧 English
             </DropdownMenuItem>
             <DropdownMenuItem onClick={() => setLanguage("gr")}>
               🇬🇷 Ελληνικά
             </DropdownMenuItem>
-          </DropdownMenuContent>
+          </DropdownMenuSubContent>
         </DropdownMenuSub>
 
         <DropdownMenuSub>
-          <DropdownMenuItem>
+          <DropdownMenuSubTrigger>
             {mounted && theme === "dark" ? <Moon className="mr-2 h-4 w-4" /> : <Sun className="mr-2 h-4 w-4" />}
             {t("auth.theme")}
             <span className="ml-auto text-xs text-muted-foreground">
               {mounted && theme === "dark" ? t("auth.dark") : t("auth.light")}
             </span>
-          </DropdownMenuItem>
-          <DropdownMenuContent>
+          </DropdownMenuSubTrigger>
+          <DropdownMenuSubContent>
             <DropdownMenuItem onClick={() => setTheme("light")}>
               <Sun className="mr-2 h-4 w-4" />
               {t("auth.light")}
@@ -124,7 +125,7 @@ const UserMenu = () => {
               <Moon className="mr-2 h-4 w-4" />
               {t("auth.dark")}
             </DropdownMenuItem>
-          </DropdownMenuContent>
+          </DropdownMenuSubContent>
         </DropdownMenuSub>
 
         <DropdownMenuSeparator />

@@ -76,6 +76,7 @@ const Navbar = () => {
 
         {/* Mobile actions */}
         <div className="flex items-center gap-1 md:hidden ml-auto">
+          <UserMenu />
           <button
             onClick={() => setIsCartOpen(true)}
             className="relative p-2 text-foreground hover:text-accent transition-colors"
@@ -88,7 +89,6 @@ const Navbar = () => {
               </span>
             )}
           </button>
-          <UserMenu />
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="flex flex-col gap-1.5 p-2"
