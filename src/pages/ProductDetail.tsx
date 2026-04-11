@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Heart, ArrowLeft, ShoppingCart, Star, Droplets, Calendar, Warehouse, Heart as HeartIcon, Leaf, Package, Truck, RotateCcw, CreditCard, HelpCircle } from "lucide-react";
 import * as Accordion from "@radix-ui/react-accordion";
 import * as Tabs from "@radix-ui/react-tabs";
@@ -348,8 +348,16 @@ const ProductDetail = () => {
                             <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
                           </Accordion.Trigger>
                         </Accordion.Header>
-                        <Accordion.Content className="accordion-content p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed">
-                          {faq.answer}
+                        <Accordion.Content asChild>
+                          <motion.div
+                            initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                            animate={{ opacity: 1, height: "auto", marginTop: 16 }}
+                            exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                            transition={{ duration: 0.3, ease: "easeOut" }}
+                            className="p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed"
+                          >
+                            {faq.answer}
+                          </motion.div>
                         </Accordion.Content>
                       </Accordion.Item>
                     ))}
@@ -369,9 +377,17 @@ const ProductDetail = () => {
                         <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
                       </Accordion.Trigger>
                     </Accordion.Header>
-                    <Accordion.Content className="accordion-content p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed">
-                      {t("faq.shipping.optionsAnswer")}
-                    </Accordion.Content>
+                    <Accordion.Content asChild>
+                          <motion.div
+                            initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                            animate={{ opacity: 1, height: "auto", marginTop: 16 }}
+                            exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                            transition={{ duration: 0.3, ease: "easeOut" }}
+                            className="p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed"
+                          >
+                            {t("faq.shipping.optionsAnswer")}
+                          </motion.div>
+                        </Accordion.Content>
                   </Accordion.Item>
 
                   <Accordion.Item value="shipping-2" className="border border-border rounded-lg overflow-hidden bg-muted/30 hover:bg-muted/50 transition-colors">
@@ -381,9 +397,17 @@ const ProductDetail = () => {
                         <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
                       </Accordion.Trigger>
                     </Accordion.Header>
-                    <Accordion.Content className="accordion-content p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed">
-                      {t("faq.shipping.deliveryTimeAnswer")}
-                    </Accordion.Content>
+                    <Accordion.Content asChild>
+                          <motion.div
+                            initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                            animate={{ opacity: 1, height: "auto", marginTop: 16 }}
+                            exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                            transition={{ duration: 0.3, ease: "easeOut" }}
+                            className="p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed"
+                          >
+                            {t("faq.shipping.deliveryTimeAnswer")}
+                          </motion.div>
+                        </Accordion.Content>
                   </Accordion.Item>
 
                   <Accordion.Item value="shipping-3" className="border border-border rounded-lg overflow-hidden bg-muted/30 hover:bg-muted/50 transition-colors">
@@ -393,9 +417,17 @@ const ProductDetail = () => {
                         <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
                       </Accordion.Trigger>
                     </Accordion.Header>
-                    <Accordion.Content className="accordion-content p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed">
-                      {t("faq.shipping.freeShippingAnswer")}
-                    </Accordion.Content>
+                    <Accordion.Content asChild>
+                          <motion.div
+                            initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                            animate={{ opacity: 1, height: "auto", marginTop: 16 }}
+                            exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                            transition={{ duration: 0.3, ease: "easeOut" }}
+                            className="p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed"
+                          >
+                            {t("faq.shipping.freeShippingAnswer")}
+                          </motion.div>
+                        </Accordion.Content>
                   </Accordion.Item>
 
                   <Accordion.Item value="shipping-4" className="border border-border rounded-lg overflow-hidden bg-muted/30 hover:bg-muted/50 transition-colors">
@@ -405,9 +437,17 @@ const ProductDetail = () => {
                         <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
                       </Accordion.Trigger>
                     </Accordion.Header>
-                    <Accordion.Content className="accordion-content p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed">
-                      {t("faq.shipping.trackingAnswer")}
-                    </Accordion.Content>
+                    <Accordion.Content asChild>
+                          <motion.div
+                            initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                            animate={{ opacity: 1, height: "auto", marginTop: 16 }}
+                            exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                            transition={{ duration: 0.3, ease: "easeOut" }}
+                            className="p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed"
+                          >
+                            {t("faq.shipping.trackingAnswer")}
+                          </motion.div>
+                        </Accordion.Content>
                   </Accordion.Item>
 
                   <Accordion.Item value="shipping-5" className="border border-border rounded-lg overflow-hidden bg-muted/30 hover:bg-muted/50 transition-colors">
@@ -417,9 +457,17 @@ const ProductDetail = () => {
                         <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
                       </Accordion.Trigger>
                     </Accordion.Header>
-                    <Accordion.Content className="accordion-content p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed">
-                      {t("faq.shipping.returnsAnswer")}
-                    </Accordion.Content>
+                    <Accordion.Content asChild>
+                          <motion.div
+                            initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                            animate={{ opacity: 1, height: "auto", marginTop: 16 }}
+                            exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                            transition={{ duration: 0.3, ease: "easeOut" }}
+                            className="p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed"
+                          >
+                            {t("faq.shipping.returnsAnswer")}
+                          </motion.div>
+                        </Accordion.Content>
                   </Accordion.Item>
                 </Accordion.Root>
               </Tabs.Content>

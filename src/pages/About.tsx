@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Layout from "@/components/Layout";
 import { useLanguage } from "@/context/LanguageContext";
 import * as Accordion from "@radix-ui/react-accordion";
@@ -105,8 +105,16 @@ const About = () => {
                       <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
                     </Accordion.Trigger>
                   </Accordion.Header>
-                  <Accordion.Content className="p-5 pt-0 font-body text-sm text-muted-foreground leading-relaxed">
-                    {t("about.faq.brandStoryAnswer")}
+                  <Accordion.Content asChild>
+                    <motion.div
+                      initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                      animate={{ opacity: 1, height: "auto", marginTop: 20 }}
+                      exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                      transition={{ duration: 0.3, ease: "easeOut" }}
+                      className="p-5 pt-0 font-body text-sm text-muted-foreground leading-relaxed"
+                    >
+                      {t("about.faq.brandStoryAnswer")}
+                    </motion.div>
                   </Accordion.Content>
                 </Accordion.Item>
 
@@ -117,8 +125,16 @@ const About = () => {
                       <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
                     </Accordion.Trigger>
                   </Accordion.Header>
-                  <Accordion.Content className="p-5 pt-0 font-body text-sm text-muted-foreground leading-relaxed">
-                    {t("about.faq.sustainabilityAnswer")}
+                  <Accordion.Content asChild>
+                    <motion.div
+                      initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                      animate={{ opacity: 1, height: "auto", marginTop: 20 }}
+                      exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                      transition={{ duration: 0.3, ease: "easeOut" }}
+                      className="p-5 pt-0 font-body text-sm text-muted-foreground leading-relaxed"
+                    >
+                      {t("about.faq.sustainabilityAnswer")}
+                    </motion.div>
                   </Accordion.Content>
                 </Accordion.Item>
 
@@ -129,8 +145,16 @@ const About = () => {
                       <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
                     </Accordion.Trigger>
                   </Accordion.Header>
-                  <Accordion.Content className="p-5 pt-0 font-body text-sm text-muted-foreground leading-relaxed">
-                    {t("about.faq.qualityAnswer")}
+                  <Accordion.Content asChild>
+                    <motion.div
+                      initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                      animate={{ opacity: 1, height: "auto", marginTop: 20 }}
+                      exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                      transition={{ duration: 0.3, ease: "easeOut" }}
+                      className="p-5 pt-0 font-body text-sm text-muted-foreground leading-relaxed"
+                    >
+                      {t("about.faq.qualityAnswer")}
+                    </motion.div>
                   </Accordion.Content>
                 </Accordion.Item>
 
@@ -141,8 +165,16 @@ const About = () => {
                       <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
                     </Accordion.Trigger>
                   </Accordion.Header>
-                  <Accordion.Content className="p-5 pt-0 font-body text-sm text-muted-foreground leading-relaxed">
-                    {t("about.faq.orderingAnswer")}
+                  <Accordion.Content asChild>
+                    <motion.div
+                      initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                      animate={{ opacity: 1, height: "auto", marginTop: 20 }}
+                      exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                      transition={{ duration: 0.3, ease: "easeOut" }}
+                      className="p-5 pt-0 font-body text-sm text-muted-foreground leading-relaxed"
+                    >
+                      {t("about.faq.orderingAnswer")}
+                    </motion.div>
                   </Accordion.Content>
                 </Accordion.Item>
 
@@ -153,8 +185,16 @@ const About = () => {
                       <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
                     </Accordion.Trigger>
                   </Accordion.Header>
-                  <Accordion.Content className="p-5 pt-0 font-body text-sm text-muted-foreground leading-relaxed">
-                    {t("about.faq.paymentAnswer")}
+                  <Accordion.Content asChild>
+                    <motion.div
+                      initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                      animate={{ opacity: 1, height: "auto", marginTop: 20 }}
+                      exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                      transition={{ duration: 0.3, ease: "easeOut" }}
+                      className="p-5 pt-0 font-body text-sm text-muted-foreground leading-relaxed"
+                    >
+                      {t("about.faq.paymentAnswer")}
+                    </motion.div>
                   </Accordion.Content>
                 </Accordion.Item>
 
@@ -165,8 +205,16 @@ const About = () => {
                       <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
                     </Accordion.Trigger>
                   </Accordion.Header>
-                  <Accordion.Content className="p-5 pt-0 font-body text-sm text-muted-foreground leading-relaxed">
-                    {t("about.faq.shippingReturnsAnswer")}
+                  <Accordion.Content asChild>
+                    <motion.div
+                      initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                      animate={{ opacity: 1, height: "auto", marginTop: 20 }}
+                      exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                      transition={{ duration: 0.3, ease: "easeOut" }}
+                      className="p-5 pt-0 font-body text-sm text-muted-foreground leading-relaxed"
+                    >
+                      {t("about.faq.shippingReturnsAnswer")}
+                    </motion.div>
                   </Accordion.Content>
                 </Accordion.Item>
               </Accordion.Root>
