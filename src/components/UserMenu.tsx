@@ -92,9 +92,9 @@ const UserMenu = () => {
         <DropdownMenuSeparator />
 
         <DropdownMenuSub>
-            <DropdownMenuSubTrigger>
+            <DropdownMenuSubTrigger className="flex-row">
               <Globe className="mr-2 h-4 w-4" />
-              {t("auth.language")}
+              <span className="flex-1">{t("auth.language")}</span>
               <span className="w-10 text-center text-xs text-muted-foreground">
                 {language === "en" ? "EN" : "GR"}
               </span>
@@ -110,9 +110,9 @@ const UserMenu = () => {
           </DropdownMenuSub>
 
           <DropdownMenuSub>
-            <DropdownMenuSubTrigger>
+            <DropdownMenuSubTrigger className="flex-row">
               {mounted && theme === "dark" ? <Moon className="mr-2 h-4 w-4" /> : <Sun className="mr-2 h-4 w-4" />}
-              {t("auth.theme")}
+              <span className="flex-1">{t("auth.theme")}</span>
               <span className="w-10 text-center text-xs text-muted-foreground">
                 {mounted && theme === "dark" ? t("auth.dark") : t("auth.light")}
               </span>
