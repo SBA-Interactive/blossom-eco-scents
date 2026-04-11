@@ -305,122 +305,115 @@ const ProductDetail = () => {
             viewport={{ once: true }}
             className="mt-16"
           >
-            <div className="relative overflow-hidden rounded-xl border border-border shadow-lg bg-background">
-              {/* Header gradient */}
-              <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-primary via-accent to-primary" />
-              
-              <div className="p-6 md:p-8">
-                <Tabs.Root defaultValue="product" className="w-full">
-                  {/* Tab List */}
-                  <Tabs.List className="flex gap-2 mb-6 border-b border-border pb-4">
-                    <Tabs.Trigger
-                      value="product"
-                      className="px-6 py-3 font-body text-sm tracking-widest uppercase rounded-md transition-all data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md hover:bg-muted"
-                    >
-                      {t("products.faq.product")}
-                    </Tabs.Trigger>
-                    <Tabs.Trigger
-                      value="shipping"
-                      className="px-6 py-3 font-body text-sm tracking-widest uppercase rounded-md transition-all data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md hover:bg-muted"
-                    >
-                      {t("products.faq.shipping")}
-                    </Tabs.Trigger>
-                  </Tabs.List>
+            <Tabs.Root defaultValue="product" className="w-full">
+              {/* Tab List */}
+              <Tabs.List className="flex gap-2 mb-8">
+                <Tabs.Trigger
+                  value="product"
+                  className="px-6 py-3 font-body text-sm tracking-widest uppercase rounded-md transition-all data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md hover:bg-muted"
+                >
+                  {t("products.faq.product")}
+                </Tabs.Trigger>
+                <Tabs.Trigger
+                  value="shipping"
+                  className="px-6 py-3 font-body text-sm tracking-widest uppercase rounded-md transition-all data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md hover:bg-muted"
+                >
+                  {t("products.faq.shipping")}
+                </Tabs.Trigger>
+              </Tabs.List>
 
-                  {/* Product Tab */}
-                  <Tabs.Content value="product" className="outline-none">
-                    {product.faqs.length > 0 ? (
-                      <Accordion.Root type="single" collapsible className="space-y-3">
-                        {product.faqs.map((faq, index) => (
-                          <Accordion.Item
-                            key={index}
-                            value={`product-faq-${index}`}
-                            className="border border-border rounded-lg overflow-hidden bg-muted/30 hover:bg-muted/50 transition-colors"
-                          >
-                            <Accordion.Header>
-                              <Accordion.Trigger className="flex w-full items-center justify-between p-4 font-body text-sm text-left group">
-                                <span className="pr-4">{faq.question}</span>
-                                <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
-                              </Accordion.Trigger>
-                            </Accordion.Header>
-                            <Accordion.Content className="p-4 pt-0 font-body text-sm text-muted-foreground leading-relaxed">
-                              {faq.answer}
-                            </Accordion.Content>
-                          </Accordion.Item>
-                        ))}
-                      </Accordion.Root>
-                    ) : (
-                      <p className="text-muted-foreground text-center py-8">No product-specific FAQs available.</p>
-                    )}
-                  </Tabs.Content>
-
-                  {/* Shipping Tab */}
-                  <Tabs.Content value="shipping" className="outline-none">
-                    <Accordion.Root type="single" collapsible className="space-y-3">
-                      <Accordion.Item value="shipping-1" className="border border-border rounded-lg overflow-hidden bg-muted/30 hover:bg-muted/50 transition-colors">
+              {/* Product Tab */}
+              <Tabs.Content value="product" className="outline-none">
+                {product.faqs.length > 0 ? (
+                  <Accordion.Root type="single" collapsible className="space-y-3">
+                    {product.faqs.map((faq, index) => (
+                      <Accordion.Item
+                        key={index}
+                        value={`product-faq-${index}`}
+                        className="border border-border rounded-lg overflow-hidden bg-muted/30 hover:bg-muted/50 transition-colors"
+                      >
                         <Accordion.Header>
                           <Accordion.Trigger className="flex w-full items-center justify-between p-4 font-body text-sm text-left group">
-                            <span className="pr-4 flex items-center gap-2"><Truck className="w-4 h-4 text-primary" />{t("faq.shipping.options")}</span>
+                            <span className="pr-4">{faq.question}</span>
                             <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
                           </Accordion.Trigger>
                         </Accordion.Header>
                         <Accordion.Content className="p-4 pt-0 font-body text-sm text-muted-foreground leading-relaxed">
-                          {t("faq.shipping.optionsAnswer")}
+                          {faq.answer}
                         </Accordion.Content>
                       </Accordion.Item>
+                    ))}
+                  </Accordion.Root>
+                ) : (
+                  <p className="text-muted-foreground text-center py-8">No product-specific FAQs available.</p>
+                )}
+              </Tabs.Content>
 
-                      <Accordion.Item value="shipping-2" className="border border-border rounded-lg overflow-hidden bg-muted/30 hover:bg-muted/50 transition-colors">
-                        <Accordion.Header>
-                          <Accordion.Trigger className="flex w-full items-center justify-between p-4 font-body text-sm text-left group">
-                            <span className="pr-4 flex items-center gap-2"><Package className="w-4 h-4 text-primary" />{t("faq.shipping.deliveryTime")}</span>
-                            <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
-                          </Accordion.Trigger>
-                        </Accordion.Header>
-                        <Accordion.Content className="p-4 pt-0 font-body text-sm text-muted-foreground leading-relaxed">
-                          {t("faq.shipping.deliveryTimeAnswer")}
-                        </Accordion.Content>
-                      </Accordion.Item>
+              {/* Shipping Tab */}
+              <Tabs.Content value="shipping" className="outline-none">
+                <Accordion.Root type="single" collapsible className="space-y-3">
+                  <Accordion.Item value="shipping-1" className="border border-border rounded-lg overflow-hidden bg-muted/30 hover:bg-muted/50 transition-colors">
+                    <Accordion.Header>
+                      <Accordion.Trigger className="flex w-full items-center justify-between p-4 font-body text-sm text-left group">
+                        <span className="pr-4 flex items-center gap-2"><Truck className="w-4 h-4 text-primary" />{t("faq.shipping.options")}</span>
+                        <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
+                      </Accordion.Trigger>
+                    </Accordion.Header>
+                    <Accordion.Content className="p-4 pt-0 font-body text-sm text-muted-foreground leading-relaxed">
+                      {t("faq.shipping.optionsAnswer")}
+                    </Accordion.Content>
+                  </Accordion.Item>
 
-                      <Accordion.Item value="shipping-3" className="border border-border rounded-lg overflow-hidden bg-muted/30 hover:bg-muted/50 transition-colors">
-                        <Accordion.Header>
-                          <Accordion.Trigger className="flex w-full items-center justify-between p-4 font-body text-sm text-left group">
-                            <span className="pr-4 flex items-center gap-2"><Truck className="w-4 h-4 text-primary" />{t("faq.shipping.freeShipping")}</span>
-                            <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
-                          </Accordion.Trigger>
-                        </Accordion.Header>
-                        <Accordion.Content className="p-4 pt-0 font-body text-sm text-muted-foreground leading-relaxed">
-                          {t("faq.shipping.freeShippingAnswer")}
-                        </Accordion.Content>
-                      </Accordion.Item>
+                  <Accordion.Item value="shipping-2" className="border border-border rounded-lg overflow-hidden bg-muted/30 hover:bg-muted/50 transition-colors">
+                    <Accordion.Header>
+                      <Accordion.Trigger className="flex w-full items-center justify-between p-4 font-body text-sm text-left group">
+                        <span className="pr-4 flex items-center gap-2"><Package className="w-4 h-4 text-primary" />{t("faq.shipping.deliveryTime")}</span>
+                        <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
+                      </Accordion.Trigger>
+                    </Accordion.Header>
+                    <Accordion.Content className="p-4 pt-0 font-body text-sm text-muted-foreground leading-relaxed">
+                      {t("faq.shipping.deliveryTimeAnswer")}
+                    </Accordion.Content>
+                  </Accordion.Item>
 
-                      <Accordion.Item value="shipping-4" className="border border-border rounded-lg overflow-hidden bg-muted/30 hover:bg-muted/50 transition-colors">
-                        <Accordion.Header>
-                          <Accordion.Trigger className="flex w-full items-center justify-between p-4 font-body text-sm text-left group">
-                            <span className="pr-4 flex items-center gap-2"><Package className="w-4 h-4 text-primary" />{t("faq.shipping.tracking")}</span>
-                            <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
-                          </Accordion.Trigger>
-                        </Accordion.Header>
-                        <Accordion.Content className="p-4 pt-0 font-body text-sm text-muted-foreground leading-relaxed">
-                          {t("faq.shipping.trackingAnswer")}
-                        </Accordion.Content>
-                      </Accordion.Item>
+                  <Accordion.Item value="shipping-3" className="border border-border rounded-lg overflow-hidden bg-muted/30 hover:bg-muted/50 transition-colors">
+                    <Accordion.Header>
+                      <Accordion.Trigger className="flex w-full items-center justify-between p-4 font-body text-sm text-left group">
+                        <span className="pr-4 flex items-center gap-2"><Truck className="w-4 h-4 text-primary" />{t("faq.shipping.freeShipping")}</span>
+                        <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
+                      </Accordion.Trigger>
+                    </Accordion.Header>
+                    <Accordion.Content className="p-4 pt-0 font-body text-sm text-muted-foreground leading-relaxed">
+                      {t("faq.shipping.freeShippingAnswer")}
+                    </Accordion.Content>
+                  </Accordion.Item>
 
-                      <Accordion.Item value="shipping-5" className="border border-border rounded-lg overflow-hidden bg-muted/30 hover:bg-muted/50 transition-colors">
-                        <Accordion.Header>
-                          <Accordion.Trigger className="flex w-full items-center justify-between p-4 font-body text-sm text-left group">
-                            <span className="pr-4 flex items-center gap-2"><RotateCcw className="w-4 h-4 text-primary" />{t("faq.shipping.returns")}</span>
-                            <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
-                          </Accordion.Trigger>
-                        </Accordion.Header>
-                        <Accordion.Content className="p-4 pt-0 font-body text-sm text-muted-foreground leading-relaxed">
-                          {t("faq.shipping.returnsAnswer")}
-                        </Accordion.Content>
-                      </Accordion.Item>
-                    </Accordion.Root>
-                  </Tabs.Content>
-                </Tabs.Root>
-              </div>
-            </div>
+                  <Accordion.Item value="shipping-4" className="border border-border rounded-lg overflow-hidden bg-muted/30 hover:bg-muted/50 transition-colors">
+                    <Accordion.Header>
+                      <Accordion.Trigger className="flex w-full items-center justify-between p-4 font-body text-sm text-left group">
+                        <span className="pr-4 flex items-center gap-2"><Package className="w-4 h-4 text-primary" />{t("faq.shipping.tracking")}</span>
+                        <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
+                      </Accordion.Trigger>
+                    </Accordion.Header>
+                    <Accordion.Content className="p-4 pt-0 font-body text-sm text-muted-foreground leading-relaxed">
+                      {t("faq.shipping.trackingAnswer")}
+                    </Accordion.Content>
+                  </Accordion.Item>
+
+                  <Accordion.Item value="shipping-5" className="border border-border rounded-lg overflow-hidden bg-muted/30 hover:bg-muted/50 transition-colors">
+                    <Accordion.Header>
+                      <Accordion.Trigger className="flex w-full items-center justify-between p-4 font-body text-sm text-left group">
+                        <span className="pr-4 flex items-center gap-2"><RotateCcw className="w-4 h-4 text-primary" />{t("faq.shipping.returns")}</span>
+                        <span className="shrink-0 text-muted-foreground group-data-[state=open]:rotate-180 transition-transform">▼</span>
+                      </Accordion.Trigger>
+                    </Accordion.Header>
+                    <Accordion.Content className="p-4 pt-0 font-body text-sm text-muted-foreground leading-relaxed">
+                      {t("faq.shipping.returnsAnswer")}
+                    </Accordion.Content>
+                  </Accordion.Item>
+                </Accordion.Root>
+              </Tabs.Content>
+            </Tabs.Root>
           </motion.div>
 
           {/* Write Review Form */}

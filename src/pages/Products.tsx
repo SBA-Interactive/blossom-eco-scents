@@ -133,8 +133,8 @@ const Products = () => {
                 return (
                   <BlurFade key={pid} delay={0.1 + (i % 3) * 0.05} yOffset={30}>
                     <Link to={`/products/${product.slug}`} className="block group">
-                      <MagicCard className="h-full p-0 border-0 shadow-none" gradient={{ opacity: 0.1, ConicGradient: "transparent" }} gradientFrom="#8b5cf6" gradientTo="#ec4899">
-                        <div className="relative overflow-hidden rounded-sm mb-6 bg-muted group-hover:-translate-y-2 group-hover:shadow-xl transition-all duration-300">
+                      <MagicCard className="h-full p-0 border-0 shadow-none group-hover:-translate-y-2 group-hover:shadow-xl transition-all duration-300" gradient={{ opacity: 0.1, ConicGradient: "transparent" }} gradientFrom="#8b5cf6" gradientTo="#ec4899">
+                        <div className="relative overflow-hidden rounded-sm mb-6 bg-muted">
                           <img src={product.image} alt={product.name} loading="lazy" width={800} height={1000} className="w-full h-auto aspect-[4/5] object-cover group-hover:scale-105 transition-transform duration-700" />
                           <button
                             onClick={(e) => {
