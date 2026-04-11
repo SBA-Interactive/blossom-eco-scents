@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import CustomerReviewsCarousel from "@/components/CustomerReviewsCarousel";
 import { BlurFade } from "@/components/ui/blur-fade";
+import { SlideIn } from "@/components/ui/slide-in";
 import { useLanguage } from "@/context/LanguageContext";
 import { customerReviews } from "@/data/reviews";
 
@@ -47,10 +48,10 @@ const Index = () => {
       {/* Featured Products */}
       <section className="section-padding bg-card">
         <div className="max-w-7xl mx-auto">
-          <BlurFade delay={0.1} yOffset={20} className="text-center mb-16">
+          <SlideIn delay={0.1} className="text-center mb-16">
             <p className="font-body text-xs tracking-[0.3em] uppercase text-muted-foreground mb-3">{t("index.collection")}</p>
             <h2 className="font-display text-4xl md:text-5xl font-light text-foreground">{t("index.collectionTitle")}</h2>
-          </BlurFade>
+          </SlideIn>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
             {products.map((product, i) => (
               <BlurFade key={product.name} delay={0.1 + i * 0.1} yOffset={30}>
@@ -69,21 +70,21 @@ const Index = () => {
               </BlurFade>
             ))}
           </div>
-          <BlurFade delay={0.3} className="text-center mt-12">
+          <SlideIn delay={0.3} className="text-center mt-12">
             <Link to="/products" className="px-8 py-3.5 bg-primary text-primary-foreground font-body text-sm tracking-widest uppercase rounded-sm hover:opacity-90 transition-opacity">
               {t("index.viewAll")}
             </Link>
-          </BlurFade>
+          </SlideIn>
         </div>
       </section>
 
       {/* About Preview */}
       <section className="section-padding">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <BlurFade delay={0.1} direction="left">
+          <SlideIn delay={0.1} direction="left">
             <img src={placeholder} alt="Fresh fruit peels used as natural fragrance ingredients" loading="lazy" width={1200} height={800} className="w-full h-auto rounded-sm" />
-          </BlurFade>
-          <BlurFade delay={0.2} direction="right">
+          </SlideIn>
+          <SlideIn delay={0.2} direction="right">
             <p className="font-body text-xs tracking-[0.3em] uppercase text-muted-foreground mb-3">{t("about.ourStory")}</p>
             <h2 className="font-display text-4xl md:text-5xl font-light text-foreground mb-6">{t("index.fromPeel")}</h2>
             <p className="font-body text-base text-muted-foreground leading-relaxed mb-8">
@@ -92,17 +93,17 @@ const Index = () => {
             <Link to="/about" className="px-8 py-3.5 border border-foreground text-foreground font-body text-sm tracking-widest uppercase rounded-sm hover:bg-foreground hover:text-background transition-colors">
               {t("index.learnMore")}
             </Link>
-          </BlurFade>
+          </SlideIn>
         </div>
       </section>
 
       {/* Customer Reviews */}
       <section className="section-padding bg-card">
         <div className="max-w-4xl mx-auto">
-          <BlurFade delay={0.1} className="text-center mb-12">
+          <SlideIn delay={0.1} className="text-center mb-12">
             <p className="font-body text-xs tracking-[0.3em] uppercase text-muted-foreground mb-3">{t("index.reviews")}</p>
             <h2 className="font-display text-4xl md:text-5xl font-light text-foreground">{t("index.customerReviews")}</h2>
-          </BlurFade>
+          </SlideIn>
           <CustomerReviewsCarousel reviews={customerReviews} autoPlayInterval={5000} />
         </div>
       </section>
@@ -110,18 +111,18 @@ const Index = () => {
       {/* Newsletter */}
       <section className="section-padding bg-primary">
         <div className="max-w-2xl mx-auto text-center">
-          <BlurFade delay={0.1}>
+          <SlideIn delay={0.1}>
             <h2 className="font-display text-4xl md:text-5xl font-light text-primary-foreground mb-4">{t("index.stayInBloom")}</h2>
             <p className="font-body text-sm text-primary-foreground/70 mb-8 leading-relaxed">
               {t("index.newsletterDesc")}
             </p>
-          </BlurFade>
-          <BlurFade delay={0.2}>
+          </SlideIn>
+          <SlideIn delay={0.2}>
             <form onSubmit={(e) => e.preventDefault()} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
               <input type="email" placeholder="your@email.com" required className="flex-1 px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/70 font-body text-sm rounded-sm focus:outline-none focus:border-primary-foreground/50 transition-colors" />
               <button type="submit" className="px-8 py-3 bg-primary-foreground text-primary font-body text-xs tracking-widest uppercase rounded-sm hover:opacity-90 transition-opacity">{t("index.subscribe")}</button>
             </form>
-          </BlurFade>
+          </SlideIn>
         </div>
       </section>
     </Layout>
