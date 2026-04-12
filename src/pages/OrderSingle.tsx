@@ -50,7 +50,7 @@ const OrderSingle = () => {
           </motion.div>
 
           <motion.form initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} onSubmit={handleSubmit} className="space-y-4">
-            <div className="max-h-[300px] overflow-y-auto space-y-2 pr-2">
+            <div className="max-h-[300px] overflow-y-auto space-y-2 pr-2 custom-scrollbar">
               {fragrances.map((frag) => (
                 <label
                   key={`${frag.name}-${frag.size}`}
