@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { User, Heart, ShoppingBag, LogOut, Globe, Moon, Sun, Clock } from "lucide-react";
+import { User, Heart, ShoppingBag, LogOut, Clock } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 import { useLanguage } from "@/context/LanguageContext";
 import { useWishlist } from "@/context/WishlistContext";
@@ -9,45 +9,22 @@ import {
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-  DropdownMenuSub,
   DropdownMenuTrigger,
-  DropdownMenuSubTrigger,
-  DropdownMenuSubContent,
 } from "@/components/ui/dropdown-menu";
-import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
 
 const UserMenu = () => {
   const { user, isAuthenticated, logout } = useAuth();
-  const { t, language, setLanguage } = useLanguage();
+  const { t } = useLanguage();
   const { wishlist } = useWishlist();
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   if (!isAuthenticated) {
     return (
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <button className="flex items-center gap-2 px-3 py-2 rounded-sm border border-border hover:bg-muted transition-colors">
-            <User className="w-4 h-4" />
-          </button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" className="w-40">
-          <DropdownMenuItem asChild>
-            <Link
-              to="/login"
-              className="cursor-pointer flex items-center gap-2"
-            >
-              <User className="w-4 h-4" />
-              {t("auth.loginSignUp")}
-            </Link>
-          </DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
+      <Link
+        to="/login"
+        className="flex items-center gap-2 px-3 py-2 rounded-sm border border-border hover:bg-muted transition-colors"
+      >
+        <User className="w-4 h-4" />
+      </Link>
     );
   }
 

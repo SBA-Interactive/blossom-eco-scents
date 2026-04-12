@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 import { useLanguage } from "@/context/LanguageContext";
+import { Sparkles, Leaf, Shield, ShoppingBag, CreditCard, Truck } from "lucide-react";
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -55,6 +56,78 @@ const Contact = () => {
             <div>
               <h4 className="font-display text-lg text-foreground mb-1">{t("contact.social")}</h4>
               <p className="font-body text-sm text-muted-foreground">@yourbrand</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section as Description */}
+      <section className="section-padding bg-card">
+        <div className="max-w-3xl mx-auto">
+          <BlurFade delay={0.1} className="text-center mb-12">
+            <p className="font-body text-xs tracking-[0.3em] uppercase text-muted-foreground mb-3">FAQ</p>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-light text-foreground">Frequently Asked Questions</h2>
+          </BlurFade>
+
+          <div className="space-y-8">
+            <div className="bg-background rounded-xl p-6 border border-border">
+              <div className="flex items-center gap-3 mb-3">
+                <Sparkles className="w-5 h-5 text-primary shrink-0" />
+                <h3 className="font-display text-xl text-foreground">What is Blossom and what is your mission?</h3>
+              </div>
+              <p className="font-body text-base text-muted-foreground leading-relaxed">
+                Blossom is a sustainable fragrance brand that transforms discarded fruit peels into premium, eco-friendly perfumes. Our mission is to create beautiful scents while reducing waste and protecting the environment. We believe luxury fragrance should never come at the planet's expense.
+              </p>
+            </div>
+
+            <div className="bg-background rounded-xl p-6 border border-border">
+              <div className="flex items-center gap-3 mb-3">
+                <Leaf className="w-5 h-5 text-primary shrink-0" />
+                <h3 className="font-display text-xl text-foreground">How sustainable are your products?</h3>
+              </div>
+              <p className="font-body text-base text-muted-foreground leading-relaxed">
+                Our products are 100% sustainable. We upcycle fruit peels that would otherwise go to waste, use cold-press extraction to preserve natural oils, package in recyclable glass bottles, and ship in carbon-neutral packaging. Every purchase supports our zero-waste mission.
+              </p>
+            </div>
+
+            <div className="bg-background rounded-xl p-6 border border-border">
+              <div className="flex items-center gap-3 mb-3">
+                <Shield className="w-5 h-5 text-primary shrink-0" />
+                <h3 className="font-display text-xl text-foreground">Are your fragrances safe and high quality?</h3>
+              </div>
+              <p className="font-body text-base text-muted-foreground leading-relaxed">
+                Absolutely. Our fragrances are made from 100% natural ingredients with no synthetic chemicals, parabens, or phthalates. They're cruelty-free, vegan, and suitable for ages 10+. Each batch is carefully crafted and quality-tested to ensure the highest standards.
+              </p>
+            </div>
+
+            <div className="bg-background rounded-xl p-6 border border-border">
+              <div className="flex items-center gap-3 mb-3">
+                <ShoppingBag className="w-5 h-5 text-primary shrink-0" />
+                <h3 className="font-display text-xl text-foreground">How do I place an order?</h3>
+              </div>
+              <p className="font-body text-base text-muted-foreground leading-relaxed">
+                Simply browse our collection, select your desired fragrance and size, add to cart, and proceed to checkout. We accept all major credit cards and PayPal. For subscription orders, you can also choose our monthly Bloom Club plan.
+              </p>
+            </div>
+
+            <div className="bg-background rounded-xl p-6 border border-border">
+              <div className="flex items-center gap-3 mb-3">
+                <CreditCard className="w-5 h-5 text-primary shrink-0" />
+                <h3 className="font-display text-xl text-foreground">What payment methods do you accept?</h3>
+              </div>
+              <p className="font-body text-base text-muted-foreground leading-relaxed">
+                We accept all major credit cards (Visa, Mastercard, American Express), PayPal, and Apple Pay. All transactions are secure and encrypted. For subscription plans, we also offer convenient monthly billing.
+              </p>
+            </div>
+
+            <div className="bg-background rounded-xl p-6 border border-border">
+              <div className="flex items-center gap-3 mb-3">
+                <Truck className="w-5 h-5 text-primary shrink-0" />
+                <h3 className="font-display text-xl text-foreground">What about shipping and returns?</h3>
+              </div>
+              <p className="font-body text-base text-muted-foreground leading-relaxed">
+                We offer free shipping on orders over $50. Standard delivery takes 5-7 business days. Express and overnight options are available at checkout. We have a 30-day return policy for unopened items in original condition. Contact our customer service team to initiate a return.
+              </p>
             </div>
           </div>
         </div>

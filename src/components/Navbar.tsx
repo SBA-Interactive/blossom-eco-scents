@@ -91,12 +91,6 @@ const Navbar = () => {
               </span>
             )}
           </button>
-          <Link
-            to="/products"
-            className="ml-2 px-6 py-2.5 bg-primary text-primary-foreground font-body text-sm tracking-widest uppercase rounded-sm hover:opacity-90 transition-opacity"
-          >
-            {t("nav.shopNow")}
-          </Link>
         </div>
 
         {/* Mobile actions */}
@@ -154,13 +148,6 @@ const Navbar = () => {
                 </motion.button>
                 <AnimatedThemeToggler className="p-2 rounded-sm border border-border hover:bg-muted transition-colors" />
               </div>
-              <Link
-                to="/products"
-                onClick={() => setIsOpen(false)}
-                className="mt-2 px-6 py-2.5 bg-primary text-primary-foreground font-body text-sm tracking-widest uppercase rounded-sm text-center"
-              >
-                {t("nav.shopNow")}
-              </Link>
             </div>
           </motion.div>
         )}
