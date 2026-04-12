@@ -78,7 +78,7 @@ const FilterDrawer = ({
 
   return (
     <div
-      className={`fixed top-14 md:top-24 inset-y-0 left-0 z-40 w-80 max-w-[85vw] bg-background border-r border-border transform transition-transform duration-300 ease-in-out ${
+      className={`fixed top-14 md:top-24 inset-y-0 left-0 z-30 w-80 max-w-[85vw] bg-background border-r border-border transform transition-transform duration-300 ease-in-out ${
         open ? "translate-x-0" : "-translate-x-full"
       }`}
     >
