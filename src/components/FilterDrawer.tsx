@@ -363,17 +363,19 @@ const FilterDrawer = ({
                       ))}
                     </motion.div>
                   )}
-            </AnimatePresence>
-          </div>
-        </div>
+                </AnimatePresence>
+              </div>
+            </div>
 
-        <div className="flex-shrink-0 p-4 border-t border-border">
-          <button
-            onClick={() => onOpenChange(false)}
-            className="w-full px-4 py-2.5 bg-primary text-primary-foreground font-body text-xs tracking-widest uppercase rounded-sm hover:opacity-90 transition-opacity"
-          >
-            {t("products.apply")}
-          </button>
+            <div className="flex-shrink-0 p-4 border-t border-border">
+              <button
+                onClick={() => onOpenChange(false)}
+                className="w-full px-4 py-2.5 bg-primary text-primary-foreground font-body text-xs tracking-widest uppercase rounded-sm hover:opacity-90 transition-opacity"
+              >
+                {t("products.apply")}
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
