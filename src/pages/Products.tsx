@@ -192,7 +192,7 @@ const Products = () => {
 
       {filterDrawerOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-30"
+          className="fixed inset-0 bg-black/50 z-40"
           onClick={() => setFilterDrawerOpen(false)}
         />
       )}
@@ -225,6 +225,18 @@ const Products = () => {
                       {activeFilterCount}
                     </span>
                   )}
+                </button>
+
+                <button
+                  onClick={() => setShowWishlistOnly(!showWishlistOnly)}
+                  className={`flex items-center gap-2 px-4 py-2 font-body text-xs tracking-widest uppercase rounded-sm border transition-colors ${
+                    showWishlistOnly
+                      ? "bg-primary text-primary-foreground border-primary"
+                      : "bg-background text-muted-foreground border-border hover:text-foreground"
+                  }`}
+                >
+                  <Heart className="w-4 h-4" fill={showWishlistOnly ? "currentColor" : "none"} />
+                  {t("products.wishlist")}
                 </button>
 
                 <div className="flex items-center gap-2 sm:ml-auto">
