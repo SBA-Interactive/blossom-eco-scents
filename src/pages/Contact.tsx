@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 import { useLanguage } from "@/context/LanguageContext";
+import { BlurFade } from "@/components/ui/blur-fade";
 import { Sparkles, Leaf, Shield, ShoppingBag, CreditCard, Truck } from "lucide-react";
 
 const Contact = () => {
