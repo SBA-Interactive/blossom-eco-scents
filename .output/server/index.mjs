@@ -72,42 +72,42 @@ const assets = {
   "/_redirects": {
     "type": "text/plain; charset=utf-8",
     "etag": '"12-GYFUR20kqoZbjqZ/p+Wm4vWBkkQ"',
-    "mtime": "2026-04-12T13:43:00.794Z",
+    "mtime": "2026-04-12T13:45:04.976Z",
     "size": 18,
     "path": "../public/_redirects"
   },
   "/robots.txt": {
     "type": "text/plain; charset=utf-8",
     "etag": '"a0-CKGXSIe7TSsqDTmGm/nY1t/o5d0"',
-    "mtime": "2026-04-12T13:43:00.794Z",
+    "mtime": "2026-04-12T13:45:04.976Z",
     "size": 160,
     "path": "../public/robots.txt"
   },
   "/assets/index-BtxTZAWy.css": {
     "type": "text/css; charset=utf-8",
     "etag": '"114e3-bm9JdgB2QxjKIeldQI2WRLoxld4"',
-    "mtime": "2026-04-12T13:43:00.771Z",
+    "mtime": "2026-04-12T13:45:04.951Z",
     "size": 70883,
     "path": "../public/assets/index-BtxTZAWy.css"
-  },
-  "/favicon.ico": {
-    "type": "image/vnd.microsoft.icon",
-    "etag": '"4f95-3RXc3p2mhEAs1WBwaIvE0Y0uu0Y"',
-    "mtime": "2026-04-12T13:43:00.794Z",
-    "size": 20373,
-    "path": "../public/favicon.ico"
   },
   "/placeholder.svg": {
     "type": "image/svg+xml",
     "etag": '"6fd1-qWQOhyJn/rRMFfFPaVsAALDm3NY"',
-    "mtime": "2026-04-12T13:43:00.794Z",
+    "mtime": "2026-04-12T13:45:04.976Z",
     "size": 28625,
     "path": "../public/placeholder.svg"
+  },
+  "/favicon.ico": {
+    "type": "image/vnd.microsoft.icon",
+    "etag": '"4f95-3RXc3p2mhEAs1WBwaIvE0Y0uu0Y"',
+    "mtime": "2026-04-12T13:45:04.976Z",
+    "size": 20373,
+    "path": "../public/favicon.ico"
   },
   "/assets/index-DVCfkCvB.js": {
     "type": "text/javascript; charset=utf-8",
     "etag": '"9d2da-soGXNSQhIfxIzBv65BHON/2erCU"',
-    "mtime": "2026-04-12T13:43:00.771Z",
+    "mtime": "2026-04-12T13:45:04.953Z",
     "size": 643802,
     "path": "../public/assets/index-DVCfkCvB.js"
   }
