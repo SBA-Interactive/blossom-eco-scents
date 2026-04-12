@@ -75,7 +75,7 @@ const Products = () => {
       return 5;
     };
 
-    // Sort by priority, then within same priority group: alternate sizes for visual variety
+    // Sort by priority, then within same priority group: consistent order
     result.sort((a, b) => {
       const priorityA = getPriority(a);
       const priorityB = getPriority(b);
@@ -84,13 +84,11 @@ const Products = () => {
         return priorityA - priorityB;
       }
       
-      // Same priority - alternate between 50ml/100ml of same scent and randomize different scents
-      if (a.name === b.name) {
-        return a.size === "50ml" ? -1 : 1;
+      // Same priority - sort by name, then 50ml before 100ml
+      if (a.name !== b.name) {
+        return a.name.localeCompare(b.name);
       }
-      
-      // Randomize order for different products in same priority group
-      return Math.random() < 0.5 ? -1 : 1;
+      return a.size === "50ml" ? -1 : 1;
     });
 
     // Apply user's sort option while maintaining priority groupings
