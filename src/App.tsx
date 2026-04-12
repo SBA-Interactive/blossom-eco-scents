@@ -42,7 +42,7 @@ const App = () => (
                   <ReviewProvider>
                     <Toaster />
                   <Sonner />
-                  <HashRouter basename="/blossom-eco-scents">
+                  <HashRouter>
                     <ScrollToTop />
                     <CartDrawer />
                     <Routes>
