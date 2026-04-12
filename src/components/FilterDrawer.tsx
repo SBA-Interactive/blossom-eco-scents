@@ -5,6 +5,8 @@ import { products } from "@/data/products";
 import { useLanguage } from "@/context/LanguageContext";
 import { motion, AnimatePresence } from "framer-motion";
 
+const ACCORDION_ITEMS = ["scent", "size", "price", "features"];
+
 interface FilterDrawerProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
@@ -33,6 +35,13 @@ const FilterDrawer = ({
   onClearAll,
 }: FilterDrawerProps) => {
   const { t } = useLanguage();
+  const [openItems, setOpenItems] = useState<string[]>(["scent", "size", "price", "features"]);
+
+  const handleAccordionChange = (value: string[]) => {
+    setOpenItems(value);
+  };
+
+  const isOpen = (item: string) => openItems.includes(item);
 
   const scents = [...new Set(products.map((p) => p.name))];
   const sizes = [...new Set(products.map((p) => p.size))];
@@ -106,7 +115,7 @@ const FilterDrawer = ({
         </div>
 
         <div className="flex-1 p-4">
-          <Accordion.Root type="multiple" defaultValue={["scent", "size", "price", "features"]} className="space-y-4">
+          <Accordion.Root type="multiple" value={openItems} onValueChange={handleAccordionChange} className="space-y-4">
             <Accordion.Item value="scent" className="border border-border rounded-sm">
               <Accordion.Header className="flex">
                 <Accordion.Trigger className="flex-1 flex items-center justify-between px-4 py-3 font-body text-sm text-foreground hover:bg-muted transition-colors [&[data-state=open]>svg:rotate-180">
@@ -129,32 +138,34 @@ const FilterDrawer = ({
               </Accordion.Header>
               <Accordion.Content className="overflow-hidden">
                 <AnimatePresence mode="wait">
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.2, ease: "easeOut" }}
-                    className="px-4 pb-3 space-y-2"
-                  >
-                    {scents.map((scent) => (
-                      <button
-                        key={scent}
-                        onClick={() => toggleScent(scent)}
-                        className="flex items-center gap-3 w-full px-2 py-2 rounded-sm hover:bg-muted transition-colors"
-                      >
-                        <div
-                          className={`w-4 h-4 rounded-sm border flex items-center justify-center ${
-                            scentFilters.includes(scent)
-                              ? "bg-primary border-primary"
-                              : "border-border"
-                          }`}
+                  {isOpen("scent") && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.2, ease: "easeOut" }}
+                      className="px-4 pb-3 space-y-2"
+                    >
+                      {scents.map((scent) => (
+                        <button
+                          key={scent}
+                          onClick={() => toggleScent(scent)}
+                          className="flex items-center gap-3 w-full px-2 py-2 rounded-sm hover:bg-muted transition-colors"
                         >
-                          {scentFilters.includes(scent) && <Check className="w-3 h-3 text-primary-foreground" />}
-                        </div>
-                        <span className="font-body text-sm text-foreground">{scent}</span>
-                      </button>
-                    ))}
-                  </motion.div>
+                          <div
+                            className={`w-4 h-4 rounded-sm border flex items-center justify-center ${
+                              scentFilters.includes(scent)
+                                ? "bg-primary border-primary"
+                                : "border-border"
+                            }`}
+                          >
+                            {scentFilters.includes(scent) && <Check className="w-3 h-3 text-primary-foreground" />}
+                          </div>
+                          <span className="font-body text-sm text-foreground">{scent}</span>
+                        </button>
+                      ))}
+                    </motion.div>
+                  )}
                 </AnimatePresence>
               </Accordion.Content>
             </Accordion.Item>
@@ -181,32 +192,34 @@ const FilterDrawer = ({
               </Accordion.Header>
               <Accordion.Content className="overflow-hidden">
                 <AnimatePresence mode="wait">
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.2, ease: "easeOut" }}
-                    className="px-4 pb-3 space-y-2"
-                  >
-                    {sizes.map((size) => (
-                      <button
-                        key={size}
-                        onClick={() => toggleSize(size)}
-                        className="flex items-center gap-3 w-full px-2 py-2 rounded-sm hover:bg-muted transition-colors"
-                      >
-                        <div
-                          className={`w-4 h-4 rounded-sm border flex items-center justify-center ${
-                            sizeFilters.includes(size)
-                              ? "bg-primary border-primary"
-                              : "border-border"
-                          }`}
+                  {isOpen("size") && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.2, ease: "easeOut" }}
+                      className="px-4 pb-3 space-y-2"
+                    >
+                      {sizes.map((size) => (
+                        <button
+                          key={size}
+                          onClick={() => toggleSize(size)}
+                          className="flex items-center gap-3 w-full px-2 py-2 rounded-sm hover:bg-muted transition-colors"
                         >
-                          {sizeFilters.includes(size) && <Check className="w-3 h-3 text-primary-foreground" />}
-                        </div>
-                        <span className="font-body text-sm text-foreground">{size}</span>
-                      </button>
-                    ))}
-                  </motion.div>
+                          <div
+                            className={`w-4 h-4 rounded-sm border flex items-center justify-center ${
+                              sizeFilters.includes(size)
+                                ? "bg-primary border-primary"
+                                : "border-border"
+                            }`}
+                          >
+                            {sizeFilters.includes(size) && <Check className="w-3 h-3 text-primary-foreground" />}
+                          </div>
+                          <span className="font-body text-sm text-foreground">{size}</span>
+                        </button>
+                      ))}
+                    </motion.div>
+                  )}
                 </AnimatePresence>
               </Accordion.Content>
             </Accordion.Item>
@@ -220,47 +233,49 @@ const FilterDrawer = ({
               </Accordion.Header>
               <Accordion.Content className="overflow-hidden">
                 <AnimatePresence mode="wait">
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.2, ease: "easeOut" }}
-                    className="px-4 pb-3 space-y-2"
-                  >
-                    <button
-                      onClick={() => setPriceFilter("all")}
-                      className="flex items-center gap-3 w-full px-2 py-2 rounded-sm hover:bg-muted transition-colors"
+                  {isOpen("price") && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.2, ease: "easeOut" }}
+                      className="px-4 pb-3 space-y-2"
                     >
-                      <div
-                        className={`w-4 h-4 rounded-full border flex items-center justify-center ${
-                          priceFilter === "all"
-                            ? "bg-primary border-primary"
-                            : "border-border"
-                        }`}
-                      >
-                        {priceFilter === "all" && <Check className="w-3 h-3 text-primary-foreground" />}
-                      </div>
-                      <span className="font-body text-sm text-foreground">{t("products.allPrice")}</span>
-                    </button>
-                    {priceRanges.map((range) => (
                       <button
-                        key={range.key}
-                        onClick={() => setPriceFilter(range.key)}
+                        onClick={() => setPriceFilter("all")}
                         className="flex items-center gap-3 w-full px-2 py-2 rounded-sm hover:bg-muted transition-colors"
                       >
                         <div
                           className={`w-4 h-4 rounded-full border flex items-center justify-center ${
-                            priceFilter === range.key
+                            priceFilter === "all"
                               ? "bg-primary border-primary"
                               : "border-border"
-                          }`}
+                        }`}
                         >
-                          {priceFilter === range.key && <Check className="w-3 h-3 text-primary-foreground" />}
+                          {priceFilter === "all" && <Check className="w-3 h-3 text-primary-foreground" />}
                         </div>
-                        <span className="font-body text-sm text-foreground">{range.label}</span>
+                        <span className="font-body text-sm text-foreground">{t("products.allPrice")}</span>
                       </button>
-                    ))}
-                  </motion.div>
+                      {priceRanges.map((range) => (
+                        <button
+                          key={range.key}
+                          onClick={() => setPriceFilter(range.key)}
+                          className="flex items-center gap-3 w-full px-2 py-2 rounded-sm hover:bg-muted transition-colors"
+                        >
+                          <div
+                            className={`w-4 h-4 rounded-full border flex items-center justify-center ${
+                              priceFilter === range.key
+                                ? "bg-primary border-primary"
+                                : "border-border"
+                            }`}
+                          >
+                            {priceFilter === range.key && <Check className="w-3 h-3 text-primary-foreground" />}
+                          </div>
+                          <span className="font-body text-sm text-foreground">{range.label}</span>
+                        </button>
+                      ))}
+                    </motion.div>
+                  )}
                 </AnimatePresence>
               </Accordion.Content>
             </Accordion.Item>
@@ -287,32 +302,34 @@ const FilterDrawer = ({
               </Accordion.Header>
               <Accordion.Content className="overflow-hidden">
                 <AnimatePresence mode="wait">
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.2, ease: "easeOut" }}
-                    className="px-4 pb-3 space-y-2"
-                  >
-                    {features.map((feature) => (
-                      <button
-                        key={feature.key}
-                        onClick={() => toggleFeature(feature.key)}
-                        className="flex items-center gap-3 w-full px-2 py-2 rounded-sm hover:bg-muted transition-colors"
-                      >
-                        <div
-                          className={`w-4 h-4 rounded-sm border flex items-center justify-center ${
-                            featuresFilters.includes(feature.key)
-                              ? "bg-primary border-primary"
-                              : "border-border"
-                          }`}
+                  {isOpen("features") && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.2, ease: "easeOut" }}
+                      className="px-4 pb-3 space-y-2"
+                    >
+                      {features.map((feature) => (
+                        <button
+                          key={feature.key}
+                          onClick={() => toggleFeature(feature.key)}
+                          className="flex items-center gap-3 w-full px-2 py-2 rounded-sm hover:bg-muted transition-colors"
                         >
-                          {featuresFilters.includes(feature.key) && <Check className="w-3 h-3 text-primary-foreground" />}
-                        </div>
-                        <span className="font-body text-sm text-foreground">{feature.label}</span>
-                      </button>
-                    ))}
-                  </motion.div>
+                          <div
+                            className={`w-4 h-4 rounded-sm border flex items-center justify-center ${
+                              featuresFilters.includes(feature.key)
+                                ? "bg-primary border-primary"
+                                : "border-border"
+                            }`}
+                          >
+                            {featuresFilters.includes(feature.key) && <Check className="w-3 h-3 text-primary-foreground" />}
+                          </div>
+                          <span className="font-body text-sm text-foreground">{feature.label}</span>
+                        </button>
+                      ))}
+                    </motion.div>
+                  )}
                 </AnimatePresence>
               </Accordion.Content>
             </Accordion.Item>
