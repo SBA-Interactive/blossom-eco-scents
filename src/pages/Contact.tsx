@@ -16,7 +16,32 @@ const Contact = () => {
 
   return (
     <Layout>
-      {/* Hero Section */}
+      {/* Description Section - First */}
+      <section className="section-padding bg-card">
+        <div className="max-w-3xl mx-auto">
+          <BlurFade delay={0.1}>
+            <div className="space-y-8 text-muted-foreground">
+              <p className="font-body text-lg leading-relaxed">
+                Blossom is a sustainable fragrance brand that transforms discarded fruit peels into premium, eco-friendly perfumes. Our mission is to create beautiful scents while reducing waste and protecting the environment. We believe luxury fragrance should never come at the planet's expense.
+              </p>
+              <p className="font-body text-lg leading-relaxed">
+                Our products are 100% sustainable. We upcycle fruit peels that would otherwise go to waste, use cold-press extraction to preserve natural oils, package in recyclable glass bottles, and ship in carbon-neutral packaging. Every purchase supports our zero-waste mission.
+              </p>
+              <p className="font-body text-lg leading-relaxed">
+                Our fragrances are made from 100% natural ingredients with no synthetic chemicals, parabens, or phthalates. They're cruelty-free, vegan, and suitable for ages 10+. Each batch is carefully crafted and quality-tested to ensure the highest standards.
+              </p>
+              <p className="font-body text-lg leading-relaxed">
+                To order, simply browse our collection, select your desired fragrance and size, add to cart, and proceed to checkout. We accept all major credit cards (Visa, Mastercard, American Express), PayPal, and Apple Pay, with all transactions secure and encrypted.
+              </p>
+              <p className="font-body text-lg leading-relaxed">
+                Shipping is free on orders over $50, with standard delivery taking 5-7 business days. Express and overnight options are available at checkout. We offer a 30-day return policy for unopened items in original condition - contact our customer service team to initiate a return.
+              </p>
+            </div>
+          </BlurFade>
+        </div>
+      </section>
+
+      {/* Hero Section - Below Description */}
       <section className="section-padding">
         <div className="max-w-3xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-center mb-12">
@@ -26,31 +51,6 @@ const Contact = () => {
               {t("contact.desc")}
             </p>
           </motion.div>
-        </div>
-      </section>
-
-      {/* Info Section - Above Contact Form */}
-      <section className="section-padding bg-card">
-        <div className="max-w-3xl mx-auto">
-          <BlurFade delay={0.1}>
-            <div className="space-y-6 text-muted-foreground text-center">
-              <p className="font-body text-base leading-relaxed">
-                Blossom is a sustainable fragrance brand that transforms discarded fruit peels into premium, eco-friendly perfumes. Our mission is to create beautiful scents while reducing waste and protecting the environment. We believe luxury fragrance should never come at the planet's expense.
-              </p>
-              <p className="font-body text-base leading-relaxed">
-                Our products are 100% sustainable. We upcycle fruit peels that would otherwise go to waste, use cold-press extraction to preserve natural oils, package in recyclable glass bottles, and ship in carbon-neutral packaging. Every purchase supports our zero-waste mission.
-              </p>
-              <p className="font-body text-base leading-relaxed">
-                Our fragrances are made from 100% natural ingredients with no synthetic chemicals, parabens, or phthalates. They're cruelty-free, vegan, and suitable for ages 10+. Each batch is carefully crafted and quality-tested to ensure the highest standards.
-              </p>
-              <p className="font-body text-base leading-relaxed">
-                To order, simply browse our collection, select your desired fragrance and size, add to cart, and proceed to checkout. We accept all major credit cards (Visa, Mastercard, American Express), PayPal, and Apple Pay, with all transactions secure and encrypted.
-              </p>
-              <p className="font-body text-base leading-relaxed">
-                Shipping is free on orders over $50, with standard delivery taking 5-7 business days. Express and overnight options are available at checkout. We offer a 30-day return policy for unopened items in original condition - contact our customer service team to initiate a return.
-              </p>
-            </div>
-          </BlurFade>
         </div>
       </section>
 
