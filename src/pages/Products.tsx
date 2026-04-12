@@ -234,14 +234,6 @@ const Products = () => {
           <BlurFade delay={0.2} yOffset={10}>
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-6 p-4 bg-card border border-border rounded-sm flex-wrap">
               <div className="flex items-center gap-3">
-                <input
-                  type="text"
-                  placeholder="Search fragrances..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="font-body text-sm bg-background border border-border rounded-sm px-3 py-1.5 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary flex-1 min-w-[150px]"
-                />
-
                 <button
                   onClick={() => setFilterDrawerOpen(true)}
                   className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground font-body text-xs tracking-widest uppercase rounded-sm hover:opacity-90 transition-opacity"
@@ -255,19 +247,7 @@ const Products = () => {
                   )}
                 </button>
 
-                <button
-                  onClick={() => setShowWishlistOnly(!showWishlistOnly)}
-                  className={`flex items-center gap-2 px-4 py-2 font-body text-xs tracking-widest uppercase rounded-sm border transition-colors ${
-                    showWishlistOnly
-                      ? "bg-primary text-primary-foreground border-primary"
-                      : "bg-background text-muted-foreground border-border hover:text-foreground"
-                  }`}
-                >
-                  <Heart className="w-4 h-4" fill={showWishlistOnly ? "currentColor" : "none"} />
-                  {t("products.wishlist")}
-                </button>
-
-                <div className="flex items-center gap-2 sm:ml-auto">
+                <div className="flex items-center gap-2">
                   <ArrowUpDown className="w-4 h-4 text-muted-foreground" />
                   <select
                     value={sortBy}
@@ -282,6 +262,28 @@ const Products = () => {
                     <option value="name-desc">{t("products.nameZA")}</option>
                   </select>
                 </div>
+
+                <button
+                  onClick={() => setShowWishlistOnly(!showWishlistOnly)}
+                  className={`flex items-center gap-2 px-4 py-2 font-body text-xs tracking-widest uppercase rounded-sm border transition-colors ${
+                    showWishlistOnly
+                      ? "bg-primary text-primary-foreground border-primary"
+                      : "bg-background text-muted-foreground border-border hover:text-foreground"
+                  }`}
+                >
+                  <Heart className="w-4 h-4" fill={showWishlistOnly ? "currentColor" : "none"} />
+                  {t("products.wishlist")}
+                </button>
+
+                <div className="flex-1" />
+
+                <input
+                  type="text"
+                  placeholder="Search fragrances..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="font-body text-sm bg-background border border-border rounded-sm px-3 py-1.5 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary min-w-[150px]"
+                />
               </div>
             </div>
 
