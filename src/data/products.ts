@@ -8,6 +8,7 @@ export interface Product {
   notes: string;
   ingredients: string;
   image: string;
+  tag?: "BESTSELLER" | "NEW" | "LIMITED" | "SALE";
   specifications: {
     volume: string;
     shelfLife: string;
@@ -369,6 +370,315 @@ export const products: Product[] = [
       {
         question: "How does it feel so energising?",
         answer: "Lime is one of the most energising scents in existence — it's been used for centuries to boost mood and mental clarity. Combined with basil (known for its revitalising properties), Verde Zest creates an instant pick-me-up. It's like a deep breath of fresh air in fragrance form.",
+      },
+      {
+        question: "Is this suitable for sensitive skin?",
+        answer: "Yes! Our formulas are free from harsh chemicals, parabens, and synthetic fragrances. However, we recommend doing a patch test first if you have very sensitive skin.",
+      },
+    ],
+    reviews: [],
+  },
+  {
+    slug: "ocean-breeze-50ml",
+    name: "Ocean Breeze",
+    description: "Crisp sea salt and driftwood evoke endless horizons. A refreshing, aquatic scent for the free-spirited.",
+    longDescription: "Ocean Breeze captures the essence of coastal mornings — the salt-kissed air, driftwood logs washed ashore, and the endless expanse of the open sea. This aquatic fragrance blends marine notes with driftwood warmth for a sophisticated take on classic beach scents. Perfect for those who long for the ocean, whether they're near or far. The sea salt provides an immediate burst of freshness, while driftwood and musk create a lingering warmth that reminds you of bonfires on the beach.",
+    price: 45,
+    size: "50ml",
+    notes: "Sea Salt, Driftwood, Musk",
+    ingredients: "Marine extract, driftwood oil, white musk, seaweed essence, jojoba oil",
+    image: placeholder,
+    specifications: {
+      volume: "50ml",
+      shelfLife: "2 years from manufacture date",
+      storage: "Store in a cool, dry place away from direct sunlight",
+      crueltyFree: true,
+      vegan: true,
+    },
+    faqs: [
+      {
+        question: "What does Ocean Breeze smell like?",
+        answer: "Ocean Breeze is like standing on a pristine beach at sunrise — crisp sea air fills your lungs while warm driftwood grounds you to shore. It's not a typical 'ocean' scent (no synthetic aquatic notes here). Instead, it's natural marine essence paired with woody depth.",
+      },
+      {
+        question: "Is this similar to typical 'aquatic' fragrances?",
+        answer: "Not at all! Most aquatic fragrances use synthetic calone (artificial watermelon note). Ocean Breeze uses real marine extract from sustainably harvested seaweed and kelp, giving it authenticity and depth that synthetic versions can't match.",
+      },
+      {
+        question: "When is the best time to wear Ocean Breeze?",
+        answer: "Ocean Breeze is incredibly versatile. It's perfect for summer days, outdoor adventures, gym workouts, or any time you want to feel refreshed. It also works beautifully in formal settings — the driftwood adds sophistication.",
+      },
+      {
+        question: "How long does the scent last?",
+        answer: "Our fragrances are designed to last 6-8 hours on the skin. The marine top notes provide initial freshness, while musk and driftwood create a lasting impression that evolves beautifully throughout the day.",
+      },
+      {
+        question: "Is this suitable for sensitive skin?",
+        answer: "Yes! Our formulas are free from harsh chemicals, parabens, and synthetic fragrances. However, we recommend doing a patch test first if you have very sensitive skin.",
+      },
+    ],
+    reviews: [],
+  },
+  {
+    slug: "ocean-breeze-100ml",
+    name: "Ocean Breeze",
+    description: "Crisp sea salt and driftwood evoke endless horizons. A refreshing, aquatic scent for the free-spirited.",
+    longDescription: "The full-size Ocean Breeze delivers the same coastal elegance with enhanced longevity. Made with additional driftwood and white musk concentrations, this version is designed for those who want the ocean to stay with them all day and night. Same authentic marine essence, now in its most concentrated form.",
+    price: 72,
+    size: "100ml",
+    notes: "Sea Salt, Driftwood, Musk",
+    ingredients: "Marine extract, driftwood oil, white musk, seaweed essence, cedarwood oil, jojoba oil",
+    image: placeholder,
+    specifications: {
+      volume: "100ml",
+      shelfLife: "2 years from manufacture date",
+      storage: "Store in a cool, dry place away from direct sunlight",
+      crueltyFree: true,
+      vegan: true,
+    },
+    faqs: [
+      {
+        question: "How is the 100ml version different?",
+        answer: "The 100ml Ocean Breeze features enhanced concentrations of driftwood and white musk, creating a longer-lasting fragrance that maintains its complexity throughout the day.",
+      },
+      {
+        question: "Is this suitable for sensitive skin?",
+        answer: "Yes! Our formulas are free from harsh chemicals, parabens, and synthetic fragrances. However, we recommend doing a patch test first if you have very sensitive skin.",
+      },
+    ],
+    reviews: [],
+  },
+  {
+    slug: "vanilla-skies-50ml",
+    name: "Vanilla Skies",
+    description: "Warm vanilla bean blended with creamy coconut and golden amber. Comfort in a bottle.",
+    longDescription: "Vanilla Skies is a warm embrace — the comforting scent of fresh vanilla bean paired with tropical coconut and golden amber. This is not your typical sweet vanilla fragrance. It's sophisticated, warm, and addictive. Perfect for cooler weather or anyone who wants to feel wrapped in comfort. The vanilla provides warmth, coconut adds a subtle tropical creaminess, and amber anchors it all.",
+    price: 50,
+    size: "50ml",
+    notes: "Vanilla Bean, Coconut, Amber",
+    ingredients: "Vanilla absolute, coconut oil, amber resin, jojoba carrier oil, vitamin E",
+    image: placeholder,
+    tag: "BESTSELLER",
+    specifications: {
+      volume: "50ml",
+      shelfLife: "2 years from manufacture date",
+      storage: "Store in a cool, dry place away from direct sunlight",
+      crueltyFree: true,
+      vegan: true,
+    },
+    faqs: [
+      {
+        question: "What does Vanilla Skies smell like?",
+        answer: "Vanilla Skies opens with warm vanilla — not synthetic, but real vanilla bean absolute. The coconut adds a creamy, tropical depth without being 'sunscreen-y'. Amber provides a golden warmth that lingers beautifully.",
+      },
+      {
+        question: "Is this too sweet?",
+        answer: "Not at all! Vanilla Skies is sophisticated vanilla — think high-end vanilla extract, not birthday cake frosting. Coconut adds creaminess without sweetness, making it suitable for everyday wear.",
+      },
+      {
+        question: "Why is it tagged as BESTSELLER?",
+        answer: "Vanilla Skies has became our most popular fragrance within months of launch. Customers love its unique take on vanilla — warm, comforting, but never overwhelming. It's the perfect 'signature scent' for those who want something distinctive.",
+      },
+      {
+        question: "When is the best time to wear Vanilla Skies?",
+        answer: "Vanilla Skies is perfect for cooler months, date nights, or any time you want to feel comforted. It's also fantastic for layering with other scents for a personalized signature.",
+      },
+      {
+        question: "Is this suitable for sensitive skin?",
+        answer: "Yes! Our formulas are free from harsh chemicals, parabens, and synthetic fragrances. However, we recommend doing a patch test first if you have very sensitive skin.",
+      },
+    ],
+    reviews: [
+      {
+        id: "vs1",
+        author: "Sophie M.",
+        rating: 5,
+        date: "2025-12-18",
+        title: "My new signature scent",
+        comment: "I was hesitant about vanilla but this is incredible. Not sweet at all, just warm and sophisticated.",
+      },
+      {
+        id: "vs2",
+        author: "David L.",
+        rating: 5,
+        date: "2025-11-15",
+        title: "Best purchase ever",
+        comment: "Got this for my wife and she loved it so much she ordered another one for herself!",
+      },
+    ],
+  },
+  {
+    slug: "vanilla-skies-100ml",
+    name: "Vanilla Skies",
+    description: "Warm vanilla bean blended with creamy coconut and golden amber. Comfort in a bottle.",
+    longDescription: "The full-size Vanilla Skies offers the same beloved warm embrace in a more generous format. Enhanced with additional vanilla absolute and a touch of Madagascar vanilla for added depth. This is the definitive Vanilla Skies experience.",
+    price: 82,
+    size: "100ml",
+    notes: "Vanilla Bean, Coconut, Amber",
+    ingredients: "Vanilla absolute, coconut oil, amber resin, Madagascar vanilla extract, jojoba oil",
+    image: placeholder,
+    specifications: {
+      volume: "100ml",
+      shelfLife: "2 years from manufacture date",
+      storage: "Store in a cool, dry place away from direct sunlight",
+      crueltyFree: true,
+      vegan: true,
+    },
+    faqs: [
+      {
+        question: "How is the 100ml version different?",
+        answer: "The 100ml features additional vanilla absolute and a touch of Madagascar vanilla, creating a richer, more complex fragrance that lasts all day.",
+      },
+      {
+        question: "Is this suitable for sensitive skin?",
+        answer: "Yes! Our formulas are free from harsh chemicals, parabens, and synthetic fragrances. However, we recommend doing a patch test first if you have very sensitive skin.",
+      },
+    ],
+    reviews: [],
+  },
+  {
+    slug: "midnight-jasmine-50ml",
+    name: "Midnight Jasmine",
+    description: "Intoxicating jasmine paired with creamy sandalwood and tonka bean. For evening elegance.",
+    longDescription: "Midnight Jasmine is an invitation to the night — intoxicating jasmine blooms at midnight, paired with creamy sandalwood and the warm richness of tonka bean. This is a fragrance for evenings, romance, and making memories. Not subtle, but elegant. The jasmine provides floral depth, sandalwood adds warmth, and tonka creates an addictive sweetness that draws people closer.",
+    price: 55,
+    size: "50ml",
+    notes: "Jasmine, Sandalwood, Tonka",
+    ingredients: "Jasmine absolute, sandalwood oil, tonka bean extract, coconut oil, vitamin E",
+    image: placeholder,
+    tag: "NEW",
+    specifications: {
+      volume: "50ml",
+      shelfLife: "2 years from manufacture date",
+      storage: "Store in a cool, dry place away from direct sunlight",
+      crueltyFree: true,
+      vegan: true,
+    },
+    faqs: [
+      {
+        question: "What does Midnight Jasmine smell like?",
+        answer: "Midnight Jasmine is elegance in a bottle. The jasmine is rich and heady — not light or delicate, but deeply floral. Sandalwood provides a creamy, woody base, while tonka adds warmth that's absolutely addictive.",
+      },
+      {
+        question: "Is this too strong?",
+        answer: "Midnight Jasmine has excellent sillage — people will notice when you're near, but it'snever overwhelming. It's designed to draw compliments, not dominate a room.",
+      },
+      {
+        question: "When should I wear this?",
+        answer: "This is your evening signature — perfect for date nights, dinners, or any occasion where you want to make an impression. It's also wonderful for special events.",
+      },
+      {
+        question: "Is this similar to other jasmine fragrances?",
+        answer: "Most jasmine fragrances are light and daytime-appropriate. Midnight Jasmine is deeper, more intense — designed specifically for evening wear.",
+      },
+      {
+        question: "Is this suitable for sensitive skin?",
+        answer: "Yes! Our formulas are free from harsh chemicals, parabens, and synthetic fragrances. However, we recommend doing a patch test first if you have very sensitive skin.",
+      },
+    ],
+    reviews: [],
+  },
+  {
+    slug: "midnight-jasmine-100ml",
+    name: "Midnight Jasmine",
+    description: "Intoxicating jasmine paired with creamy sandalwood and tonka bean. For evening elegance.",
+    longDescription: "The full-size Midnight Jasmine is our most luxurious evening fragrance. Enhanced with double jasmine concentration and additional sandalwood for exceptional longevity. This is the ultimate expression of evening elegance.",
+    price: 90,
+    size: "100ml",
+    notes: "Jasmine, Sandalwood, Tonka",
+    ingredients: "Jasmine absolute, sandalwood oil, tonka bean extract, Mysore sandalwood, coconut oil",
+    image: placeholder,
+    specifications: {
+      volume: "100ml",
+      shelfLife: "2 years from manufacture date",
+      storage: "Store in a cool, dry place away from direct sunlight",
+      crueltyFree: true,
+      vegan: true,
+    },
+    faqs: [
+      {
+        question: "How is the 100ml version different?",
+        answer: "The 100ml features double jasmine concentration and additional Mysore sandalwood, creating an exceptionally long-lasting and luxurious fragrance.",
+      },
+      {
+        question: "Is this suitable for sensitive skin?",
+        answer: "Yes! Our formulas are free from harsh chemicals, parabens, and synthetic fragrances. However, we recommend doing a patch test first if you have very sensitive skin.",
+      },
+    ],
+    reviews: [],
+  },
+  {
+    slug: "amber-woods-50ml",
+    name: "Amber Woods",
+    description: "Rich amber meets cedarwood in a bold, masculine statement. Power and sophistication.",
+    longDescription: "Amber Woods is confidence in a bottle — rich amber resin meets aged cedarwood for a bold, sophisticated fragrance. This is designed for those who lead, not follow. Not aggressively masculine, but undeniably strong. The amber provides warmth and depth, while cedarwood adds sophistication and longevity.",
+    price: 52,
+    size: "50ml",
+    notes: "Amber, Cedarwood, Leather",
+    ingredients: "Amber resin, cedarwood oil, leather extract, vetiver, jojoba oil",
+    image: placeholder,
+    tag: "BESTSELLER",
+    specifications: {
+      volume: "50ml",
+      shelfLife: "2 years from manufacture date",
+      storage: "Store in a cool, dry place away from direct sunlight",
+      crueltyFree: true,
+      vegan: true,
+    },
+    faqs: [
+      {
+        question: "What does Amber Woods smell like?",
+        answer: "Amber Woods opens with rich amber — warm, resinous, and immediately commanding. Cedarwood emerges as it settles, adding sophistication. Leather provides a subtle edge that makes it uniquely bold.",
+      },
+      {
+        question: "Is this too masculine?",
+        answer: "While Amber Woods has traditionally masculine notes, it's designed to be inclusive. Many women wear it for its bold, sophisticated character. Fragrance has no gender.",
+      },
+      {
+        question: "Why is it tagged as BESTSELLER?",
+        answer: "Amber Woods has became incredibly popular with our customers who want something bold and distinctive. It's the perfect 'power scent' for important meetings or events.",
+      },
+      {
+        question: "When is the best time to wear Amber Woods?",
+        answer: "Amber Woods is perfect for professional settings, evening events, or any time you want to make a strong impression.",
+      },
+      {
+        question: "Is this suitable for sensitive skin?",
+        answer: "Yes! Our formulas are free from harsh chemicals, parabens, and synthetic fragrances. However, we recommend doing a patch test first if you have very sensitive skin.",
+      },
+    ],
+    reviews: [
+      {
+        id: "aw1",
+        author: "Michael R.",
+        rating: 5,
+        date: "2025-12-08",
+        title: "My signature scent",
+        comment: "I get compliments every time I wear this. Absolute game changer.",
+      },
+    ],
+  },
+  {
+    slug: "amber-woods-100ml",
+    name: "Amber Woods",
+    description: "Rich amber meets cedarwood in a bold, masculine statement. Power and sophistication.",
+    longDescription: "The full-size Amber Woods offers the same commanding presence in extended form. Enhanced with additional cedarwood and a touch of vetiver for those who want their presence to be remembered.",
+    price: 85,
+    size: "100ml",
+    notes: "Amber, Cedarwood, Leather",
+    ingredients: "Amber resin, cedarwood oil, leather extract, vetiver, patchouli, jojoba oil",
+    image: placeholder,
+    specifications: {
+      volume: "100ml",
+      shelfLife: "2 years from manufacture date",
+      storage: "Store in a cool, dry place away from direct sunlight",
+      crueltyFree: true,
+      vegan: true,
+    },
+    faqs: [
+      {
+        question: "How is the 100ml version different?",
+        answer: "The 100ml features additional cedarwood and vetiver, creating a longer-lasting, more commanding presence.",
       },
       {
         question: "Is this suitable for sensitive skin?",

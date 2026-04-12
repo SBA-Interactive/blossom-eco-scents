@@ -44,7 +44,7 @@ const Contact = () => {
       {/* Hero Section - Below Description */}
       <section className="section-padding">
         <div className="max-w-3xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-center mb-12">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-center mb-6">
             <p className="font-body text-xs tracking-[0.3em] uppercase text-muted-foreground mb-3">{t("contact.getInTouch")}</p>
             <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-foreground mb-4">{t("contact.title")}</h1>
             <p className="font-body text-base text-muted-foreground max-w-md mx-auto leading-relaxed">
