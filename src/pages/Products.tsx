@@ -233,7 +233,6 @@ const Products = () => {
 
           <BlurFade delay={0.2} yOffset={10}>
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-6 p-4 bg-card border border-border rounded-sm flex-wrap">
-              <div className="flex items-center justify-between gap-3">
               <div className="flex items-center gap-3">
                 <button
                   onClick={() => setFilterDrawerOpen(true)}
@@ -285,8 +284,6 @@ const Products = () => {
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="font-body text-sm bg-background border border-border rounded-sm px-3 py-1.5 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary min-w-[150px]"
                 />
-              </div>
-            </div>
               </div>
             </div>
 
