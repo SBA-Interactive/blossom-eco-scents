@@ -25,15 +25,6 @@ const Navbar = () => {
     { label: t("nav.contact"), to: "/contact" },
   ];
 
-  const desktopNavLinks = [
-    { label: t("nav.home"), to: "/" },
-    { label: t("nav.products"), to: "/products" },
-    { isCart: true },
-    { label: t("nav.about"), to: "/about" },
-    { label: t("nav.pricing"), to: "/pricing" },
-    { label: t("nav.contact"), to: "/contact" },
-  ];
-
   const handleLogoClick = () => {
     if (location.pathname === "/") {
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -50,37 +41,34 @@ const Navbar = () => {
 
         {/* Center - Nav Links (desktop), absolutely centered */}
         <div className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
-          {desktopNavLinks.map((link, index) => (
-            link.isCart ? (
-              <button
-                key={`cart-${index}`}
-                onClick={() => setIsCartOpen(true)}
-                className="relative p-2 text-foreground hover:text-accent transition-colors"
-                aria-label="Open cart"
-              >
-                <ShoppingBag className="w-5 h-5" />
-                {totalItems > 0 && (
-                  <span className="absolute -top-1 -right-1 w-5 h-5 bg-primary text-primary-foreground text-xs rounded-full flex items-center justify-center font-body">
-                    {totalItems}
-                  </span>
-                )}
-              </button>
-            ) : (
-              <Link
-                key={link.to}
-                to={link.to}
-                className={`font-body text-sm tracking-widest uppercase transition-colors duration-300 whitespace-nowrap ${
-                  location.pathname === link.to ? "text-foreground" : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                {link.label}
-              </Link>
-            )
+          {navLinks.map((link) => (
+            <Link
+              key={link.to}
+              to={link.to}
+              className={`font-body text-sm tracking-widest uppercase transition-colors duration-300 whitespace-nowrap ${
+                location.pathname === link.to ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              {link.label}
+            </Link>
           ))}
         </div>
 
         {/* Right - Actions (desktop) */}
         <div className="hidden md:flex items-center gap-3 ml-auto">
+          <button
+            onClick={() => setIsCartOpen(true)}
+            className="relative p-2 text-foreground hover:text-accent transition-colors"
+            aria-label="Open cart"
+          >
+            <ShoppingBag className="w-5 h-5" />
+            {totalItems > 0 && (
+              <span className="absolute -top-1 -right-1 w-5 h-5 bg-primary text-primary-foreground text-xs rounded-full flex items-center justify-center font-body">
+                {totalItems}
+              </span>
+            )}
+          </button>
+          <UserMenu />
           {!isAuthenticated && (
             <>
               <motion.button
@@ -103,7 +91,6 @@ const Navbar = () => {
               <AnimatedThemeToggler className="h-7 w-auto rounded-sm border border-border hover:bg-muted transition-colors" />
             </>
           )}
-          <UserMenu />
         </div>
 
         {/* Mobile actions */}
