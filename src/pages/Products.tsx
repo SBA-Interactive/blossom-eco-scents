@@ -11,7 +11,7 @@ import { BlurFade } from "@/components/ui/blur-fade";
 import { SlideIn } from "@/components/ui/slide-in";
 import FilterDrawer from "@/components/FilterDrawer";
 
-type SortOption = "default" | "price-asc" | "price-desc" | "name-asc" | "name-desc";
+type SortOption = "default" | "price-asc" | "price-desc" | "name-asc" | "name-desc" | "popularity";
 
 const Products = () => {
   const [searchParams] = useSearchParams();
@@ -21,6 +21,7 @@ const Products = () => {
 
   const [filterDrawerOpen, setFilterDrawerOpen] = useState(false);
   const [sortBy, setSortBy] = useState<SortOption>("default");
+  const [searchQuery, setSearchQuery] = useState("");
   const [showWishlistOnly, setShowWishlistOnly] = useState(searchParams.get("wishlist") === "true");
   const [displayedCount, setDisplayedCount] = useState(3);
 
@@ -31,6 +32,15 @@ const Products = () => {
 
   const filtered = useMemo(() => {
     let result = [...products];
+
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase();
+      result = result.filter((p) => 
+        p.name.toLowerCase().includes(query) ||
+        p.notes.toLowerCase().includes(query) ||
+        p.ingredients.toLowerCase().includes(query)
+      );
+    }
 
     if (scentFilters.length > 0) {
       result = result.filter((p) => scentFilters.includes(p.name));
@@ -116,13 +126,24 @@ const Products = () => {
         case "name-desc":
           group.sort((a, b) => b.name.localeCompare(a.name));
           break;
+        case "popularity":
+          group.sort((a, b) => {
+            const aCount = a.reviews?.length || 0;
+            const bCount = b.reviews?.length || 0;
+            const aTag = a.tag === "BESTSELLER" ? 2 : a.tag === "NEW" ? 1 : 0;
+            const bTag = b.tag === "BESTSELLER" ? 2 : b.tag === "NEW" ? 1 : 0;
+            const aScore = aTag * 10 + aCount;
+            const bScore = bTag * 10 + bCount;
+            return bScore - aScore;
+          });
+          break;
       }
     });
 
     result = Object.values(grouped).flat();
 
     return result;
-  }, [scentFilters, sizeFilters, priceFilter, featuresFilters, showWishlistOnly, sortBy, isWishlisted]);
+  }, [scentFilters, sizeFilters, priceFilter, featuresFilters, showWishlistOnly, sortBy, isWishlisted, searchQuery]);
 
   const activeFilterCount =
     scentFilters.length +
@@ -132,6 +153,7 @@ const Products = () => {
     (showWishlistOnly ? 1 : 0);
 
   const clearAllFilters = () => {
+    setSearchQuery("");
     setScentFilters([]);
     setSizeFilters([]);
     setPriceFilter("all");
@@ -212,6 +234,14 @@ const Products = () => {
           <BlurFade delay={0.2} yOffset={10}>
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-6 p-4 bg-card border border-border rounded-sm flex-wrap">
               <div className="flex items-center gap-3">
+                <input
+                  type="text"
+                  placeholder="Search fragrances..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="font-body text-sm bg-background border border-border rounded-sm px-3 py-1.5 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary flex-1 min-w-[150px]"
+                />
+
                 <button
                   onClick={() => setFilterDrawerOpen(true)}
                   className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground font-body text-xs tracking-widest uppercase rounded-sm hover:opacity-90 transition-opacity"
@@ -245,6 +275,7 @@ const Products = () => {
                     className="font-body text-sm bg-background border border-border rounded-sm px-3 py-1.5 text-foreground focus:outline-none focus:ring-1 focus:ring-primary"
                   >
                     <option value="default">{t("products.default")}</option>
+                    <option value="popularity">Popularity</option>
                     <option value="price-asc">{t("products.priceLowHigh")}</option>
                     <option value="price-desc">{t("products.priceHighLow")}</option>
                     <option value="name-asc">{t("products.nameAZ")}</option>

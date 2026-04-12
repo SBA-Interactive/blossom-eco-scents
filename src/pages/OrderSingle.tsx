@@ -2,14 +2,21 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
+import { products } from "@/data/products";
 import { useCart } from "@/context/CartContext";
 import { useLanguage } from "@/context/LanguageContext";
 import { toast } from "sonner";
 
-const fragrances = [
-  { name: "Citrus Bloom", notes: "Orange, Grapefruit, Amber", price: 48, size: "50ml" },
-  { name: "Petal Dew", notes: "Rose, Peach, Vanilla", price: 52, size: "50ml" },
-  { name: "Verde Zest", notes: "Lime, Basil, Sage", price: 48, size: "50ml" },
+const fragrances = products.map(p => ({
+  name: p.name,
+  notes: p.notes,
+  price: p.price,
+  size: p.size
+}));
+
+const styles = [
+  { name: "50ml", price: 0 },
+  { name: "100ml", price: 30 },
 ];
 
 const OrderSingle = () => {
@@ -44,27 +51,27 @@ const OrderSingle = () => {
           </motion.div>
 
           <motion.form initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} onSubmit={handleSubmit} className="space-y-4">
-            {fragrances.map((frag) => (
-              <label
-                key={frag.name}
-                className={`block cursor-pointer rounded-sm border p-6 transition-colors ${
-                  selected === frag.name
-                    ? "border-primary bg-primary/5"
-                    : "border-border bg-card hover:border-primary/40"
-                }`}
-              >
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-4">
-                    <input type="radio" name="fragrance" value={frag.name} checked={selected === frag.name} onChange={() => setSelected(frag.name)} className="accent-primary w-4 h-4" />
+            <div className="max-h-[300px] overflow-y-auto space-y-2 pr-2">
+              {fragrances.map((frag) => (
+                <label
+                  key={`${frag.name}-${frag.size}`}
+                  className={`block cursor-pointer rounded-sm border p-4 transition-colors ${
+                    selected === frag.name
+                      ? "border-primary bg-primary/5"
+                      : "border-border bg-card hover:border-primary/40"
+                  }`}
+                >
+                  <input type="radio" name="fragrance" value={frag.name} checked={selected === frag.name} onChange={() => setSelected(frag.name)} className="sr-only" />
+                  <div className="flex items-center justify-between">
                     <div>
                       <p className="font-display text-lg text-foreground">{frag.name}</p>
                       <p className="font-body text-sm text-muted-foreground">{frag.notes}</p>
                     </div>
+                    <span className="font-display text-xl text-foreground">${frag.price}</span>
                   </div>
-                  <span className="font-display text-xl text-foreground">${frag.price}</span>
-                </div>
-              </label>
-            ))}
+                </label>
+              ))}
+            </div>
 
             <div className="pt-4 space-y-2">
               <div className="flex justify-between font-body text-sm text-muted-foreground">
