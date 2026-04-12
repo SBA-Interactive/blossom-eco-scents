@@ -41,22 +41,17 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Hero Section - Below Description */}
+      {/* Hero + Form Section - Merged */}
       <section className="section-padding">
         <div className="max-w-3xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-center mb-6">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-center mb-8">
             <p className="font-body text-xs tracking-[0.3em] uppercase text-muted-foreground mb-3">{t("contact.getInTouch")}</p>
             <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-foreground mb-4">{t("contact.title")}</h1>
             <p className="font-body text-base text-muted-foreground max-w-md mx-auto leading-relaxed">
               {t("contact.desc")}
             </p>
           </motion.div>
-        </div>
-      </section>
 
-      {/* Contact Form Section */}
-      <section className="section-padding">
-        <div className="max-w-3xl mx-auto">
           {sent ? (
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-16">
               <p className="font-display text-3xl text-foreground mb-4">{t("contact.thankYou")}</p>
@@ -73,9 +68,9 @@ const Contact = () => {
                 <button type="submit" className="px-10 py-3.5 bg-primary text-primary-foreground font-body text-xs tracking-widest uppercase rounded-sm hover:opacity-90 transition-opacity">{t("contact.send")}</button>
               </div>
             </motion.form>
-          )}
+)}
 
-          <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center mt-16">
             <div>
               <h4 className="font-display text-lg text-foreground mb-1">{t("contact.emailLabel")}</h4>
               <p className="font-body text-sm text-muted-foreground">info@example.com</p>

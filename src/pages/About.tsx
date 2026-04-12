@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 import { useLanguage } from "@/context/LanguageContext";
@@ -92,9 +93,9 @@ const About = () => {
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-light text-primary-foreground mb-4 md:mb-6">{t("about.readyToBloom")}</h2>
           <p className="font-body text-sm text-primary-foreground/70 mb-6 md:mb-8 leading-relaxed">{t("about.readyDesc")}</p>
-          <a href="/products" className="inline-block px-8 py-3.5 bg-primary-foreground text-primary font-body text-sm tracking-widest uppercase rounded-sm hover:opacity-90 transition-opacity">
+          <Link to="/products" className="inline-block px-8 py-3.5 bg-primary-foreground text-primary font-body text-sm tracking-widest uppercase rounded-sm hover:opacity-90 transition-opacity">
             {t("nav.shopNow")}
-          </a>
+          </Link>
         </div>
       </section>
     </Layout>

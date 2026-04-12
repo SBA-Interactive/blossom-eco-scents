@@ -7,10 +7,14 @@ import { useCart } from "@/context/CartContext";
 import { useLanguage } from "@/context/LanguageContext";
 import { toast } from "sonner";
 
-const fragrances = products.map(p => ({
-  name: p.name,
-  notes: p.notes
-}));
+const uniqueFragrances = [...new Set(products.map(p => p.name))];
+const fragrances = uniqueFragrances.map(name => {
+  const product = products.find(p => p.name === name);
+  return {
+    name,
+    notes: product?.notes || ""
+  };
+});
 
 const TRIO_PRICE = 125;
 
@@ -21,9 +25,16 @@ const OrderTrio = () => {
   const { t } = useLanguage();
 
   const toggleSelection = (name: string) => {
-    setSelected((prev) =>
-      prev.includes(name) ? prev.filter((n) => n !== name) : prev.length < 3 ? [...prev, name] : prev
-    );
+    setSelected((prev) => {
+      if (prev.includes(name)) {
+        return prev.filter((n) => n !== name);
+      } else if (prev.length < 3) {
+        return [...prev, name];
+      } else {
+        toast.error("You can only select 3 scents for the trio pack");
+        return prev;
+      }
+    });
   };
 
   const handleSubmit = (e: React.FormEvent) => {

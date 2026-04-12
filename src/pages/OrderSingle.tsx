@@ -7,17 +7,16 @@ import { useCart } from "@/context/CartContext";
 import { useLanguage } from "@/context/LanguageContext";
 import { toast } from "sonner";
 
-const fragrances = products.map(p => ({
-  name: p.name,
-  notes: p.notes,
-  price: p.price,
-  size: p.size
-}));
-
-const styles = [
-  { name: "50ml", price: 0 },
-  { name: "100ml", price: 30 },
-];
+const uniqueFragrances = [...new Set(products.map(p => p.name))];
+const fragrances = uniqueFragrances.map(name => {
+  const product = products.find(p => p.name === name);
+  return {
+    name,
+    notes: product?.notes || "",
+    price: product?.price || 0,
+    size: product?.size || "50ml"
+  };
+});
 
 const OrderSingle = () => {
   const [selected, setSelected] = useState<string | null>(null);
