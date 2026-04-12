@@ -217,7 +217,7 @@ const Products = () => {
         />
       )}
 
-      <section className="section-padding">
+      <section className="section-padding scrollbar-hide overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <BlurFade delay={0.1} className="text-center mb-12">
             <p className="font-body text-xs tracking-[0.3em] uppercase text-muted-foreground mb-3">
