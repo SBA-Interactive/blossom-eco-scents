@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 
+
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   base: "/blossom-eco-scents",
@@ -13,6 +14,7 @@ export default defineConfig(({ mode }) => ({
       overlay: false,
     },
   },
+  appType: 'mpa',
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
     alias: {
