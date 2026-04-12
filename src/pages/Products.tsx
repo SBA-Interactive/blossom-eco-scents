@@ -62,20 +62,66 @@ const Products = () => {
       result = result.filter((p) => isWishlisted(`${p.name}-${p.size}`));
     }
 
-    switch (sortBy) {
-      case "price-asc":
-        result.sort((a, b) => a.price - b.price);
-        break;
-      case "price-desc":
-        result.sort((a, b) => b.price - a.price);
-        break;
-      case "name-asc":
-        result.sort((a, b) => a.name.localeCompare(b.name));
-        break;
-      case "name-desc":
-        result.sort((a, b) => b.name.localeCompare(a.name));
-        break;
-    }
+    // Priority sorting logic - tagged products appear first, with randomization within each group
+    const tagPriority: Record<string, number> = {
+      BESTSELLER: 1,
+      NEW: 2,
+      LIMITED: 3,
+      SALE: 4,
+    };
+
+    const getPriority = (p: (typeof products)[0]) => {
+      if (p.tag && tagPriority[p.tag]) return tagPriority[p.tag];
+      return 5;
+    };
+
+    // Sort by priority, then within same priority group: alternate sizes for visual variety
+    result.sort((a, b) => {
+      const priorityA = getPriority(a);
+      const priorityB = getPriority(b);
+      
+      if (priorityA !== priorityB) {
+        return priorityA - priorityB;
+      }
+      
+      // Same priority - alternate between 50ml/100ml of same scent and randomize different scents
+      if (a.name === b.name) {
+        return a.size === "50ml" ? -1 : 1;
+      }
+      
+      // Randomize order for different products in same priority group
+      return Math.random() < 0.5 ? -1 : 1;
+    });
+
+    // Apply user's sort option while maintaining priority groupings
+    const sortedByUser = [...result];
+    const grouped: Record<number, typeof products[]> = {};
+    
+    sortedByUser.forEach((p) => {
+      const priority = getPriority(p);
+      if (!grouped[priority]) grouped[priority] = [];
+      grouped[priority].push(p);
+    });
+
+    Object.keys(grouped).forEach((key) => {
+      const group = grouped[Number(key)];
+      switch (sortBy) {
+        case "price-asc":
+          group.sort((a, b) => a.price - b.price);
+          break;
+        case "price-desc":
+          group.sort((a, b) => b.price - a.price);
+          break;
+        case "name-asc":
+          group.sort((a, b) => a.name.localeCompare(b.name));
+          break;
+        case "name-desc":
+          group.sort((a, b) => b.name.localeCompare(a.name));
+          break;
+      }
+    });
+
+    result = Object.values(grouped).flat();
 
     return result;
   }, [scentFilters, sizeFilters, priceFilter, featuresFilters, showWishlistOnly, sortBy, isWishlisted]);

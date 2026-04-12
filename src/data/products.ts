@@ -9,6 +9,7 @@ export interface Product {
   ingredients: string;
   image: string;
   tag?: "BESTSELLER" | "NEW" | "LIMITED" | "SALE";
+  priority?: number;
   specifications: {
     volume: string;
     shelfLife: string;
