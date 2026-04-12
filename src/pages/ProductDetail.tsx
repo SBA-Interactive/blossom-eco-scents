@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Heart, ArrowLeft, ShoppingCart, Star, Droplets, Calendar, Warehouse, Heart as HeartIcon, Leaf, Package, Truck, RotateCcw, CreditCard, HelpCircle } from "lucide-react";
+import { Heart, ArrowLeft, ShoppingCart, Star, Droplets, Calendar, Warehouse, Heart as HeartIcon, Leaf, Package, Truck, RotateCcw, CreditCard, HelpCircle, Sparkles } from "lucide-react";
 import * as Accordion from "@radix-ui/react-accordion";
 import * as Tabs from "@radix-ui/react-tabs";
 import Layout from "@/components/Layout";
@@ -235,6 +235,28 @@ const ProductDetail = () => {
                 </h2>
                 
                 <div className="grid gap-4">
+                  {/* Main Notes */}
+                  <div className="flex items-center gap-4 p-4 rounded-lg bg-muted/50 hover:bg-muted transition-colors group">
+                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                      <Sparkles className="w-5 h-5 text-primary" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="font-body text-xs tracking-wider uppercase text-muted-foreground">{t("products.mainNotes")}</p>
+                      <p className="font-display text-lg text-foreground">{product.notes}</p>
+                    </div>
+                  </div>
+                  
+                  {/* Key Ingredients */}
+                  <div className="flex items-center gap-4 p-4 rounded-lg bg-muted/30 hover:bg-muted transition-colors group">
+                    <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                      <Leaf className="w-5 h-5 text-accent" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="font-body text-xs tracking-wider uppercase text-muted-foreground">{t("products.keyIngredients")}</p>
+                      <p className="font-display text-lg text-foreground">{product.ingredients}</p>
+                    </div>
+                  </div>
+                  
                   {/* Volume */}
                   <div className="flex items-center gap-4 p-4 rounded-lg bg-muted/50 hover:bg-muted transition-colors group">
                     <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">

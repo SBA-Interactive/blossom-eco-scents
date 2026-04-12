@@ -91,6 +91,8 @@ const translations: Translations = {
   "products.backToProducts": { en: "Back to Products", gr: "Πίσω στα Προϊόντα" },
   "products.ingredients": { en: "Ingredients", gr: "Συστατικά" },
   "products.specifications": { en: "Specifications", gr: "Προδιαγραφές" },
+  "products.mainNotes": { en: "Main Notes", gr: "Κύριες Νότες" },
+  "products.keyIngredients": { en: "Key Ingredients", gr: "Βασικά Συστατικά" },
   "products.faq": { en: "FAQ", gr: "Συχνές Ερωτήσεις" },
   "products.reviews": { en: "Reviews", gr: "Κριτικές" },
   "products.volume": { en: "Volume", gr: "Όγκος" },
