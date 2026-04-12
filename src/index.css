@@ -94,9 +94,15 @@
     @apply border-border;
   }
 
-  html {
+html {
     background-color: hsl(var(--background));
-  }
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
 
   body {
     @apply bg-background text-foreground font-body antialiased;
@@ -123,13 +129,16 @@
     mix-blend-mode: normal;
 }
 
-/* Custom Scrollbar - Always Visible */
+/* Custom Scrollbar - Always Visible (Override global hide) */
 .custom-scrollbar {
     scrollbar-width: thin;
     scrollbar-color: hsl(var(--accent)) transparent;
+    -ms-overflow-style: auto;
+    scrollbar-width: auto;
 }
 
 .custom-scrollbar::-webkit-scrollbar {
+    display: block;
     width: 6px;
 }
 
