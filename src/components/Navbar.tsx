@@ -64,7 +64,7 @@ const Navbar = () => {
               >
                 <LanguageToggle />
               </motion.button>
-              <AnimatedThemeToggler className="p-2 rounded-sm border border-border hover:bg-muted transition-colors" />
+              <AnimatedThemeToggler className="h-7 w-auto rounded-sm border border-border hover:bg-muted transition-colors" />
             </>
           )}
           {isAuthenticated && (
@@ -75,7 +75,7 @@ const Navbar = () => {
               >
                 <LanguageToggle />
               </motion.button>
-              <AnimatedThemeToggler className="p-2 rounded-sm border border-border hover:bg-muted transition-colors" />
+              <AnimatedThemeToggler className="h-7 w-auto rounded-sm border border-border hover:bg-muted transition-colors" />
             </>
           )}
           <UserMenu />
@@ -146,7 +146,7 @@ const Navbar = () => {
                 >
                   <LanguageToggle />
                 </motion.button>
-                <AnimatedThemeToggler className="p-2 rounded-sm border border-border hover:bg-muted transition-colors" />
+                <AnimatedThemeToggler className="h-7 w-auto rounded-sm border border-border hover:bg-muted transition-colors" />
               </div>
             </div>
           </motion.div>

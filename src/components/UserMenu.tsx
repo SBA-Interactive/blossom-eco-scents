@@ -21,7 +21,7 @@ const UserMenu = () => {
     return (
       <Link
         to="/login"
-        className="flex items-center gap-2 px-3 py-2 rounded-sm border border-border hover:bg-muted transition-colors"
+className="flex items-center gap-2 px-3 h-7 rounded-sm border border-border hover:bg-muted transition-colors"
       >
         <User className="w-4 h-4" />
       </Link>
@@ -31,7 +31,7 @@ const UserMenu = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <button className="flex items-center gap-2 px-3 py-2 rounded-sm border border-border hover:bg-muted transition-colors">
+        <button className="flex items-center gap-2 px-3 h-7 rounded-sm border border-border hover:bg-muted transition-colors">
           <div className="w-7 h-7 rounded-full bg-primary/20 flex items-center justify-center">
             <User className="w-4 h-4 text-primary" />
           </div>
