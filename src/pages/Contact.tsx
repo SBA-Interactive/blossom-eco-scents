@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Layout from "@/components/Layout";
 import { useLanguage } from "@/context/LanguageContext";
 import { BlurFade } from "@/components/ui/blur-fade";
@@ -7,6 +7,7 @@ import { BlurFade } from "@/components/ui/blur-fade";
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [sent, setSent] = useState(false);
+  const [openFaq, setOpenFaq] = useState<string | null>(null);
   const { t } = useLanguage();
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -16,26 +17,51 @@ const Contact = () => {
 
   return (
     <Layout>
-      {/* Description Section - First */}
+      {/* FAQ Section */}
       <section className="section-padding bg-card">
         <div className="max-w-3xl mx-auto">
           <BlurFade delay={0.1}>
-            <div className="space-y-8 text-muted-foreground">
-              <p className="font-body text-lg leading-relaxed">
-                Blossom is a sustainable fragrance brand that transforms discarded fruit peels into premium, eco-friendly perfumes. Our mission is to create beautiful scents while reducing waste and protecting the environment. We believe luxury fragrance should never come at the planet's expense.
-              </p>
-              <p className="font-body text-lg leading-relaxed">
-                Our products are 100% sustainable. We upcycle fruit peels that would otherwise go to waste, use cold-press extraction to preserve natural oils, package in recyclable glass bottles, and ship in carbon-neutral packaging. Every purchase supports our zero-waste mission.
-              </p>
-              <p className="font-body text-lg leading-relaxed">
-                Our fragrances are made from 100% natural ingredients with no synthetic chemicals, parabens, or phthalates. They're cruelty-free, vegan, and suitable for ages 10+. Each batch is carefully crafted and quality-tested to ensure the highest standards.
-              </p>
-              <p className="font-body text-lg leading-relaxed">
-                To order, simply browse our collection, select your desired fragrance and size, add to cart, and proceed to checkout. We accept all major credit cards (Visa, Mastercard, American Express), PayPal, and Apple Pay, with all transactions secure and encrypted.
-              </p>
-              <p className="font-body text-lg leading-relaxed">
-                Shipping is free on orders over $50, with standard delivery taking 5-7 business days. Express and overnight options are available at checkout. We offer a 30-day return policy for unopened items in original condition - contact our customer service team to initiate a return.
-              </p>
+            <div className="space-y-3">
+              <h2 className="font-display text-2xl md:text-3xl text-foreground mb-6">
+                {t("contact.faq.title")}
+              </h2>
+              
+              {[
+                { id: "about", question: t("contact.faq.about"), answer: t("contact.faq.aboutAnswer") },
+                { id: "sustainability", question: t("contact.faq.sustainability"), answer: t("contact.faq.sustainabilityAnswer") },
+                { id: "ingredients", question: t("contact.faq.ingredients"), answer: t("contact.faq.ingredientsAnswer") },
+                { id: "ordering", question: t("contact.faq.ordering"), answer: t("contact.faq.orderingAnswer") },
+                { id: "shipping-returns", question: t("contact.faq.shippingReturns"), answer: t("contact.faq.shippingReturnsAnswer") },
+              ].map((item) => {
+                const isOpen = openFaq === item.id;
+                
+                return (
+                  <div key={item.id} className="border border-border rounded-lg overflow-hidden bg-muted/30 hover:bg-muted/50 transition-colors">
+                    <button
+                      onClick={() => setOpenFaq(isOpen ? null : item.id)}
+                      className="flex w-full items-center justify-between p-4 font-body text-base text-left group"
+                    >
+                      <span className="pr-4">{item.question}</span>
+                      <span className={`shrink-0 text-muted-foreground transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}>▼</span>
+                    </button>
+                    <AnimatePresence mode="wait">
+                      {isOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.2, ease: "easeOut" }}
+                          className="overflow-hidden"
+                        >
+                          <p className="p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed">
+                            {item.answer}
+                          </p>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              })}
             </div>
           </BlurFade>
         </div>
