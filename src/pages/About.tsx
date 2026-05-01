@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Layout from "@/components/Layout";
 import { useLanguage } from "@/context/LanguageContext";
 import { BlurFade } from "@/components/ui/blur-fade";
@@ -9,6 +10,7 @@ const placeholder = "/placeholder.svg";
 
 const About = () => {
   const { t } = useLanguage();
+  const [openFaq, setOpenFaq] = useState<string | null>(null);
 
   const values = [
     { title: t("about.natural"), desc: t("about.naturalDesc") },
@@ -42,6 +44,52 @@ const About = () => {
               {t("about.desc2")}
             </p>
           </motion.div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="section-padding">
+        <div className="max-w-3xl mx-auto">
+          <div className="space-y-3">
+            <h2 className="font-display text-2xl md:text-3xl text-foreground mb-6">
+              {t("contact.faq.title")}
+            </h2>
+            {[
+              { id: "about", question: t("contact.faq.about"), answer: t("contact.faq.aboutAnswer") },
+              { id: "sustainability", question: t("contact.faq.sustainability"), answer: t("contact.faq.sustainabilityAnswer") },
+              { id: "ingredients", question: t("contact.faq.ingredients"), answer: t("contact.faq.ingredientsAnswer") },
+              { id: "ordering", question: t("contact.faq.ordering"), answer: t("contact.faq.orderingAnswer") },
+              { id: "shipping-returns", question: t("contact.faq.shippingReturns"), answer: t("contact.faq.shippingReturnsAnswer") },
+            ].map((item) => {
+              const isOpen = openFaq === item.id;
+              return (
+                <div key={item.id} className="border border-border rounded-lg overflow-hidden bg-muted/30 hover:bg-muted/50 transition-colors">
+                  <button
+                    onClick={() => setOpenFaq(isOpen ? null : item.id)}
+                    className="flex w-full items-center justify-between p-4 font-body text-base text-left group"
+                  >
+                    <span className="pr-4">{item.question}</span>
+                    <span className={`shrink-0 text-muted-foreground transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}>▼</span>
+                  </button>
+                  <AnimatePresence mode="wait">
+                    {isOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.2, ease: "easeOut" }}
+                        className="overflow-hidden"
+                      >
+                        <p className="p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed">
+                          {item.answer}
+                        </p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
 
