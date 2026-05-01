@@ -382,7 +382,7 @@ const Products = () => {
                         to={`/products/${product.slug}`}
                         className="block group"
                       >
-                        <div className="h-full rounded-xl border border-border bg-card group-hover:scale-[1.03] group-hover:shadow-2xl transition-all duration-300">
+                        <div className="h-full flex flex-col rounded-xl border border-border bg-card group-hover:scale-[1.03] group-hover:shadow-2xl transition-all duration-300">
                           <div className="relative overflow-hidden rounded-t-xl mb-0 bg-muted">
                             <img
                               src={product.image}
@@ -435,9 +435,11 @@ const Products = () => {
                             <p className="font-body text-xs text-accent uppercase tracking-wider mb-2">
                               {t("products.notes")}: {product.notes}
                             </p>
-                            <p className="font-body text-sm text-muted-foreground mb-4 leading-relaxed">
-                              {product.description}
-                            </p>
+                            <div className="flex-1">
+                              <p className="font-body text-sm text-muted-foreground mb-4 leading-relaxed">
+                                {product.description}
+                              </p>
+                            </div>
                             <div className="flex items-center justify-between">
                               <span className="font-display text-xl text-foreground">
                                 ${product.price}
