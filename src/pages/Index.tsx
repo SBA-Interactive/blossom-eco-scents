@@ -4,7 +4,7 @@ import { BlurFade } from "@/components/ui/blur-fade";
 import { SlideIn } from "@/components/ui/slide-in";
 import { useLanguage } from "@/context/LanguageContext";
 
-const placeholder = "/placeholder.svg";
+const placeholder = "/placeholder.jpg";
 
 const Index = () => {
   const { t } = useLanguage();

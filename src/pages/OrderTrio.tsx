@@ -45,7 +45,7 @@ const OrderTrio = () => {
       name: `Scent Trio (${selected.join(", ")})`,
       size: "3 × 50ml",
       price: TRIO_PRICE,
-      image: "/placeholder.svg",
+      image: "/placeholder.jpg",
     });
     toast.success("Scent Trio added to cart!");
     navigate("/checkout");

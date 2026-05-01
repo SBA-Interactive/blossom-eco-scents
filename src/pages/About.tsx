@@ -6,7 +6,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { SlideIn } from "@/components/ui/slide-in";
 
-const placeholder = "/placeholder.svg";
+const placeholder = "/placeholder.jpg";
 
 const About = () => {
   const { t } = useLanguage();
