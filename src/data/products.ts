@@ -17,10 +17,6 @@ export interface Product {
     crueltyFree: boolean;
     vegan: boolean;
   };
-  faqs: {
-    question: string;
-    answer: string;
-  }[];
   reviews: {
     id: string;
     author: string;
@@ -51,40 +47,6 @@ export const products: Product[] = [
       crueltyFree: true,
       vegan: true,
     },
-    faqs: [
-      {
-        question: "What does Citrus Bloom smell like?",
-        answer: "Citrus Bloom opens with an invigorating burst of fresh orange and grapefruit, delivering that instant 'morning refresh' feeling. As it settles, you'll notice subtle floral undertones that add elegance, while the warm amber base provides a cozy, lingering finish that stays with you throughout the day.",
-      },
-      {
-        question: "What ingredients create this scent?",
-        answer: "We craft Citrus Bloom from upcycled citrus peels — orange peel oil extracted through cold-pressing, natural grapefruit extract, and rich amber resin. These are blended with jojoba carrier oil and vitamin E for a nourishing, skin-friendly formula that's 100% vegan and cruelty-free.",
-      },
-      {
-        question: "How does the upcycling process work?",
-        answer: "We partner with local markets and juice bars to collect fruit peels that would otherwise be discarded. These peels undergo a cold-press extraction process to capture their natural oils, creating premium fragrance ingredients while reducing waste. Each bottle represents a commitment to circular economy.",
-      },
-      {
-        question: "What makes the amber note special?",
-        answer: "The amber in Citrus Bloom isn't just any amber — it's warm amber resin that adds depth and longevity without being heavy. It grounds the bright citrus notes, preventing the scent from becoming too sharp, and creates that beautiful dry-down experience that keeps you smelling great for hours.",
-      },
-      {
-        question: "When is the best time to wear Citrus Bloom?",
-        answer: "Citrus Bloom is perfect for everyday wear, especially mornings when you need an energising boost. It's ideal for work, weekend errands, or any time you want to feel refreshed and uplifting. The bright citrus notes are particularly wonderful in spring and summer, but work beautifully year-round.",
-      },
-      {
-        question: "How do I apply this fragrance?",
-        answer: "Spray 2-3 times on pulse points such as wrists, neck, and behind ears. For best results, apply to dry skin after showering when your skin is clean and pores are open. Avoid rubbing — let the fragrance settle naturally.",
-      },
-      {
-        question: "How long does the scent last?",
-        answer: "Our fragrances are designed to last 6-8 hours on the skin. The amber base note helps anchor the scent, while the citrus top notes provide that initial burst. Longevity may vary based on skin type and environmental factors.",
-      },
-      {
-        question: "Is this suitable for sensitive skin?",
-        answer: "Yes! Our formulas are free from harsh chemicals, parabens, and synthetic fragrances. However, we recommend doing a patch test first if you have very sensitive skin.",
-      },
-    ],
     reviews: [
       {
         id: "cb1",
@@ -121,40 +83,6 @@ export const products: Product[] = [
       crueltyFree: true,
       vegan: true,
     },
-    faqs: [
-      {
-        question: "What does Petal Dew smell like?",
-        answer: "Petal Dew is a delicate, romantic journey through a rose garden at dawn. The opening is fresh and dewy, like morning mist on petals. The heart reveals rich rose absolute — not synthetic, but real petals captured in time. Peach kernel adds a soft, velvety sweetness that complements the rose without overpowering it, while subtle vanilla creates a warm, lingering embrace.",
-      },
-      {
-        question: "Where do the rose petals come from?",
-        answer: "Our rose petals are sustainably sourced from organic rose farms in Bulgaria and Turkey, known for producing the world's finest rose oil. We work directly with farmers who practice ethical harvesting — roses are hand-picked at dawn when their scent is most potent, ensuring the highest quality extraction.",
-      },
-      {
-        question: "What makes Petal Dew romantic and elegant?",
-        answer: "There's something timeless about rose — it's been the symbol of romance for centuries. Petal Dew captures this essence perfectly: it's not heavy or cloying, but instead light and sophisticated. The peach adds a modern, feminine touch while vanilla provides warmth without sweetness. It's the kind of fragrance that makes someone lean in closer.",
-      },
-      {
-        question: "Is the vanilla note overwhelming?",
-        answer: "Not at all! The vanilla in Petal Dew is a carefully measured absolute — not the sweet, cookie-like vanilla you might expect. It provides a creamy, sensual warmth that grounds the more volatile rose notes, creating a balanced fragrance that evolves beautifully. Think of it as a whisper, not a shout.",
-      },
-      {
-        question: "How does peach complement the rose?",
-        answer: "Peach kernel oil brings a soft, velvety quality that mirrors the texture of rose petals. It's not a fruity peach — it's a subtle, skin-like warmth that makes the rose feel more intimate and personal. Together, they create that 'your skin but better' effect that makes Petal Dew so special.",
-      },
-      {
-        question: "How do I apply this fragrance?",
-        answer: "Spray 2-3 times on pulse points such as wrists, neck, and behind ears. For best results, apply to dry skin after showering when your skin is clean and pores are open. Avoid rubbing — let the fragrance settle naturally.",
-      },
-      {
-        question: "How long does the scent last?",
-        answer: "Our fragrances are designed to last 6-8 hours on the skin. The vanilla and rose heart notes provide excellent longevity, while the initial dewy top notes fade to reveal a beautiful dry-down. Longevity may vary based on skin type and environmental factors.",
-      },
-      {
-        question: "Is this suitable for sensitive skin?",
-        answer: "Yes! Our formulas are free from harsh chemicals, parabens, and synthetic fragrances. However, we recommend doing a patch test first if you have very sensitive skin.",
-      },
-    ],
     reviews: [
       {
         id: "pd1",
@@ -183,40 +111,6 @@ export const products: Product[] = [
       crueltyFree: true,
       vegan: true,
     },
-    faqs: [
-      {
-        question: "What does Verde Zest smell like?",
-        answer: "Verde Zest is an instant burst of freshness — imagine freshly pressed lime juice on a summer afternoon. But it goes deeper: basil adds an aromatic, slightly peppery green note that gives complexity, while sage provides an earthy, calming undertone. It's clean, crisp, and undeniably energising.",
-      },
-      {
-        question: "How does it feel so energising?",
-        answer: "Lime is one of the most energising scents in existence — it's been used for centuries to boost mood and mental clarity. Combined with basil (known for its revitalising properties), Verde Zest creates an instant pick-me-up. It's like a deep breath of fresh air in fragrance form.",
-      },
-      {
-        question: "Why is it good for active lifestyles?",
-        answer: "Verde Zest was designed for those who move — from morning workouts to outdoor adventures. The crisp lime cuts through gym sweat, the basil keeps things sophisticated, and the overall effect is clean and confident. It's the perfect post-workout fragrance or morning wake-up call.",
-      },
-      {
-        question: "What makes it different from other citrus scents?",
-        answer: "Most citrus fragrances are just 'citrus' — bright and simple. Verde Zest has herbal depth from basil and sage that most competitor scents lack. It's not just lime — it's a whole green landscape. This complexity makes it suitable for both casual and polished settings.",
-      },
-      {
-        question: "How do the herbs affect the fragrance?",
-        answer: "Basil brings a slightly sweet, peppery quality that cuts through the lime's sharpness, while sage adds an earthy, grounding element. Together, they transform a simple lime scent into something sophisticated. The herbs also help the fragrance last longer by providing middle notes that stick around after the citrus fades.",
-      },
-      {
-        question: "How do I apply this fragrance?",
-        answer: "Spray 2-3 times on pulse points such as wrists, neck, and behind ears. For best results, apply to dry skin after showering when your skin is clean and pores are open. Avoid rubbing — let the fragrance settle naturally.",
-      },
-      {
-        question: "How long does the scent last?",
-        answer: "Our fragrances are designed to last 6-8 hours on the skin. The lime provides an immediate burst of freshness, while basil and sage provide lasting depth. Longevity may vary based on skin type and environmental factors.",
-      },
-      {
-        question: "Is this suitable for sensitive skin?",
-        answer: "Yes! Our formulas are free from harsh chemicals, parabens, and synthetic fragrances. However, we recommend doing a patch test first if you have very sensitive skin.",
-      },
-    ],
     reviews: [
       {
         id: "vz1",
@@ -245,40 +139,6 @@ export const products: Product[] = [
       crueltyFree: true,
       vegan: true,
     },
-    faqs: [
-      {
-        question: "How is the 100ml version different?",
-        answer: "The 100ml Citrus Bloom is our definitive, full-expression version. It features deeper amber notes and the addition of cedarwood, which adds woody warmth and exceptional longevity. This isn't just more liquid — it's a richer, more complex formulation designed to make a lasting impression from morning well into the night.",
-      },
-      {
-        question: "What does the cedarwood add?",
-        answer: "Cedarwood brings an earthy, grounding quality that complements the bright citrus beautifully. It doesn't change the core scent — instead, it adds a sophisticated base that makes the fragrance evolve throughout the day. You'll notice it especially in the dry-down, where it provides warmth and depth.",
-      },
-      {
-        question: "Why does it last longer?",
-        answer: "The 100ml version contains a higher concentration of base notes (amber and cedarwood) that stick to the skin longer than top notes. While the 50ml version is perfect for everyday, the 100ml is designed for those who want exceptional staying power — ideal for long workdays or evening events.",
-      },
-      {
-        question: "Is it more intense than the 50ml?",
-        answer: "Yes, but in a sophisticated way — not overwhelming. The additional cedarwood adds depth without making it heavy. If you loved the 50ml, the 100ml will feel like the 'director's cut' version — same DNA, but with more character and complexity.",
-      },
-      {
-        question: "What does Citrus Bloom smell like?",
-        answer: "Citrus Bloom opens with an invigorating burst of fresh orange and grapefruit, delivering that instant 'morning refresh' feeling. As it settles, you'll notice subtle floral undertones that add elegance, while the warm amber base provides a cozy, lingering finish that stays with you throughout the day.",
-      },
-      {
-        question: "What ingredients create this scent?",
-        answer: "We craft Citrus Bloom from upcycled citrus peels — orange peel oil extracted through cold-pressing, natural grapefruit extract, rich amber resin, and cedarwood oil. These are blended with jojoba carrier oil and vitamin E for a nourishing, skin-friendly formula that's 100% vegan and cruelty-free.",
-      },
-      {
-        question: "When is the best time to wear this?",
-        answer: "The 100ml Citrus Bloom is perfect for special occasions, long workdays, or whenever you want to make a statement. The enhanced longevity means you can apply in the morning and still smell great through dinner. It's equally appropriate for professional settings and evening events.",
-      },
-      {
-        question: "Is this suitable for sensitive skin?",
-        answer: "Yes! Our formulas are free from harsh chemicals, parabens, and synthetic fragrances. However, we recommend doing a patch test first if you have very sensitive skin.",
-      },
-    ],
     reviews: [],
   },
   {
@@ -298,36 +158,6 @@ export const products: Product[] = [
       crueltyFree: true,
       vegan: true,
     },
-    faqs: [
-      {
-        question: "How is the 100ml version different?",
-        answer: "The 100ml Petal Dew is our most luxurious expression of this beloved fragrance. It features the addition of white musk — a clean, sensual note that adds exceptional depth and longevity. This version is designed for special occasions, romantic evenings, and anyone who wants their scent to make a lasting impression.",
-      },
-      {
-        question: "What does white musk add?",
-        answer: "White musk brings a clean, skin-like quality that's both modern and timeless. It amplifies the rose without making it heavy, and creates that intimate 'your skin but better' effect. It's the secret ingredient that makes the 100ml version perfect for evening wear — sophisticated, sensual, and unforgettable.",
-      },
-      {
-        question: "Why does it last longer?",
-        answer: "The white musk base note is incredibly long-lasting on the skin — it can stay for 12+ hours. Combined with the richer formulation, this makes the 100ml Petal Dew perfect for all-day wear or evening events where you want your scent to linger long after the night begins.",
-      },
-      {
-        question: "Is it better for evening or daytime?",
-        answer: "While the 50ml Petal Dew works beautifully for any time, the 100ml version truly shines in evening settings. The added musk gives it a sensual, sophisticated edge that's perfect for date nights, dinners, or any occasion where you want to feel extra special. It's your secret weapon for making memories.",
-      },
-      {
-        question: "What does Petal Dew smell like?",
-        answer: "Petal Dew is a delicate, romantic journey through a rose garden at dawn. The opening is fresh and dewy, like morning mist on petals. The heart reveals rich rose absolute — not synthetic, but real petals captured in time. Peach kernel adds a soft, velvety sweetness that complements the rose without overpowering it, while subtle vanilla creates a warm, lingering embrace.",
-      },
-      {
-        question: "Where do the rose petals come from?",
-        answer: "Our rose petals are sustainably sourced from organic rose farms in Bulgaria and Turkey, known for producing the world's finest rose oil. We work directly with farmers who practice ethical harvesting — roses are hand-picked at dawn when their scent is most potent.",
-      },
-      {
-        question: "Is this suitable for sensitive skin?",
-        answer: "Yes! Our formulas are free from harsh chemicals, parabens, and synthetic fragrances. However, we recommend doing a patch test first if you have very sensitive skin.",
-      },
-    ],
     reviews: [],
   },
   {
@@ -346,37 +176,7 @@ export const products: Product[] = [
       storage: "Store in a cool, dry place away from direct sunlight",
       crueltyFree: true,
       vegan: true,
-    },
-    faqs: [
-      {
-        question: "How is the 100ml version different?",
-        answer: "The 100ml Verde Zest takes our signature herbal fragrance to new heights with the addition of vetiver root oil. This earthy, smoky note grounds the bright lime and creates a fragrance that evolves beautifully throughout the day — from morning freshness to evening sophistication.",
-      },
-      {
-        question: "What does vetiver add to the scent?",
-        answer: "Vetiver is known as 'the oil of tranquility' — it's earthy, smoky, and incredibly grounding. In Verde Zest, it provides a woody base that transforms the fragrance from 'fresh and fun' to 'sophisticated and layered'. You'll notice it especially in the dry-down, where it adds warmth and complexity.",
-      },
-      {
-        question: "How does the fragrance evolve throughout the day?",
-        answer: "The 100ml Verde Zest tells a story: it opens with an invigorating lime burst, develops into aromatic basil complexity, and settles into a warm, woody vetiver finish. Each stage is beautiful, making it perfect for those who appreciate fragrances that change and grow over hours.",
-      },
-      {
-        question: "Why does it last longer?",
-        answer: "Vetiver is one of the longest-lasting natural ingredients in perfumery. It can remain on the skin for 12+ hours, providing a beautiful base that keeps the lime and basil notes present throughout the day. This makes the 100ml version perfect for long workdays or outdoor adventures.",
-      },
-      {
-        question: "What does Verde Zest smell like?",
-        answer: "Verde Zest is an instant burst of freshness — imagine freshly pressed lime juice on a summer afternoon. But it goes deeper: basil adds an aromatic, slightly peppery green note that gives complexity, while sage and vetiver provide earthy, grounding undertones. It's clean, crisp, and undeniably energising.",
-      },
-      {
-        question: "How does it feel so energising?",
-        answer: "Lime is one of the most energising scents in existence — it's been used for centuries to boost mood and mental clarity. Combined with basil (known for its revitalising properties), Verde Zest creates an instant pick-me-up. It's like a deep breath of fresh air in fragrance form.",
-      },
-      {
-        question: "Is this suitable for sensitive skin?",
-        answer: "Yes! Our formulas are free from harsh chemicals, parabens, and synthetic fragrances. However, we recommend doing a patch test first if you have very sensitive skin.",
-      },
-    ],
+},
     reviews: [],
   },
   {
@@ -396,28 +196,6 @@ export const products: Product[] = [
       crueltyFree: true,
       vegan: true,
     },
-    faqs: [
-      {
-        question: "What does Ocean Breeze smell like?",
-        answer: "Ocean Breeze is like standing on a pristine beach at sunrise — crisp sea air fills your lungs while warm driftwood grounds you to shore. It's not a typical 'ocean' scent (no synthetic aquatic notes here). Instead, it's natural marine essence paired with woody depth.",
-      },
-      {
-        question: "Is this similar to typical 'aquatic' fragrances?",
-        answer: "Not at all! Most aquatic fragrances use synthetic calone (artificial watermelon note). Ocean Breeze uses real marine extract from sustainably harvested seaweed and kelp, giving it authenticity and depth that synthetic versions can't match.",
-      },
-      {
-        question: "When is the best time to wear Ocean Breeze?",
-        answer: "Ocean Breeze is incredibly versatile. It's perfect for summer days, outdoor adventures, gym workouts, or any time you want to feel refreshed. It also works beautifully in formal settings — the driftwood adds sophistication.",
-      },
-      {
-        question: "How long does the scent last?",
-        answer: "Our fragrances are designed to last 6-8 hours on the skin. The marine top notes provide initial freshness, while musk and driftwood create a lasting impression that evolves beautifully throughout the day.",
-      },
-      {
-        question: "Is this suitable for sensitive skin?",
-        answer: "Yes! Our formulas are free from harsh chemicals, parabens, and synthetic fragrances. However, we recommend doing a patch test first if you have very sensitive skin.",
-      },
-    ],
     reviews: [],
   },
   {
@@ -437,16 +215,6 @@ export const products: Product[] = [
       crueltyFree: true,
       vegan: true,
     },
-    faqs: [
-      {
-        question: "How is the 100ml version different?",
-        answer: "The 100ml Ocean Breeze features enhanced concentrations of driftwood and white musk, creating a longer-lasting fragrance that maintains its complexity throughout the day.",
-      },
-      {
-        question: "Is this suitable for sensitive skin?",
-        answer: "Yes! Our formulas are free from harsh chemicals, parabens, and synthetic fragrances. However, we recommend doing a patch test first if you have very sensitive skin.",
-      },
-    ],
     reviews: [],
   },
   {
@@ -467,28 +235,6 @@ export const products: Product[] = [
       crueltyFree: true,
       vegan: true,
     },
-    faqs: [
-      {
-        question: "What does Vanilla Skies smell like?",
-        answer: "Vanilla Skies opens with warm vanilla — not synthetic, but real vanilla bean absolute. The coconut adds a creamy, tropical depth without being 'sunscreen-y'. Amber provides a golden warmth that lingers beautifully.",
-      },
-      {
-        question: "Is this too sweet?",
-        answer: "Not at all! Vanilla Skies is sophisticated vanilla — think high-end vanilla extract, not birthday cake frosting. Coconut adds creaminess without sweetness, making it suitable for everyday wear.",
-      },
-      {
-        question: "Why is it tagged as BESTSELLER?",
-        answer: "Vanilla Skies has became our most popular fragrance within months of launch. Customers love its unique take on vanilla — warm, comforting, but never overwhelming. It's the perfect 'signature scent' for those who want something distinctive.",
-      },
-      {
-        question: "When is the best time to wear Vanilla Skies?",
-        answer: "Vanilla Skies is perfect for cooler months, date nights, or any time you want to feel comforted. It's also fantastic for layering with other scents for a personalized signature.",
-      },
-      {
-        question: "Is this suitable for sensitive skin?",
-        answer: "Yes! Our formulas are free from harsh chemicals, parabens, and synthetic fragrances. However, we recommend doing a patch test first if you have very sensitive skin.",
-      },
-    ],
     reviews: [
       {
         id: "vs1",
@@ -525,16 +271,6 @@ export const products: Product[] = [
       crueltyFree: true,
       vegan: true,
     },
-    faqs: [
-      {
-        question: "How is the 100ml version different?",
-        answer: "The 100ml features additional vanilla absolute and a touch of Madagascar vanilla, creating a richer, more complex fragrance that lasts all day.",
-      },
-      {
-        question: "Is this suitable for sensitive skin?",
-        answer: "Yes! Our formulas are free from harsh chemicals, parabens, and synthetic fragrances. However, we recommend doing a patch test first if you have very sensitive skin.",
-      },
-    ],
     reviews: [],
   },
   {
@@ -555,28 +291,6 @@ export const products: Product[] = [
       crueltyFree: true,
       vegan: true,
     },
-    faqs: [
-      {
-        question: "What does Midnight Jasmine smell like?",
-        answer: "Midnight Jasmine is elegance in a bottle. The jasmine is rich and heady — not light or delicate, but deeply floral. Sandalwood provides a creamy, woody base, while tonka adds warmth that's absolutely addictive.",
-      },
-      {
-        question: "Is this too strong?",
-        answer: "Midnight Jasmine has excellent sillage — people will notice when you're near, but it'snever overwhelming. It's designed to draw compliments, not dominate a room.",
-      },
-      {
-        question: "When should I wear this?",
-        answer: "This is your evening signature — perfect for date nights, dinners, or any occasion where you want to make an impression. It's also wonderful for special events.",
-      },
-      {
-        question: "Is this similar to other jasmine fragrances?",
-        answer: "Most jasmine fragrances are light and daytime-appropriate. Midnight Jasmine is deeper, more intense — designed specifically for evening wear.",
-      },
-      {
-        question: "Is this suitable for sensitive skin?",
-        answer: "Yes! Our formulas are free from harsh chemicals, parabens, and synthetic fragrances. However, we recommend doing a patch test first if you have very sensitive skin.",
-      },
-    ],
     reviews: [],
   },
   {
@@ -596,16 +310,6 @@ export const products: Product[] = [
       crueltyFree: true,
       vegan: true,
     },
-    faqs: [
-      {
-        question: "How is the 100ml version different?",
-        answer: "The 100ml features double jasmine concentration and additional Mysore sandalwood, creating an exceptionally long-lasting and luxurious fragrance.",
-      },
-      {
-        question: "Is this suitable for sensitive skin?",
-        answer: "Yes! Our formulas are free from harsh chemicals, parabens, and synthetic fragrances. However, we recommend doing a patch test first if you have very sensitive skin.",
-      },
-    ],
     reviews: [],
   },
   {
@@ -626,28 +330,6 @@ export const products: Product[] = [
       crueltyFree: true,
       vegan: true,
     },
-    faqs: [
-      {
-        question: "What does Amber Woods smell like?",
-        answer: "Amber Woods opens with rich amber — warm, resinous, and immediately commanding. Cedarwood emerges as it settles, adding sophistication. Leather provides a subtle edge that makes it uniquely bold.",
-      },
-      {
-        question: "Is this too masculine?",
-        answer: "While Amber Woods has traditionally masculine notes, it's designed to be inclusive. Many women wear it for its bold, sophisticated character. Fragrance has no gender.",
-      },
-      {
-        question: "Why is it tagged as BESTSELLER?",
-        answer: "Amber Woods has became incredibly popular with our customers who want something bold and distinctive. It's the perfect 'power scent' for important meetings or events.",
-      },
-      {
-        question: "When is the best time to wear Amber Woods?",
-        answer: "Amber Woods is perfect for professional settings, evening events, or any time you want to make a strong impression.",
-      },
-      {
-        question: "Is this suitable for sensitive skin?",
-        answer: "Yes! Our formulas are free from harsh chemicals, parabens, and synthetic fragrances. However, we recommend doing a patch test first if you have very sensitive skin.",
-      },
-    ],
     reviews: [
       {
         id: "aw1",
@@ -676,16 +358,6 @@ export const products: Product[] = [
       crueltyFree: true,
       vegan: true,
     },
-    faqs: [
-      {
-        question: "How is the 100ml version different?",
-        answer: "The 100ml features additional cedarwood and vetiver, creating a longer-lasting, more commanding presence.",
-      },
-      {
-        question: "Is this suitable for sensitive skin?",
-        answer: "Yes! Our formulas are free from harsh chemicals, parabens, and synthetic fragrances. However, we recommend doing a patch test first if you have very sensitive skin.",
-      },
-    ],
     reviews: [],
   },
 ];

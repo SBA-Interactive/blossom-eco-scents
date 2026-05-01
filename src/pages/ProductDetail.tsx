@@ -356,47 +356,75 @@ const ProductDetail = () => {
 
               {/* Product Tab */}
               <Tabs.Content value="product" className="outline-none">
-                {product.faqs.length > 0 ? (
-                  <div className="space-y-3">
-                    {product.faqs.map((faq, index) => {
-                      const faqId = `product-faq-${index}`;
-                      const [openFaq, setOpenFaq] = useState<string | null>(null);
-                      const isOpen = openFaq === faqId;
-                      
-                      return (
-                        <div
-                          key={index}
-                          className="border border-border rounded-lg overflow-hidden bg-muted/30 hover:bg-muted/50 transition-colors"
+                <div className="space-y-3">
+                  {[
+                    {
+                      id: "smell",
+                      question: `What does ${product.name} smell like?`,
+                      answer: product.description
+                    },
+                    {
+                      id: "notes",
+                      question: "What are the main scent notes?",
+                      answer: product.notes
+                    },
+                    {
+                      id: "ingredients",
+                      question: `What ingredients are used in ${product.name}?`,
+                      answer: product.ingredients
+                    },
+                    {
+                      id: "vegan",
+                      question: `Is ${product.name} vegan and cruelty-free?`,
+                      answer: product.specifications.vegan && product.specifications.crueltyFree
+                        ? `Yes, ${product.name} is 100% vegan and cruelty-free.`
+                        : `This fragrance is ${product.specifications.vegan ? 'vegan' : 'made with natural ingredients'} and ${product.specifications.crueltyFree ? 'cruelty-free' : 'not tested on animals'}.`
+                    },
+                    {
+                      id: "longevity",
+                      question: "How long does the scent last?",
+                      answer: "Our fragrances are designed to last 6-8 hours on the skin. The base notes help anchor the scent while top notes provide that initial burst. Longevity may vary based on skin type and environmental factors."
+                    },
+                    {
+                      id: "storage",
+                      question: "How should I store this fragrance?",
+                      answer: product.specifications.storage
+                    },
+                  ].map((item) => {
+                    const [openFaq, setOpenFaq] = useState<string | null>(null);
+                    const isOpen = openFaq === item.id;
+                    
+                    return (
+                      <div
+                        key={item.id}
+                        className="border border-border rounded-lg overflow-hidden bg-muted/30 hover:bg-muted/50 transition-colors"
+                      >
+                        <button
+                          onClick={() => setOpenFaq(isOpen ? null : item.id)}
+                          className="flex w-full items-center justify-between p-4 font-body text-base text-left group"
                         >
-                          <button
-                            onClick={() => setOpenFaq(isOpen ? null : faqId)}
-                            className="flex w-full items-center justify-between p-4 font-body text-base text-left group"
-                          >
-                            <span className="pr-4">{faq.question}</span>
-                            <span className={`shrink-0 text-muted-foreground transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}>▼</span>
-                          </button>
-                          <AnimatePresence mode="wait">
-                            {isOpen && (
-                              <motion.div
-                                initial={{ opacity: 0, height: 0 }}
-                                animate={{ opacity: 1, height: "auto" }}
-                                exit={{ opacity: 0, height: 0 }}
-                                transition={{ duration: 0.2, ease: "easeOut" }}
-                                className="overflow-hidden"
-                              >
-                                <p className="p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed">
-                                  {faq.answer}
-                                </p>
-                              </motion.div>
-                            )}
-                          </AnimatePresence>
-                        </div>
-                      );
-                    })}
-                  </div>
-                ) : (
-                  <p className="text-muted-foreground text-center py-8">No product-specific FAQs available.</p>
-                )}
+                          <span className="pr-4">{item.question}</span>
+                          <span className={`shrink-0 text-muted-foreground transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}>▼</span>
+                        </button>
+                        <AnimatePresence mode="wait">
+                          {isOpen && (
+                            <motion.div
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: "auto" }}
+                              exit={{ opacity: 0, height: 0 }}
+                              transition={{ duration: 0.2, ease: "easeOut" }}
+                              className="overflow-hidden"
+                            >
+                              <p className="p-4 pt-0 font-body text-base text-muted-foreground leading-relaxed">
+                                {item.answer}
+                              </p>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    );
+                  })}
+                </div>
               </Tabs.Content>
 
               {/* Shipping Tab */}

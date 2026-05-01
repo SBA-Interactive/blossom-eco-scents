@@ -380,7 +380,7 @@ const Products = () => {
                     <SlideIn key={pid} direction="up" delay={index * 0.05}>
                       <Link
                         to={`/products/${product.slug}`}
-                        className="block group"
+                        className="block group h-full"
                       >
                         <div className="h-full flex flex-col rounded-xl border border-border bg-card group-hover:scale-[1.03] group-hover:shadow-2xl transition-all duration-300">
                           <div className="relative overflow-hidden rounded-t-xl mb-0 bg-muted">
