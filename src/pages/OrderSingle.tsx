@@ -33,7 +33,7 @@ const OrderSingle = () => {
       name: frag.name,
       size: frag.size,
       price: frag.price,
-      image: "/placeholder.jpg",
+      image: "placeholder.jpg",
     });
     toast.success(`${frag.name} added to cart!`);
     navigate("/checkout");

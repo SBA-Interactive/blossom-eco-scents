@@ -27,7 +27,7 @@ export interface Product {
   }[];
 }
 
-const placeholder = "/placeholder.jpg";
+const placeholder = "placeholder.jpg";
 
 export const products: Product[] = [
   {
