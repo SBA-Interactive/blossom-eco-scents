@@ -16,8 +16,8 @@ const Contact = () => {
 
 return (
     <Layout>
-      <div className="min-h-[calc(100vh-var(--navbar-height,5rem)-var(--footer-height,auto))] flex flex-col justify-center px-4 sm:px-6 md:px-10 lg:px-20 py-8">
-        <div className="max-w-3xl mx-auto w-full">
+      <div className="flex flex-col items-center justify-center min-h-[calc(100vh-5rem)] px-4 sm:px-6">
+        <div className="max-w-3xl w-full">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-center mb-6">
             <p className="font-body text-xs tracking-[0.3em] uppercase text-muted-foreground mb-2">{t("contact.getInTouch")}</p>
             <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-light text-foreground mb-3">{t("contact.title")}</h1>
