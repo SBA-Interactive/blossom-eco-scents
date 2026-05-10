@@ -6,7 +6,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { SlideIn } from "@/components/ui/slide-in";
 
-const placeholder = "placeholder.jpg";
+const image = "perfume_poster_rose_petal.jpg";
 
 const About = () => {
   const { t } = useLanguage();
@@ -32,7 +32,7 @@ const About = () => {
       <section className="section-padding">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-center">
           <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7 }}>
-            <img src={placeholder} alt="Natural fruit peel ingredients" width={1200} height={800} className="w-full h-auto rounded-sm" />
+            <img src={image} alt="Natural fruit peel ingredients" width={1200} height={800} className="w-full h-auto rounded-sm" />
           </motion.div>
           <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: 0.1 }}>
             <p className="font-body text-xs tracking-[0.3em] uppercase text-muted-foreground mb-3">{t("about.ourStory")}</p>
