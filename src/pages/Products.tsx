@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import { useSearchParams, Link } from "react-router-dom";
-import { Heart, SlidersHorizontal, ArrowUpDown, X } from "lucide-react";
+import { Heart, SlidersHorizontal, ArrowUpDown, X, Sparkles } from "lucide-react";
 import Layout from "@/components/Layout";
 import { products } from "@/data/products";
 import { useCart } from "@/context/CartContext";
@@ -229,6 +229,13 @@ const Products = () => {
             <p className="font-body text-base text-muted-foreground max-w-lg mx-auto leading-relaxed">
               {t("products.desc")}
             </p>
+            <Link
+              to="/configurator"
+              className="inline-flex items-center gap-2 mt-6 px-8 py-3.5 border border-foreground text-foreground font-body text-sm tracking-widest uppercase rounded-sm hover:bg-foreground hover:text-background transition-colors"
+            >
+              <Sparkles className="w-4 h-4" />
+              Configure Your Own!
+            </Link>
           </BlurFade>
 
           <BlurFade delay={0.2} yOffset={10}>

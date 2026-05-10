@@ -26,6 +26,7 @@ import Login from "./pages/Login.tsx";
 import Register from "./pages/Register.tsx";
 import Profile from "./pages/Profile.tsx";
 import OrderHistory from "./pages/OrderHistory.tsx";
+import Configurator from "./pages/Configurator.tsx";
 import ScrollToTop from "./components/ScrollToTop.tsx";
 
 const queryClient = new QueryClient();
@@ -60,6 +61,7 @@ const App = () => (
                       <Route path="/register" element={<Register />} />
                       <Route path="/profile" element={<Profile />} />
                       <Route path="/history" element={<OrderHistory />} />
+                      <Route path="/configurator" element={<Configurator />} />
                       <Route path="*" element={<NotFound />} />
                     </Routes>
                   </HashRouter>
