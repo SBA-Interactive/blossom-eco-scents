@@ -135,4 +135,4 @@ export const PACKAGING_OPTIONS: PackagingOption[] = [
   },
 ];
 
-export const BASE_PRICE = 130;
+export const BASE_PRICE = 80;
