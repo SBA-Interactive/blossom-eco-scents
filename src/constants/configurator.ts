@@ -119,14 +119,20 @@ export const PACKAGING_OPTIONS: PackagingOption[] = [
     id: "gift",
     name: "Gift Wrapped",
     image: "gift_wrapped_box.webp",
+    price: 5,
+  },
+  {
+    id: "birthday",
+    name: "Birthday Box",
+    image: "birthday_box.webp",
     price: 10,
   },
   {
     id: "premium",
     name: "Luxury Velvet Pouch",
     image: "luxury_velvet_pouch.webp",
-    price: 25,
+    price: 50,
   },
 ];
 
-export const BASE_PRICE = 99;
+export const BASE_PRICE = 130;

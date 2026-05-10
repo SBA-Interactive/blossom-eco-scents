@@ -82,17 +82,11 @@ export default function Configurator() {
               <BlurFade delay={0.1}>
                 <Card className="overflow-hidden shadow-lg">
                   <CardContent className="p-0">
-                    <div className="aspect-square lg:aspect-[4/5] bg-muted flex items-center justify-center p-4 lg:p-8 relative">
-                      <img
-                        src={selectedPackaging.image}
-                        alt={selectedPackaging.name}
-                        className="absolute inset-0 w-full h-full object-cover z-0 transition-opacity duration-300"
-                        key={`${selectedPackaging.id}-bg`}
-                      />
+                    <div className="aspect-square lg:aspect-[4/5] bg-muted flex items-center justify-center p-4 lg:p-8">
                       <img
                         src={selectedBottle.image}
                         alt={selectedBottle.name}
-                        className="relative z-10 h-2/3 lg:h-3/4 max-h-[200px] lg:max-h-[400px] transition-transform duration-300"
+                        className="h-2/3 lg:h-3/4 max-h-[200px] lg:max-h-[400px] transition-transform duration-300"
                         key={selectedBottle.id}
                       />
                     </div>
