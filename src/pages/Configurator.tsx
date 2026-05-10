@@ -54,7 +54,10 @@ export default function Configurator() {
   };
 
   const handleAddToCart = () => {
-    const scentDescription = [...selectedScents.top, ...selectedScents.heart, ...selectedScents.base].join(", ");
+    if (!hasAnyScents) {
+      toast.error("Please select at least one scent note");
+      return;
+    }
     
     addItem({
       id: `custom-${selectedBottle.id}-${selectedSize.id}-${Date.now()}`,
@@ -99,7 +102,7 @@ export default function Configurator() {
 
               <BlurFade delay={0.2}>
                 <div className="mt-6 lg:mt-8 text-left bg-card border border-border rounded-sm p-6">
-                  <h3 className="font-display text-xl text-foreground mb-4">{t("configurator.yourConfig") || "Your Configuration"}</h3>
+                  <h3 className="font-display text-xl text-foreground mb-4">Your Configuration</h3>
                   <ul className="font-body text-sm text-muted-foreground space-y-2">
                     <li className="flex justify-between">
                       <span>Bottle:</span>
@@ -139,7 +142,7 @@ export default function Configurator() {
                     className="w-full py-6 font-body text-sm tracking-widest uppercase"
                     onClick={handleAddToCart}
                   >
-                    {t("configurator.addToCart") || "Add to Cart"}
+                    Add to Cart
                   </Button>
                 </div>
               </BlurFade>
@@ -149,11 +152,8 @@ export default function Configurator() {
             <div className="order-1 lg:order-2">
               <BlurFade delay={0.1}>
                 <div className="text-center mb-8 lg:mb-12">
-                  <p className="font-body text-xs tracking-[0.3em] uppercase text-muted-foreground mb-3">
-                    {t("configurator.tag") || "Custom Blend"}
-                  </p>
                   <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-light text-foreground">
-                    {t("configurator.title") || "Create Your Scent"}
+                    Create your scent
                   </h1>
                 </div>
               </BlurFade>
@@ -161,7 +161,7 @@ export default function Configurator() {
               <SlideIn delay={0.1} direction="up">
                 <div className="mb-6 lg:mb-8">
                   <h3 className="font-display text-xl lg:text-2xl font-semibold mb-3 lg:mb-4">
-                    1. {t("configurator.chooseBottle") || "Choose Your Bottle"}
+                    1. Choose Your Bottle
                   </h3>
                   <div className="grid grid-cols-3 gap-2 lg:gap-4">
                     {BOTTLE_OPTIONS.map((bottle) => (
@@ -192,7 +192,7 @@ export default function Configurator() {
               <SlideIn delay={0.15} direction="up">
                 <div className="mb-6 lg:mb-8">
                   <h3 className="font-display text-xl lg:text-2xl font-semibold mb-3 lg:mb-4">
-                    2. {t("configurator.selectSize") || "Select Size"}
+                    2. Select Size
                   </h3>
                   <div className="grid grid-cols-3 gap-2 lg:gap-4">
                     {SIZE_OPTIONS.map((size) => (
@@ -220,12 +220,12 @@ export default function Configurator() {
               <SlideIn delay={0.2} direction="up">
                 <div className="mb-6 lg:mb-8">
                   <h3 className="font-display text-xl lg:text-2xl font-semibold mb-3 lg:mb-4">
-                    3. {t("configurator.composeScent") || "Compose Your Scent"}
+                    3. Compose Your Scent
                   </h3>
                   <div className="space-y-4 lg:space-y-6">
                     <div>
                       <h4 className="font-body text-base lg:text-lg font-semibold mb-2 lg:mb-3 text-foreground">
-                        {t("configurator.topNote") || "Top Note"} (up to 3)
+                        Top Note (up to 3)
                       </h4>
                       <div className="flex flex-wrap gap-1.5 lg:gap-2">
                         {SCENT_OPTIONS.top.map((note) => (
@@ -243,7 +243,7 @@ export default function Configurator() {
                     </div>
                     <div>
                       <h4 className="font-body text-base lg:text-lg font-semibold mb-2 lg:mb-3 text-foreground">
-                        {t("configurator.heartNote") || "Heart Note"} (up to 3)
+                        Heart Note (up to 3)
                       </h4>
                       <div className="flex flex-wrap gap-1.5 lg:gap-2">
                         {SCENT_OPTIONS.heart.map((note) => (
@@ -261,7 +261,7 @@ export default function Configurator() {
                     </div>
                     <div>
                       <h4 className="font-body text-base lg:text-lg font-semibold mb-2 lg:mb-3 text-foreground">
-                        {t("configurator.baseNote") || "Base Note"} (up to 3)
+                        Base Note (up to 3)
                       </h4>
                       <div className="flex flex-wrap gap-1.5 lg:gap-2">
                         {SCENT_OPTIONS.base.map((note) => (
@@ -284,7 +284,7 @@ export default function Configurator() {
               <SlideIn delay={0.25} direction="up">
                 <div className="mb-6 lg:mb-8">
                   <h3 className="font-display text-xl lg:text-2xl font-semibold mb-3 lg:mb-4">
-                    4. {t("configurator.selectPackaging") || "Select Packaging"}
+                    4. Select Packaging
                   </h3>
                   <div className="grid grid-cols-3 gap-2 lg:gap-4">
                     {PACKAGING_OPTIONS.map((pack) => (
@@ -317,10 +317,10 @@ export default function Configurator() {
               <SlideIn delay={0.3} direction="up">
                 <div className="mb-6 lg:mb-8">
                   <h3 className="font-display text-xl lg:text-2xl font-semibold mb-3 lg:mb-4">
-                    5. {t("configurator.customMessage") || "Add a Custom Message"}
+                    5. Custom Message
                   </h3>
                   <Textarea
-                    placeholder={t("configurator.messagePlaceholder") || "Happy Birthday, Sarah!"}
+                    placeholder="Happy Birthday, Sarah!"
                     value={customMessage}
                     onChange={(e) => setCustomMessage(e.target.value)}
                     className="font-body text-base bg-background"

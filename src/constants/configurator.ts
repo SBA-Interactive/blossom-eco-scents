@@ -1,5 +1,3 @@
-const placeholder = "placeholder.jpg";
-
 export interface BottleOption {
   id: string;
   name: string;
@@ -22,31 +20,44 @@ export interface PackagingOption {
 
 export const BOTTLE_OPTIONS: BottleOption[] = [
   {
-    id: "classic",
-    name: "Classic",
-    image: placeholder,
+    id: "citrus-bloom",
+    name: "Citrus Bloom",
+    image: "perfume_citrus_bloom.webp",
     price: 0,
   },
   {
-    id: "modern",
-    name: "Modern",
-    image: placeholder,
-    price: 15,
+    id: "tropical-sun",
+    name: "Tropical Sun",
+    image: "perfume_tropical_sun.webp",
+    price: 0,
   },
   {
-    id: "luxe",
-    name: "Luxe",
-    image: placeholder,
-    price: 35,
+    id: "berry-mist",
+    name: "Berry Mist",
+    image: "perfume_berry_mist.webp",
+    price: 0,
+  },
+  {
+    id: "forest-dew",
+    name: "Forest Dew",
+    image: "perfume_forest_dew.webp",
+    price: 0,
+  },
+  {
+    id: "garden-peel",
+    name: "Garden Peel",
+    image: "perfume_garden_peel.webp",
+    price: 0,
+  },
+  {
+    id: "rose-petal",
+    name: "Rose Petal",
+    image: "perfume_rose_petal.webp",
+    price: 0,
   },
 ];
 
 export const SIZE_OPTIONS: SizeOption[] = [
-  {
-    id: "30ml",
-    name: "30ml",
-    multiplier: 0.8,
-  },
   {
     id: "50ml",
     name: "50ml",
@@ -56,6 +67,11 @@ export const SIZE_OPTIONS: SizeOption[] = [
     id: "100ml",
     name: "100ml",
     multiplier: 1.6,
+  },
+  {
+    id: "150ml",
+    name: "150ml",
+    multiplier: 2.2,
   },
 ];
 
@@ -96,19 +112,19 @@ export const PACKAGING_OPTIONS: PackagingOption[] = [
   {
     id: "standard",
     name: "Standard Box",
-    image: placeholder,
+    image: "standard_box.webp",
     price: 0,
   },
   {
     id: "gift",
     name: "Gift Wrapped",
-    image: placeholder,
+    image: "gift_wrapped_box.webp",
     price: 10,
   },
   {
     id: "premium",
-    name: "Premium Gift Set",
-    image: placeholder,
+    name: "Luxury Velvet Pouch",
+    image: "luxury_velvet_pouch.webp",
     price: 25,
   },
 ];

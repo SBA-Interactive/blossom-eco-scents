@@ -4,15 +4,16 @@ import { BlurFade } from "@/components/ui/blur-fade";
 import { SlideIn } from "@/components/ui/slide-in";
 import { useLanguage } from "@/context/LanguageContext";
 
-const placeholder = "placeholder.jpg";
-
 const Index = () => {
   const { t } = useLanguage();
 
+  const heroImage = "main_page_perfume.webp";
+  const aboutImage = "main_page_product_poster.webp";
+
   const products = [
-    { name: "Citrus Bloom", description: "Bright orange & grapefruit peel notes with a warm amber finish.", price: "$48", image: placeholder },
-    { name: "Petal Dew", description: "Soft rose-petal essence blended with peach skin undertones.", price: "$52", image: placeholder },
-    { name: "Verde Zest", description: "Lime peel and crushed herbs for a crisp, invigorating scent.", price: "$48", image: placeholder },
+    { name: "Citrus Bloom", description: "Bright orange & grapefruit peel notes with a warm amber finish.", price: "$48", image: "perfume_citrus_bloom.webp" },
+    { name: "Tropical Sun", description: "Exotic mango and passion fruit with a golden amber base.", price: "$52", image: "perfume_tropical_sun.webp" },
+    { name: "Rose Petal", description: "Soft rose-petal essence blended with peach skin undertones.", price: "$48", image: "perfume_rose_petal.webp" },
   ];
 
   return (
@@ -38,7 +39,7 @@ const Index = () => {
             </div>
           </BlurFade>
           <BlurFade delay={0.2} yOffset={20} className="order-1 lg:order-2">
-            <img src={placeholder} alt="Blossom perfume bottle surrounded by fresh citrus fruit peels" className="w-full h-auto rounded-sm" width={1280} height={960} />
+            <img src={heroImage} alt="Blossom perfume bottle surrounded by fresh citrus fruit peels" className="w-full h-auto rounded-sm" width={1280} height={960} />
           </BlurFade>
         </div>
       </section>
@@ -80,7 +81,7 @@ const Index = () => {
       <section className="section-padding">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <SlideIn delay={0.1} direction="left">
-            <img src={placeholder} alt="Fresh fruit peels used as natural fragrance ingredients" loading="lazy" width={1200} height={800} className="w-full h-auto rounded-sm" />
+            <img src={aboutImage} alt="Fresh fruit peels used as natural fragrance ingredients" loading="lazy" width={1200} height={800} className="w-full h-auto rounded-sm" />
           </SlideIn>
           <SlideIn delay={0.2} direction="right">
             <p className="font-body text-xs tracking-[0.3em] uppercase text-muted-foreground mb-3">{t("about.ourStory")}</p>
