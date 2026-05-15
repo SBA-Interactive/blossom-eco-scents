@@ -238,7 +238,10 @@ export default function Configurator() {
                                 isDisabled && "opacity-40 cursor-not-allowed"
                               )}
                               disabled={isDisabled}
-                              onClick={() => toggleScent("top", note)}
+                              onClick={(e) => {
+                                e.currentTarget.blur();
+                                toggleScent("top", note);
+                              }}
                             >
                               {note}
                             </Button>
@@ -267,7 +270,10 @@ export default function Configurator() {
                                 isDisabled && "opacity-40 cursor-not-allowed"
                               )}
                               disabled={isDisabled}
-                              onClick={() => toggleScent("heart", note)}
+                              onClick={(e) => {
+                                e.currentTarget.blur();
+                                toggleScent("heart", note);
+                              }}
                             >
                               {note}
                             </Button>
@@ -296,7 +302,10 @@ export default function Configurator() {
                                 isDisabled && "opacity-40 cursor-not-allowed"
                               )}
                               disabled={isDisabled}
-                              onClick={() => toggleScent("base", note)}
+                              onClick={(e) => {
+                                e.currentTarget.blur();
+                                toggleScent("base", note);
+                              }}
                             >
                               {note}
                             </Button>
