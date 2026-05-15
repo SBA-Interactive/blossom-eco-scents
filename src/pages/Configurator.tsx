@@ -34,6 +34,11 @@ export default function Configurator() {
   });
   const [selectedPackaging, setSelectedPackaging] = useState<PackagingOption>(PACKAGING_OPTIONS[0]);
   const [customMessage, setCustomMessage] = useState("");
+  const [deselectingNotes, setDeselectingNotes] = useState<{ top: string[]; heart: string[]; base: string[] }>({
+    top: [],
+    heart: [],
+    base: [],
+  });
 
   const totalPrice = useMemo(() => {
     const base = BASE_PRICE * selectedSize.multiplier;
@@ -46,6 +51,16 @@ export default function Configurator() {
     setSelectedScents((prev) => {
       const current = prev[category];
       if (current.includes(note)) {
+        setDeselectingNotes((prev) => ({
+          ...prev,
+          [category]: [...prev[category], note],
+        }));
+        setTimeout(() => {
+          setDeselectingNotes((prev) => ({
+            ...prev,
+            [category]: prev[category].filter((n) => n !== note),
+          }));
+        }, 500);
         return { ...prev, [category]: current.filter((n) => n !== note) };
       }
       if (current.length >= 3) return prev;
@@ -224,13 +239,14 @@ export default function Configurator() {
                       <div className="flex flex-wrap gap-1.5 lg:gap-2">
                         {SCENT_OPTIONS.top.map((note) => {
                           const isSelected = selectedScents.top.includes(note);
+                          const isDeselecting = deselectingNotes.top.includes(note);
                           const isFull = selectedScents.top.length >= 3;
                           const isDisabled = !isSelected && isFull;
                           return (
                             <Button
                               key={note}
                               size="sm"
-                              variant={isSelected ? "default" : "outline"}
+                              variant={isSelected || isDeselecting ? "default" : "outline"}
                               className={cn("text-xs lg:text-sm", isDisabled && "opacity-40 cursor-not-allowed")}
                               disabled={isDisabled}
                               onClick={() => toggleScent("top", note)}
@@ -248,13 +264,14 @@ export default function Configurator() {
                       <div className="flex flex-wrap gap-1.5 lg:gap-2">
                         {SCENT_OPTIONS.heart.map((note) => {
                           const isSelected = selectedScents.heart.includes(note);
+                          const isDeselecting = deselectingNotes.heart.includes(note);
                           const isFull = selectedScents.heart.length >= 3;
                           const isDisabled = !isSelected && isFull;
                           return (
                             <Button
                               key={note}
                               size="sm"
-                              variant={isSelected ? "default" : "outline"}
+                              variant={isSelected || isDeselecting ? "default" : "outline"}
                               className={cn("text-xs lg:text-sm", isDisabled && "opacity-40 cursor-not-allowed")}
                               disabled={isDisabled}
                               onClick={() => toggleScent("heart", note)}
@@ -272,13 +289,14 @@ export default function Configurator() {
                       <div className="flex flex-wrap gap-1.5 lg:gap-2">
                         {SCENT_OPTIONS.base.map((note) => {
                           const isSelected = selectedScents.base.includes(note);
+                          const isDeselecting = deselectingNotes.base.includes(note);
                           const isFull = selectedScents.base.length >= 3;
                           const isDisabled = !isSelected && isFull;
                           return (
                             <Button
                               key={note}
                               size="sm"
-                              variant={isSelected ? "default" : "outline"}
+                              variant={isSelected || isDeselecting ? "default" : "outline"}
                               className={cn("text-xs lg:text-sm", isDisabled && "opacity-40 cursor-not-allowed")}
                               disabled={isDisabled}
                               onClick={() => toggleScent("base", note)}
