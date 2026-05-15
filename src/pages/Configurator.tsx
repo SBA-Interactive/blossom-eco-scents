@@ -222,17 +222,23 @@ export default function Configurator() {
                         Top Note (up to 3)
                       </h4>
                       <div className="flex flex-wrap gap-1.5 lg:gap-2">
-                        {SCENT_OPTIONS.top.map((note) => (
-                          <Button
-                            key={note}
-                            size="sm"
-                            variant={selectedScents.top.includes(note) ? "default" : "outline"}
-                            className="text-xs lg:text-sm"
-                            onClick={() => toggleScent("top", note)}
-                          >
-                            {note}
-                          </Button>
-                        ))}
+                        {SCENT_OPTIONS.top.map((note) => {
+                          const isSelected = selectedScents.top.includes(note);
+                          const isFull = selectedScents.top.length >= 3;
+                          const isDisabled = !isSelected && isFull;
+                          return (
+                            <Button
+                              key={note}
+                              size="sm"
+                              variant={isSelected ? "default" : "outline"}
+                              className={cn("text-xs lg:text-sm", isDisabled && "opacity-40 cursor-not-allowed")}
+                              disabled={isDisabled}
+                              onClick={() => toggleScent("top", note)}
+                            >
+                              {note}
+                            </Button>
+                          );
+                        })}
                       </div>
                     </div>
                     <div>
@@ -240,17 +246,23 @@ export default function Configurator() {
                         Heart Note (up to 3)
                       </h4>
                       <div className="flex flex-wrap gap-1.5 lg:gap-2">
-                        {SCENT_OPTIONS.heart.map((note) => (
-                          <Button
-                            key={note}
-                            size="sm"
-                            variant={selectedScents.heart.includes(note) ? "default" : "outline"}
-                            className="text-xs lg:text-sm"
-                            onClick={() => toggleScent("heart", note)}
-                          >
-                            {note}
-                          </Button>
-                        ))}
+                        {SCENT_OPTIONS.heart.map((note) => {
+                          const isSelected = selectedScents.heart.includes(note);
+                          const isFull = selectedScents.heart.length >= 3;
+                          const isDisabled = !isSelected && isFull;
+                          return (
+                            <Button
+                              key={note}
+                              size="sm"
+                              variant={isSelected ? "default" : "outline"}
+                              className={cn("text-xs lg:text-sm", isDisabled && "opacity-40 cursor-not-allowed")}
+                              disabled={isDisabled}
+                              onClick={() => toggleScent("heart", note)}
+                            >
+                              {note}
+                            </Button>
+                          );
+                        })}
                       </div>
                     </div>
                     <div>
@@ -258,17 +270,23 @@ export default function Configurator() {
                         Base Note (up to 3)
                       </h4>
                       <div className="flex flex-wrap gap-1.5 lg:gap-2">
-                        {SCENT_OPTIONS.base.map((note) => (
-                          <Button
-                            key={note}
-                            size="sm"
-                            variant={selectedScents.base.includes(note) ? "default" : "outline"}
-                            className="text-xs lg:text-sm"
-                            onClick={() => toggleScent("base", note)}
-                          >
-                            {note}
-                          </Button>
-                        ))}
+                        {SCENT_OPTIONS.base.map((note) => {
+                          const isSelected = selectedScents.base.includes(note);
+                          const isFull = selectedScents.base.length >= 3;
+                          const isDisabled = !isSelected && isFull;
+                          return (
+                            <Button
+                              key={note}
+                              size="sm"
+                              variant={isSelected ? "default" : "outline"}
+                              className={cn("text-xs lg:text-sm", isDisabled && "opacity-40 cursor-not-allowed")}
+                              disabled={isDisabled}
+                              onClick={() => toggleScent("base", note)}
+                            >
+                              {note}
+                            </Button>
+                          );
+                        })}
                       </div>
                     </div>
                   </div>

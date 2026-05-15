@@ -289,7 +289,7 @@ const Products = () => {
                   placeholder="Search fragrances..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="font-body text-sm bg-background border border-border rounded-sm px-3 py-1.5 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary min-w-[150px]"
+                  className="font-body text-sm bg-background border border-border rounded-sm px-3 py-1.5 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary w-full sm:w-auto min-w-[120px] sm:min-w-[150px]"
                 />
               </div>
             </div>

@@ -6,7 +6,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { SlideIn } from "@/components/ui/slide-in";
 
-const image = "product_poster_rose_petal.jpg";
+const image = "product_poster_rose_petal.webp";
 
 const About = () => {
   const { t } = useLanguage();
