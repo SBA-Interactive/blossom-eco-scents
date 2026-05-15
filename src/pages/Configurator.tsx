@@ -60,7 +60,7 @@ export default function Configurator() {
             ...prev,
             [category]: prev[category].filter((n) => n !== note),
           }));
-        }, 500);
+        }, 200);
         return { ...prev, [category]: current.filter((n) => n !== note) };
       }
       if (current.length >= 3) return prev;
@@ -246,8 +246,14 @@ export default function Configurator() {
                             <Button
                               key={note}
                               size="sm"
-                              variant={isSelected || isDeselecting ? "default" : "outline"}
-                              className={cn("text-xs lg:text-sm", isDisabled && "opacity-40 cursor-not-allowed")}
+                              variant="outline"
+                              className={cn(
+                                "text-xs lg:text-sm transition-all duration-200",
+                                isSelected && "bg-accent text-accent-foreground",
+                                isDeselecting && "bg-primary text-primary-foreground opacity-70",
+                                !isSelected && !isDeselecting && "hover:bg-primary hover:text-primary-foreground",
+                                isDisabled && "opacity-40 cursor-not-allowed"
+                              )}
                               disabled={isDisabled}
                               onClick={() => toggleScent("top", note)}
                             >
@@ -271,8 +277,14 @@ export default function Configurator() {
                             <Button
                               key={note}
                               size="sm"
-                              variant={isSelected || isDeselecting ? "default" : "outline"}
-                              className={cn("text-xs lg:text-sm", isDisabled && "opacity-40 cursor-not-allowed")}
+                              variant="outline"
+                              className={cn(
+                                "text-xs lg:text-sm transition-all duration-200",
+                                isSelected && "bg-accent text-accent-foreground",
+                                isDeselecting && "bg-primary text-primary-foreground opacity-70",
+                                !isSelected && !isDeselecting && "hover:bg-primary hover:text-primary-foreground",
+                                isDisabled && "opacity-40 cursor-not-allowed"
+                              )}
                               disabled={isDisabled}
                               onClick={() => toggleScent("heart", note)}
                             >
@@ -296,8 +308,14 @@ export default function Configurator() {
                             <Button
                               key={note}
                               size="sm"
-                              variant={isSelected || isDeselecting ? "default" : "outline"}
-                              className={cn("text-xs lg:text-sm", isDisabled && "opacity-40 cursor-not-allowed")}
+                              variant="outline"
+                              className={cn(
+                                "text-xs lg:text-sm transition-all duration-200",
+                                isSelected && "bg-accent text-accent-foreground",
+                                isDeselecting && "bg-primary text-primary-foreground opacity-70",
+                                !isSelected && !isDeselecting && "hover:bg-primary hover:text-primary-foreground",
+                                isDisabled && "opacity-40 cursor-not-allowed"
+                              )}
                               disabled={isDisabled}
                               onClick={() => toggleScent("base", note)}
                             >
