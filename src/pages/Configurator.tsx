@@ -232,7 +232,7 @@ export default function Configurator() {
                               size="sm"
                               variant="outline"
                               className={cn(
-                                "text-xs lg:text-sm",
+                                "text-xs lg:text-sm focus:ring-0 focus:outline-none focus-visible:ring-0",
                                 isSelected && "bg-accent text-accent-foreground",
                                 !isSelected && "dark:hover:bg-primary dark:hover:text-primary-foreground hover:bg-accent hover:text-accent-foreground dark:active:bg-primary dark:active:text-primary-foreground active:bg-accent active:text-accent-foreground",
                                 isDisabled && "opacity-40 cursor-not-allowed"
@@ -261,7 +261,7 @@ export default function Configurator() {
                               size="sm"
                               variant="outline"
                               className={cn(
-                                "text-xs lg:text-sm",
+                                "text-xs lg:text-sm focus:ring-0 focus:outline-none focus-visible:ring-0",
                                 isSelected && "bg-accent text-accent-foreground",
                                 !isSelected && "dark:hover:bg-primary dark:hover:text-primary-foreground hover:bg-accent hover:text-accent-foreground dark:active:bg-primary dark:active:text-primary-foreground active:bg-accent active:text-accent-foreground",
                                 isDisabled && "opacity-40 cursor-not-allowed"
@@ -290,7 +290,7 @@ export default function Configurator() {
                               size="sm"
                               variant="outline"
                               className={cn(
-                                "text-xs lg:text-sm",
+                                "text-xs lg:text-sm focus:ring-0 focus:outline-none focus-visible:ring-0",
                                 isSelected && "bg-accent text-accent-foreground",
                                 !isSelected && "dark:hover:bg-primary dark:hover:text-primary-foreground hover:bg-accent hover:text-accent-foreground dark:active:bg-primary dark:active:text-primary-foreground active:bg-accent active:text-accent-foreground",
                                 isDisabled && "opacity-40 cursor-not-allowed"
