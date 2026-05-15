@@ -250,8 +250,8 @@ export default function Configurator() {
                               className={cn(
                                 "text-xs lg:text-sm transition-all duration-200",
                                 isSelected && "bg-accent text-accent-foreground",
-                                isDeselecting && "bg-primary text-primary-foreground opacity-70",
-                                !isSelected && !isDeselecting && "hover:bg-primary hover:text-primary-foreground",
+                                isDeselecting && "bg-accent text-accent-foreground opacity-70",
+                                !isSelected && !isDeselecting && "dark:hover:bg-primary dark:hover:text-primary-foreground hover:bg-accent hover:text-accent-foreground",
                                 isDisabled && "opacity-40 cursor-not-allowed"
                               )}
                               disabled={isDisabled}
@@ -281,8 +281,8 @@ export default function Configurator() {
                               className={cn(
                                 "text-xs lg:text-sm transition-all duration-200",
                                 isSelected && "bg-accent text-accent-foreground",
-                                isDeselecting && "bg-primary text-primary-foreground opacity-70",
-                                !isSelected && !isDeselecting && "hover:bg-primary hover:text-primary-foreground",
+                                isDeselecting && "bg-accent text-accent-foreground opacity-70",
+                                !isSelected && !isDeselecting && "dark:hover:bg-primary dark:hover:text-primary-foreground hover:bg-accent hover:text-accent-foreground",
                                 isDisabled && "opacity-40 cursor-not-allowed"
                               )}
                               disabled={isDisabled}
@@ -312,8 +312,8 @@ export default function Configurator() {
                               className={cn(
                                 "text-xs lg:text-sm transition-all duration-200",
                                 isSelected && "bg-accent text-accent-foreground",
-                                isDeselecting && "bg-primary text-primary-foreground opacity-70",
-                                !isSelected && !isDeselecting && "hover:bg-primary hover:text-primary-foreground",
+                                isDeselecting && "bg-accent text-accent-foreground opacity-70",
+                                !isSelected && !isDeselecting && "dark:hover:bg-primary dark:hover:text-primary-foreground hover:bg-accent hover:text-accent-foreground",
                                 isDisabled && "opacity-40 cursor-not-allowed"
                               )}
                               disabled={isDisabled}
