@@ -34,11 +34,6 @@ export default function Configurator() {
   });
   const [selectedPackaging, setSelectedPackaging] = useState<PackagingOption>(PACKAGING_OPTIONS[0]);
   const [customMessage, setCustomMessage] = useState("");
-  const [deselectingNotes, setDeselectingNotes] = useState<{ top: string[]; heart: string[]; base: string[] }>({
-    top: [],
-    heart: [],
-    base: [],
-  });
 
   const totalPrice = useMemo(() => {
     const base = BASE_PRICE * selectedSize.multiplier;
@@ -51,16 +46,6 @@ export default function Configurator() {
     setSelectedScents((prev) => {
       const current = prev[category];
       if (current.includes(note)) {
-        setDeselectingNotes((prev) => ({
-          ...prev,
-          [category]: [...prev[category], note],
-        }));
-        setTimeout(() => {
-          setDeselectingNotes((prev) => ({
-            ...prev,
-            [category]: prev[category].filter((n) => n !== note),
-          }));
-        }, 300);
         return { ...prev, [category]: current.filter((n) => n !== note) };
       }
       if (current.length >= 3) return prev;
@@ -239,7 +224,6 @@ export default function Configurator() {
                       <div className="flex flex-wrap gap-1.5 lg:gap-2">
                         {SCENT_OPTIONS.top.map((note) => {
                           const isSelected = selectedScents.top.includes(note);
-                          const isDeselecting = deselectingNotes.top.includes(note);
                           const isFull = selectedScents.top.length >= 3;
                           const isDisabled = !isSelected && isFull;
                           return (
@@ -248,10 +232,9 @@ export default function Configurator() {
                               size="sm"
                               variant="outline"
                               className={cn(
-                                "text-xs lg:text-sm transition-all duration-500 transition-opacity",
+                                "text-xs lg:text-sm",
                                 isSelected && "bg-accent text-accent-foreground",
-                                isDeselecting && "bg-accent text-accent-foreground opacity-60",
-                                !isSelected && !isDeselecting && "dark:hover:bg-primary dark:hover:text-primary-foreground hover:bg-accent hover:text-accent-foreground",
+                                !isSelected && "dark:hover:bg-primary dark:hover:text-primary-foreground hover:bg-accent hover:text-accent-foreground",
                                 isDisabled && "opacity-40 cursor-not-allowed"
                               )}
                               disabled={isDisabled}
@@ -270,7 +253,6 @@ export default function Configurator() {
                       <div className="flex flex-wrap gap-1.5 lg:gap-2">
                         {SCENT_OPTIONS.heart.map((note) => {
                           const isSelected = selectedScents.heart.includes(note);
-                          const isDeselecting = deselectingNotes.heart.includes(note);
                           const isFull = selectedScents.heart.length >= 3;
                           const isDisabled = !isSelected && isFull;
                           return (
@@ -279,10 +261,9 @@ export default function Configurator() {
                               size="sm"
                               variant="outline"
                               className={cn(
-                                "text-xs lg:text-sm transition-all duration-500 transition-opacity",
+                                "text-xs lg:text-sm",
                                 isSelected && "bg-accent text-accent-foreground",
-                                isDeselecting && "bg-accent text-accent-foreground opacity-60",
-                                !isSelected && !isDeselecting && "dark:hover:bg-primary dark:hover:text-primary-foreground hover:bg-accent hover:text-accent-foreground",
+                                !isSelected && "dark:hover:bg-primary dark:hover:text-primary-foreground hover:bg-accent hover:text-accent-foreground",
                                 isDisabled && "opacity-40 cursor-not-allowed"
                               )}
                               disabled={isDisabled}
@@ -301,7 +282,6 @@ export default function Configurator() {
                       <div className="flex flex-wrap gap-1.5 lg:gap-2">
                         {SCENT_OPTIONS.base.map((note) => {
                           const isSelected = selectedScents.base.includes(note);
-                          const isDeselecting = deselectingNotes.base.includes(note);
                           const isFull = selectedScents.base.length >= 3;
                           const isDisabled = !isSelected && isFull;
                           return (
@@ -310,10 +290,9 @@ export default function Configurator() {
                               size="sm"
                               variant="outline"
                               className={cn(
-                                "text-xs lg:text-sm transition-all duration-500 transition-opacity",
+                                "text-xs lg:text-sm",
                                 isSelected && "bg-accent text-accent-foreground",
-                                isDeselecting && "bg-accent text-accent-foreground opacity-60",
-                                !isSelected && !isDeselecting && "dark:hover:bg-primary dark:hover:text-primary-foreground hover:bg-accent hover:text-accent-foreground",
+                                !isSelected && "dark:hover:bg-primary dark:hover:text-primary-foreground hover:bg-accent hover:text-accent-foreground",
                                 isDisabled && "opacity-40 cursor-not-allowed"
                               )}
                               disabled={isDisabled}
