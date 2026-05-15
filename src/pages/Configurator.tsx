@@ -60,7 +60,7 @@ export default function Configurator() {
             ...prev,
             [category]: prev[category].filter((n) => n !== note),
           }));
-        }, 200);
+        }, 300);
         return { ...prev, [category]: current.filter((n) => n !== note) };
       }
       if (current.length >= 3) return prev;
@@ -248,9 +248,9 @@ export default function Configurator() {
                               size="sm"
                               variant="outline"
                               className={cn(
-                                "text-xs lg:text-sm transition-all duration-200",
+                                "text-xs lg:text-sm transition-all duration-500 transition-opacity",
                                 isSelected && "bg-accent text-accent-foreground",
-                                isDeselecting && "bg-accent text-accent-foreground opacity-70",
+                                isDeselecting && "bg-accent text-accent-foreground opacity-60",
                                 !isSelected && !isDeselecting && "dark:hover:bg-primary dark:hover:text-primary-foreground hover:bg-accent hover:text-accent-foreground",
                                 isDisabled && "opacity-40 cursor-not-allowed"
                               )}
@@ -279,9 +279,9 @@ export default function Configurator() {
                               size="sm"
                               variant="outline"
                               className={cn(
-                                "text-xs lg:text-sm transition-all duration-200",
+                                "text-xs lg:text-sm transition-all duration-500 transition-opacity",
                                 isSelected && "bg-accent text-accent-foreground",
-                                isDeselecting && "bg-accent text-accent-foreground opacity-70",
+                                isDeselecting && "bg-accent text-accent-foreground opacity-60",
                                 !isSelected && !isDeselecting && "dark:hover:bg-primary dark:hover:text-primary-foreground hover:bg-accent hover:text-accent-foreground",
                                 isDisabled && "opacity-40 cursor-not-allowed"
                               )}
@@ -310,9 +310,9 @@ export default function Configurator() {
                               size="sm"
                               variant="outline"
                               className={cn(
-                                "text-xs lg:text-sm transition-all duration-200",
+                                "text-xs lg:text-sm transition-all duration-500 transition-opacity",
                                 isSelected && "bg-accent text-accent-foreground",
-                                isDeselecting && "bg-accent text-accent-foreground opacity-70",
+                                isDeselecting && "bg-accent text-accent-foreground opacity-60",
                                 !isSelected && !isDeselecting && "dark:hover:bg-primary dark:hover:text-primary-foreground hover:bg-accent hover:text-accent-foreground",
                                 isDisabled && "opacity-40 cursor-not-allowed"
                               )}
