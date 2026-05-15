@@ -44,7 +44,7 @@ const Subscribe = () => {
             </p>
           </motion.div>
 
-          <div className="bg-card border border-border rounded-sm p-6 mb-8">
+          <div className="bg-card border border-border rounded-sm p-4 sm:p-6 mb-8">
             <h3 className="font-display text-lg text-foreground mb-3">{t("subscribe.whatsIncluded")}</h3>
             <ul className="space-y-2">
               {[t("pricing.feature.seasonal"), t("pricing.feature.exclusive"), t("pricing.feature.freeAlways"), t("pricing.feature.cancel"), t("pricing.feature.membersOnly")].map((f) => (
